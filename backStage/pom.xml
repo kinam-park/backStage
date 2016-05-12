@@ -219,13 +219,26 @@
 		    <artifactId>aspectjweaver</artifactId>
 		    <version>1.8.4</version>
 		</dependency>
-		<dependency>
-		    <groupId>cglib</groupId>
-		    <artifactId>cglib-nodep</artifactId>
-		    <version>3.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>cglib</groupId> -->
+<!-- 		    <artifactId>cglib-nodep</artifactId> -->
+<!-- 		    <version>3.1</version> -->
+<!-- 		</dependency> -->
 	
-
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
+			
+			
+		<dependency>
+		     <groupId>cglib</groupId>
+		     <artifactId>cglib</artifactId>
+		     <version>3.1</version>
+<!-- 		     <type>jar</type> -->
+<!-- 		     <scope>compile</scope> -->
+		</dependency>	
 
 	</dependencies>	
 </project>

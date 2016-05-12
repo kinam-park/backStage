@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="com.bs.models.UserVO" alias="UserVO"/>
+		<typeAlias type="com.bs.models.User" alias="User"/>
 	</typeAliases>
 	
 <!-- 	<mappers> -->
