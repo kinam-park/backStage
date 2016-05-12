@@ -1,0 +1,60 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video
+{
+	margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;	
+	font-family:NanumGothic,'나눔고딕',ng,sans-serif;
+	font-size:16px; list-style:none;  vertical-align:middle;
+}
+a{
+	text-decoration:none;
+	color: black;
+}
+@font-face{
+	font-family:ng;
+	src:url('../../resources/css/fonts/NanumGothic.woff') format("woff");
+}
+table{
+	border:0;
+	border-spacing:0; 
+	border-collapse:collapse;
+} 
+
+table tbody{
+	border-top:2px solid lightgray;
+	border-bottom:2px solid lightgray;
+} 
+
+table tbody th,td{
+	text-align:center;
+	font-size:14px;
+	border:1px solid lightgray;
+	border-left:0;
+}
+
+table tbody td{
+	border-right:0;
+	border-left:3px double lightgray;
+}
+ 
+
+
+/*자주사용하는 공통*/
+.left_wrap{float:left;}
+.right_wrap{float:right;}
+.clear{clear:both;float:none !important; }
+.fl{float:left;}
+.fr{float:right;}
+.hide{display:none !important;}
+.bold{font-weight: bold;}
+.cp{cursor:pointer;}
+.br{background-repeat:no-repeat;}
+/*자주사용하는 공통 끝*/
+
+a { text-decoration:none; }
+body{ border:0;	margin:0; }
+.w1024{ max-width:1024px; min-width:1024px; margin:auto; }
+
+
+
+#tooltip {  }
+#tooltip .name { line-height:25px; font-size: 13px !important; color:#464646; font-weight:bold; width:100%; }
+#tooltip .value { line-height:15px; font-size: 12px !important; color:#000; }
