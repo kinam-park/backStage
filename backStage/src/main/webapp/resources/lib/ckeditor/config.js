@@ -23,7 +23,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
 		{ name: 'colors' },
-		{ name: 'about' }
+//		{ name: 'font' },
 	];
 
 	// Remove some buttons provided by the standard plugins, which are
@@ -36,6 +36,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
-	// dropping and pasting
-//	config.pasteFilter = 'p; a[!href]';
+	// font
+	config.font.names = '나눔고딕;'
+		+DKEDITOR.config.font.names;
+			
 };
