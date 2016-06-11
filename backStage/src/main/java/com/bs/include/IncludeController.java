@@ -16,19 +16,11 @@ public class IncludeController {
 		return modelAndView;
 	}
 	
-//	@RequestMapping("/sideMenu")
-//	public ModelAndView sideMenu() {
-//		ModelAndView modelAndView = new ModelAndView();
-//		modelAndView.setViewName("include/sideMenu");
-//		
-//		return modelAndView;
-//	}
-//	
-//	@RequestMapping("/footer")
-//	public ModelAndView footer() {
-//		ModelAndView modelAndView = new ModelAndView();
-//		modelAndView.setViewName("include/footer");
-//		
-//		return modelAndView;
-//	}
+	@RequestMapping("/footer")
+	public ModelAndView footer() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("include/footer");
+		
+		return modelAndView;
+	}
 }

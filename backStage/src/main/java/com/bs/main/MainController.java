@@ -8,6 +8,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/page")
 public class MainController {
 	
+	@RequestMapping("/main")
+	public ModelAndView main() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/main");
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping("/write")
 	public ModelAndView write() {
 		ModelAndView modelAndView = new ModelAndView();
