@@ -12,12 +12,43 @@
 	border-bottom:2px solid;
 }
 
+#main .main_wrap .main_wp {
+	width:100%;
+	height:100%;
+	border:1px solid;
+}
+#main .main_wp .contents {
+	width:auto;
+	height:auto;
+	border:1px solid;
+	margin:30px;
+}
+
+
 #main .main_brand { height:400px; border:1px solid blue; }
 
-#main .main_store { height:650px; }
+#main .main_store { height:670px; }
+#main .main_store .main_wp .contents .content {
+	width:300px; 
+	height:250px;
+	border:1px solid;
+	margin-left:60px;
+}
+#main .main_store .main_wp .contents .content.no4, .no5, .no6{ margin-top:50px; }
+
 
 #main .main_collection { height:700px; }
+
 #main .main_news { height:650px; }
+#main .main_news .main_wp .contents .content {
+	width:300px; 
+	height:240px;
+	border:1px solid;
+	margin-left:60px;
+}
+#main .main_news .main_wp .contents .content.no4, .no5, .no6{ margin-top:50px; }
+
+
 #main .main_location { height:550px; }
 
 #main #map { height:100%; }

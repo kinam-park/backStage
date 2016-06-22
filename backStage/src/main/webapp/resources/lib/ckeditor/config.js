@@ -35,7 +35,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
-	
+
 	// font
 //	config.font.names = '나눔고딕;'
 //		+DKEDITOR.config.font.names;

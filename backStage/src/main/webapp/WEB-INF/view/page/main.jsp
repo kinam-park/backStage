@@ -8,26 +8,87 @@
 		<div class="main_area main_store">
 			<div class="w1200">
 				<div class="main_wrap">
-					<div class="title bold">BEST COMPLETE BIKE</div>
-					<div class="contents "></div>
-					<div class="clear"></div>
+					<div class="title bold ">BEST COMPLETE BIKE</div>
+					<div class="main_wp">
+						<div class="contents">
+							<div class="content no1 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="content no2 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="content no3 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="content no4 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="content no5 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="content no6 fl">
+								<div class="img"></div>
+								<div class="tag"></div>
+								<div class="bike_name"></div>
+								<div class="price"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<!-- <div class="clear"></div> -->
 				</div>
 			</div>
 		</div>
 		<div class="main_area main_collection">
 			<div class="w1200">
 				<div class="main_wrap">
-					<div class="title bold">COLLECTION</div>
-					<div class="contents"></div>
+					<div class="title bold ">COLLECTION</div>
+					<div class="main_wp">
+						<div class="contents ">
+							
+						</div>					
+					</div>
+
 					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
 		<div class="main_area main_news">
 			<div class="w1200">
-			<div class="main_wrap">
+				<div class="main_wrap">
 					<div class="title bold">NEWS</div>
-					<div class="contents"></div>
+					<div class="main_wp">
+						<div class="contents">
+							<div class="content no1 fl">
+							</div>
+							<div class="content no2 fl">
+							</div>
+							<div class="content no3 fl">
+							</div>
+							<div class="content no4 fl">
+							</div>
+							<div class="content no5 fl">
+							</div>
+							<div class="content no6 fl">
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
 					<div class="clear"></div>
 				</div>
 			</div>
