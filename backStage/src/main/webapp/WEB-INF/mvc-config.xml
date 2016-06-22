@@ -31,6 +31,7 @@
 	            <entry key="html" value="text/html" />
 	            <entry key="jsp" value="text/html" />
 	            <entry key="json" value="application/json" />
+	            <entry key="file" value="multipart/form-data" />
 	        </map>
 	    </property>
 	    <property name="viewResolvers">
