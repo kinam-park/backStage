@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,8 +28,8 @@ public class AdminController {
 
 	
 	@RequestMapping("/uploadImage")
-	public void uploadImage(MultipartFile mf,HttpSession session,HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView modelAndView = new ModelAndView();
+	public void uploadImage(@RequestParam MultipartFile mf,HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+//		ModelAndView modelAndView = new ModelAndView();
 		OutputStream out = null;
         PrintWriter printWriter = null;
         response.setCharacterEncoding("utf-8");
