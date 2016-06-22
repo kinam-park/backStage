@@ -28,7 +28,7 @@ public class AdminController {
 
 	
 	@RequestMapping("/uploadImage")
-	public void uploadImage(MultipartFile mf,HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+	public void uploadImage(@RequestParam("upload")MultipartFile mf,HttpSession session,HttpServletRequest request, HttpServletResponse response) {
 //		ModelAndView modelAndView = new ModelAndView();
 		OutputStream out = null;
         PrintWriter printWriter = null;
