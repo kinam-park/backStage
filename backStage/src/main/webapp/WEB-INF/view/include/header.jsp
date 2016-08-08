@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/include.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/write.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/collection.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/font-awesome-4.6.3/css/font-awesome.min.css"><!-- fontawesome -->
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
@@ -37,10 +38,10 @@
 				</div>
 				<div class="user_info_wrap fr">
 					<div class="info_wp">
-						<div class="user_info wp fl">안녕하세요&nbsp&nbspADMIN 님</div>
 						<div class="log_in wp fr">LOG-IN</div>
 						<div class="shopping_cart wp fr">SHOPPING-CART</div>
 						<div class="my_page wp fr">MYPAGE</div>
+						<div class="user_info wp fr">안녕하세요&nbsp&nbspADMIN 님</div>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -51,12 +52,12 @@
 			</div>
 			<div class="main_menu_area fl">
 				<div class="menu_wrap">
-					<span class="menu home" menu="home">HOME</span>
-					<span class="menu collection" menu="collection">COLLECTION</span>
-					<span class="menu news" menu="news">NEWS</span>
-					<span class="menu store" menu="store">ONLINE-STORE</span>
-					<span class="menu location" menu="location">LOCATION</span>
-					<span class="menu contact" menu="contact">CONTACT</span>
+					<span class="menu home cp" menu="main">HOME</span>
+					<span class="menu collection cp" menu="collection">COLLECTION</span> 
+					<span class="menu news cp" menu="news">NEWS</span>
+					<span class="menu store cp" menu="store">ONLINE-STORE</span>
+					<span class="menu location cp" menu="location">LOCATION</span>
+					<span class="menu contact cp" menu="contact">CONTACT</span>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -64,5 +65,10 @@
 	</div>
 	
 	<script>
+	$(function(){
+		var loc = location.href.split("page/")[1];
+		$('#header .main_menu_area .menu_wrap .menu[menu='+loc+']').addClass('active');
+	});
+	
 	
 	</script>

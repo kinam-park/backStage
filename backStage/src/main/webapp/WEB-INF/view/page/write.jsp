@@ -31,8 +31,7 @@
     				filebrowserUploadUrl : "${pageContext.request.contextPath}/admin/uploadImage"
     		};
     		
-    		CKEDITOR.replace('editor1',editor_config);
-    		
+    		var editor = CKEDITOR.replace('editor1',editor_config);
     		
 //     		var editor = CKEDITOR.replace('editor1',{
 //     			width:'100%',

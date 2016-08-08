@@ -35,6 +35,7 @@ public class AdminController {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         String dirPath = request.getSession().getServletContext().getRealPath("/")  + "resources/uploadFile/";  
+        
         try{
         	String fileName = mf.getOriginalFilename();
             byte[] bytes = mf.getBytes();

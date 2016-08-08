@@ -16,6 +16,28 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/collection")
+	public ModelAndView collection() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/collection");
+		
+		return modelAndView;
+	}
+	@RequestMapping("/onlineStore")
+	public ModelAndView onlineStore() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/onlineStore");
+		
+		return modelAndView;
+	}
+	@RequestMapping("/news")
+	public ModelAndView news() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/news");
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping("/write")
 	public ModelAndView write() {
 		ModelAndView modelAndView = new ModelAndView();
