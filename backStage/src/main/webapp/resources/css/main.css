@@ -17,8 +17,8 @@
 	margin:0 auto; 
 	font-size:20px;
 }
-#main .main_collection .main_wrap .title { width:105px; }
-#main .main_news .main_wrap .title { width:50px; }
+#main .main_collection .main_wrap .title { width:125px; }
+#main .main_news .main_wrap .title { width:80px; }
 
 #main .main_wrap .main_wp {
 	width:100%;

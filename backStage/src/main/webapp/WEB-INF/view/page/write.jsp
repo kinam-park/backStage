@@ -32,23 +32,22 @@
     		};
     		
     		var editor = CKEDITOR.replace('editor1',editor_config);
-    		
 //     		var editor = CKEDITOR.replace('editor1',{
 //     			width:'100%',
 //     			height:'400px',
 //     			filebrowserImageUploadUrl:'${pageContext.request.contextPath}/admin/uploadImage'
 //     		});
     		
-//     		CKEDITOR.on('dialogDefinition',function(ev){
-//     			var dialogName = ev.data.name;
-//     			var dialogDefinition = ev.data.definition;
-//     			switch(dialogName){
-//     			case 'image':
-//     				dialogDefinition.removeContents('info');
-//     				dialogDefinition.removeContents('advanced');
-//     				break;
-//     			}
-//     		});	
+    		CKEDITOR.on('dialogDefinition',function(ev){
+    			var dialogName = ev.data.name;
+    			var dialogDefinition = ev.data.definition;
+    			switch(dialogName){
+    			case 'image':
+    				dialogDefinition.removeContents('LINK');
+    				dialogDefinition.removeContents('advanced');
+    				break;
+    			}
+    		});	
     		
     		$('#write .btn_wrap .btn_wp .submitBtn').off('click').on('click',function(){
     			editor.getData();

@@ -46,8 +46,8 @@ public class AdminController {
             String callback = request.getParameter("CKEditorFuncNum");
  
             printWriter = response.getWriter();
-            String fileUrl = dirPath + fileName;//url경로
- 
+            String fileUrl = request.getSession().getServletContext().getContextPath() +"/resources/uploadFile/"+ fileName;//url경로
+            System.out.println(fileUrl);
             printWriter.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction("
                     + callback
                     + ",'"

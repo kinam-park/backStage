@@ -11,9 +11,14 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/write.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/collection.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/news.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/onlineStore.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/font-awesome-4.6.3/css/font-awesome.min.css"><!-- fontawesome -->
+		
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/masonry.pkgd.min.js"></script>
+		
 		<script src="${pageContext.request.contextPath}/resources/lib/ckeditor/ckeditor.js"></script>
 		<!-- <script  async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xsq7BHX_2BFmYvYcPMpABARBR0z1SkU&callback=initMap"></script> -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xsq7BHX_2BFmYvYcPMpABARBR0z1SkU"></script>
@@ -55,7 +60,7 @@
 					<span class="menu home cp" menu="main">HOME</span>
 					<span class="menu collection cp" menu="collection">COLLECTION</span> 
 					<span class="menu news cp" menu="news">NEWS</span>
-					<span class="menu store cp" menu="store">ONLINE-STORE</span>
+					<span class="menu store cp" menu="onlineStore">ONLINE-STORE</span>
 					<span class="menu location cp" menu="location">LOCATION</span>
 					<span class="menu contact cp" menu="contact">CONTACT</span>
 				</div>
@@ -68,7 +73,16 @@
 	$(function(){
 		var loc = location.href.split("page/")[1];
 		$('#header .main_menu_area .menu_wrap .menu[menu='+loc+']').addClass('active');
+		
+		listener();
 	});
+	
+	function listener(){
+		$('#header .main_menu_area .menu_wrap .menu').off('click').on('click',function(){
+			var menu = $(this).attr('menu');
+			location.href = menu;
+		});
+	};
 	
 	
 	</script>
