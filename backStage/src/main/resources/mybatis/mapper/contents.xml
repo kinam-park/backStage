@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bs.sql.contents">
+
+    
+    
+    <select id="getContentsList" resultType="ContentsVO">
+	    SELECT 
+			c.contents_id
+			c.user_id
+			u.user_name
+			c.category_code
+			cg.category_name
+			c.title
+			c.created_date
+		FROM CONTENTS c JOIN CATEGORY cg ON c.CATEGORY_CODE = cg.CATEGORY_CODE
+	    	JOIN USER u ON c.USER_ID = u.USER_ID 
+	    WHERE 1=1  
+	    	AND IS_ENABLE = 'Y'
+	</select>
+    
+    <select id="getContents" resultType="ContentsVO">
+	    SELECT 
+			c.contents_id
+			c.user_id
+			u.user_name
+			c.category_code
+			cg.category_name
+			c.title
+			c.contents
+			c.is_enable
+			c.created_date
+		FROM CONTENTS c JOIN CATEGORY cg ON c.CATEGORY_CODE = cg.CATEGORY_CODE
+	    	JOIN USER u ON c.USER_ID = u.USER_ID 
+	    WHERE 1=1  
+	    	AND IS_ENABLE = 'Y'
+	    	AND CONTENTS_ID = #{contents_id}
+	    
+	</select>
+	
+	
+	<select id="getCategoryList" resultType="ContentsVO">
+	    SELECT 
+			cg.category_code
+			cg.category_name
+		FROM CATEGORY cg 
+	    WHERE 1=1 
+	    	
+	</select>
+	
+	
+	<update id="updateContents">
+	    UPDATE CONTENTS SET
+	    	CATEGORY_CODE = #{contents_code}
+			,TITLE = #{title}
+			,CONTENTS = #{contents}
+			,IS_ENABLE = #{is_enable}
+			,CREATED_DATE = now()
+	    WHERE 1=1
+	    	AND CONTENTS_ID = #{contents_id}
+	</update>
+	
+    <delete id="deleteContents">
+	    DELETE FROM CONTENTS 
+	    WHERE 1=1
+	    	AND CONTENTS_ID = #{contents_id}
+	</delete>
+	
+    
+</mapper>
