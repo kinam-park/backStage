@@ -18,5 +18,38 @@ public class AuthService{
 	public List<UserVO> getUserInfo(UserVO userVO){
 		return authDao.getUserInfo(userVO);
 	}
+	
+	public UserVO checkLogin(UserVO userVO){
+		return authDao.checkLogin(userVO);	
+	}
+	
+	public boolean insertUser(UserVO userVO){
+		int cnt = authDao.insertUser(userVO);
+		boolean result = false;
+		if(cnt == 1){
+			result = true;
+		}
+		return result;
+	}
+	
+	public  boolean updateUser(UserVO userVO){
+		int cnt = authDao.updateUser(userVO);
+		boolean result = false;
+		if(cnt == 1){
+			result = true;
+		}
+		return result;
+		
+	}
+	
+	public  boolean deleteUser(UserVO userVO){
+		int cnt = authDao.deleteUser(userVO);
+		boolean result = false;
+		if(cnt == 1){
+			result = true;
+		}
+		return result;
+		
+	}
     
 }

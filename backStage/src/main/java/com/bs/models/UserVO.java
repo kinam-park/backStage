@@ -1,19 +1,22 @@
 package com.bs.models;
 
 public class UserVO{
-	private String id            ;
-	private String email         ;
-	private String password      ;
-	private String name          ;
-	private String birthday      ;
-	private String phone         ;
-	private String created_date  ;
-	private String level         ;
-	public String getId() {
-		return id;
+	private String user_id         ;
+	private String email           ;
+	private String password        ;
+	private String user_name       ;
+	private String birthday        ;
+	private String phone           ;
+	private String created_date    ;
+	private String level           ;
+	private String addr1           ;
+	private String addr2           ;
+	private String zipcode         ;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getEmail() {
 		return email;
@@ -27,11 +30,11 @@ public class UserVO{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 	public String getBirthday() {
 		return birthday;
@@ -56,6 +59,24 @@ public class UserVO{
 	}
 	public void setLevel(String level) {
 		this.level = level;
+	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	

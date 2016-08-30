@@ -6,17 +6,85 @@
     
     <select id="getUserInfo" resultType="UserVO">
 	    SELECT 
-	    	u.id          
+	    	 u.user_id     
 			,u.email       
-			,u.password    
-			,u.name        
+			,u.user_name   
 			,u.birthday    
 			,u.phone       
 			,u.created_date
 			,u.level       
-	    FROM USER u
+			,u.addr1       
+			,u.addr2       
+			,u.zipcode     
+		FROM USER u
 		
 	</select>
+	
+	<select id="checkLogin" resultType="UserVO">
+	    SELECT 
+	    	 u.user_id     
+			,u.email       
+			,u.user_name   
+			,u.birthday    
+			,u.phone       
+			,u.created_date
+			,u.level       
+			,u.addr1       
+			,u.addr2       
+			,u.zipcode     
+		FROM USER u
+		WHERE 1=1
+			AND EMAIL = #{eamil}
+			AND PASSWORD = sha1(#{password})
+	</select>
     
+    
+    <insert id="insertUser" >
+	    INSERT INTO USER(
+	    	email
+			,password       
+			,user_name   
+			,birthday    
+			,phone       
+			,created_date
+			,level       
+			,addr1       
+			,addr2       
+			,zipcode
+	    ) VALUES(
+			 #{email}        
+			,sha1(#{password})     
+			,#{user_name}    
+			,#{birthday}     
+			,#{phone}        
+			,#{created_date} 
+			,#{level}        
+			,#{addr1}        
+			,#{addr2}        
+			,#{zipcode}          
+	    )
+	</insert>
+	
+	<update id="updateUser" >
+	    UPDATE USER SET
+	    	email         = #{email}            
+			,password     = sha1(#{password})     
+			,user_name    = #{user_name}        
+			,birthday     = #{birthday}         
+			,phone        = #{phone}            
+			,created_date = #{created_date}     
+			,level        = #{level}            
+			,addr1        = #{addr1}            
+			,addr2        = #{addr2}            
+			,zipcode      = #{zipcode}
+		WHERE 1=1
+			USER_ID = #{user_id}          
+	</update>
+	
+	<delete id="deleteUser" >
+	    DELETE FROM USER	    	
+		WHERE 1=1
+			USER_ID = #{user_id}          
+	</delete>
     
 </mapper>

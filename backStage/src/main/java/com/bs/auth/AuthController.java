@@ -14,13 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bs.models.UserVO;
 
 
-
-
-
-
-
-
-
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
@@ -37,6 +30,47 @@ public class AuthController {
 		return modelAndView;
 	
 	}
+	
+	
+	@RequestMapping("/checkLogin")
+	public ModelAndView checkLogin(UserVO userVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		UserVO result = authService.checkLogin(userVO);
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
+	@RequestMapping("/insertUser")
+	public ModelAndView insertUser(UserVO userVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		boolean result = authService.insertUser(userVO);
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
+	@RequestMapping("/updateUser")
+	public ModelAndView updateUser(UserVO userVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		boolean result = authService.updateUser(userVO);
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
+	@RequestMapping("/deleteUser")
+	public ModelAndView deleteUser(UserVO userVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		boolean result = authService.deleteUser(userVO);
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
+	
+	
+	
 	
 	
 }
