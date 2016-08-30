@@ -16,27 +16,27 @@ public class ContentsDao {
 	private SqlSession sqlSession;
 	
 	public List<ContentsVO> getContentsList(ContentsVO contentsVO) {
-        return (List<ContentsVO>)sqlSession.selectList("com.xii.sql.contents.getContentsList",contentsVO);
+        return (List<ContentsVO>)sqlSession.selectList("com.bs.sql.contents.getContentsList",contentsVO);
     }
 	
 	public ContentsVO getContents(ContentsVO contentsVO) {
-        return (ContentsVO)sqlSession.selectOne("com.xii.sql.contents.getContents",contentsVO);
+        return (ContentsVO)sqlSession.selectOne("com.bs.sql.contents.getContents",contentsVO);
     }
 	
 	public List<ContentsVO> getCategoryList(ContentsVO contentsVO) {
-        return (List<ContentsVO>)sqlSession.selectList("com.xii.sql.contents.getCategoryList",contentsVO);
+        return (List<ContentsVO>)sqlSession.selectList("com.bs.sql.contents.getCategoryList",contentsVO);
     }
 	
 	public int insertContents(ContentsVO contentsVO) {
-        return sqlSession.insert("com.xii.sql.contents.insertContents",contentsVO);
+        return sqlSession.insert("com.bs.sql.contents.insertContents",contentsVO);
     }
 	
 	public int updateContents(ContentsVO contentsVO) {
-        return sqlSession.update("com.xii.sql.contents.updateContents",contentsVO);
+        return sqlSession.update("com.bs.sql.contents.updateContents",contentsVO);
     }
 	
 	public int deleteContents(ContentsVO contentsVO) {
-        return sqlSession.delete("com.xii.sql.contents.deleteContents",contentsVO);
+        return sqlSession.delete("com.bs.sql.contents.deleteContents",contentsVO);
     }
 	
 	
