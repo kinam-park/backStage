@@ -34,7 +34,7 @@
 			,u.zipcode     
 		FROM USER u
 		WHERE 1=1
-			AND EMAIL = #{eamil}
+			AND EMAIL = #{email}
 			AND PASSWORD = sha1(#{password})
 	</select>
     
@@ -67,8 +67,7 @@
 	
 	<update id="updateUser" >
 	    UPDATE USER SET
-	    	email         = #{email}            
-			,password     = sha1(#{password})     
+	    	password     = sha1(#{password})     
 			,user_name    = #{user_name}        
 			,birthday     = #{birthday}         
 			,phone        = #{phone}

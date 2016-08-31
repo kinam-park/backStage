@@ -15,6 +15,7 @@
 		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
+	    	AND CATEGORY_CODE = #{category_code}
 	</select>
     
     <select id="getContents" resultType="ContentsVO">
