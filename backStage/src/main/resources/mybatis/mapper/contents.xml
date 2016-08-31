@@ -67,8 +67,7 @@
 	    	CATEGORY_CODE = #{contents_code}
 			,TITLE = #{title}
 			,CONTENTS = #{contents}
-			,IS_ENABLE = #{is_enable}
-			,CREATED_DATE = now()
+			,IS_ENABLE = #{is_enable}			
 	    WHERE 1=1
 	    	AND CONTENTS_ID = #{contents_id}
 	</update>

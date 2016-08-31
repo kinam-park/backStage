@@ -57,7 +57,7 @@
 			,#{user_name}    
 			,#{birthday}     
 			,#{phone}        
-			,#{created_date} 
+			,now()
 			,#{level}        
 			,#{addr1}        
 			,#{addr2}        
@@ -71,8 +71,7 @@
 			,password     = sha1(#{password})     
 			,user_name    = #{user_name}        
 			,birthday     = #{birthday}         
-			,phone        = #{phone}            
-			,created_date = #{created_date}     
+			,phone        = #{phone}
 			,level        = #{level}            
 			,addr1        = #{addr1}            
 			,addr2        = #{addr2}            
