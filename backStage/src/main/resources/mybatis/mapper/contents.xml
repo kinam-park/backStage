@@ -10,11 +10,9 @@
 			,c.user_id
 			,u.user_name
 			,c.category_code
-			,cg.category_name
 			,c.title
 			,c.created_date
-		FROM CONTENTS c JOIN CATEGORY cg ON c.CATEGORY_CODE = cg.CATEGORY_CODE
-	    	JOIN USER u ON c.USER_ID = u.USER_ID 
+		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
 	</select>
@@ -25,13 +23,11 @@
 			,c.user_id
 			,u.user_name
 			,c.category_code
-			,cg.category_name
 			,c.title
 			,c.contents
 			,c.is_enable
 			,c.created_date
-		FROM CONTENTS c JOIN CATEGORY cg ON c.CATEGORY_CODE = cg.CATEGORY_CODE
-	    	JOIN USER u ON c.USER_ID = u.USER_ID 
+		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
 	    	AND CONTENTS_ID = #{contents_id}
@@ -39,15 +35,32 @@
 	</select>
 	
 	
-	<select id="getCategoryList" resultType="ContentsVO">
-	    SELECT 
-			cg.category_code
-			,cg.category_name
-		FROM CATEGORY cg 
-	    WHERE 1=1 
+<!-- 	<select id="getCategoryList" resultType="ContentsVO"> -->
+<!-- 	    SELECT  -->
+<!-- 			cg.category_code -->
+<!-- 			,cg.category_name -->
+<!-- 		FROM CATEGORY cg  -->
+<!-- 	    WHERE 1=1  -->
 	    	
-	</select>
+<!-- 	</select> -->
 	
+	<insert id="insertContents" >
+	    INSERT INTO CONTENTS(
+	    	TITLE
+			,CONTENTS
+			,CREATED_DATE
+			,USER_ID
+			,CATEGORY_CODE
+			,IS_ENABLE
+	    ) VALUES(
+			#{title}
+			,#{contents}
+			,now()
+			,#{user_id}
+			,#{category_code}
+			,#{is_enable}        
+	    )
+	</insert>
 	
 	<update id="updateContents">
 	    UPDATE CONTENTS SET

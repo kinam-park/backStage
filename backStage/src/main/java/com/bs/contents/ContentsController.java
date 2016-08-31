@@ -42,14 +42,14 @@ public class ContentsController {
 	
 	}
 	
-	@RequestMapping("/getCategoryList")
-	public ModelAndView getCategoryList(ContentsVO contentsVO,HttpSession session) {
-		ModelAndView modelAndView = new ModelAndView();
-		List<ContentsVO> result = contentsService.getCategoryList(contentsVO);
-		modelAndView.addObject("result",  result);
-		return modelAndView;
-	
-	}
+//	@RequestMapping("/getCategoryList")
+//	public ModelAndView getCategoryList(ContentsVO contentsVO,HttpSession session) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		List<ContentsVO> result = contentsService.getCategoryList(contentsVO);
+//		modelAndView.addObject("result",  result);
+//		return modelAndView;
+//	
+//	}
 	     
 	@RequestMapping("/insertContents")
 	public ModelAndView insertContents(ContentsVO contentsVO,HttpSession session) {
