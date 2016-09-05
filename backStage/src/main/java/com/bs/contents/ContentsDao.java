@@ -23,9 +23,9 @@ public class ContentsDao {
         return (ContentsVO)sqlSession.selectOne("com.bs.sql.contents.getContents",contentsVO);
     }
 	
-	public List<ContentsVO> getCategoryList(ContentsVO contentsVO) {
-        return (List<ContentsVO>)sqlSession.selectList("com.bs.sql.contents.getCategoryList",contentsVO);
-    }
+//	public List<ContentsVO> getCategoryList(ContentsVO contentsVO) {
+//        return (List<ContentsVO>)sqlSession.selectList("com.bs.sql.contents.getCategoryList",contentsVO);
+//    }
 	
 	public int insertContents(ContentsVO contentsVO) {
         return sqlSession.insert("com.bs.sql.contents.insertContents",contentsVO);

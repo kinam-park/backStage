@@ -38,7 +38,7 @@
 }
 #main .main_wp .contents .content.no4, .no5, .no6{ margin-top:140px; }
 
-#main .main_brand { height:650px; border:1px solid blue; }
+#main .main_brand { height:650px; border:1px solid blue; background-image:url("../images/dedachai.JPG"); background-repeat:no-repeat; background-size:100%; }
 
 #main .main_store { height:auto; }
 #main .main_store .main_wp .contents .content { height:auto; }
@@ -95,18 +95,23 @@
 }	
 
 #main .main_news { height:auto; }
-#main .main_news .main_wp .contents .content { width:308px; height:308px; position:relative; }
-#main .main_news .main_wp .contents .content.no1 { margin-left:56px; }
-#main .main_news .main_wp .contents .content.no2 { margin-left:56px; }
-#main .main_news .main_wp .contents .content.no3 { margin-left:56px; }
-#main .main_news .main_wp .contents .content.no4 { margin-top:56px; margin-left:60px; }
-#main .main_news .main_wp .contents .content.no5 { margin-top:56px; margin-left:60px; }
-#main .main_news .main_wp .contents .content.no6 { margin-top:56px; margin-left:60px; }
-#main .main_news .main_wp .contents .content .cont_wp { position:absolute; width:100%; height:130px; bottom:0; background-color:rgba(0,0,0,0.3); color:#ffffff; }
-#main .main_news .main_wp .contents .content .cont_wp .wp { margin-left:24px; }
-#main .main_news .main_wp .contents .content .cont_wp .title { height:25px; border:0; text-align:left; margin-top:20px; font-size:20px; }
-#main .main_news .main_wp .contents .content .cont_wp .created_date { font-size:12px; color:lightgray; }
-#main .main_news .main_wp .contents .content .cont_wp .desc { margin-top:15px; font-size:12px; }
+#main .main_news .main_wrap .img { width:100%; height:100%; }
+#main .main_news .main_wrap .news_wp { position:absolute; bottom:0; width:100%; height:90px; padding:10px 0 10px 0; background-color:rgba(0,0,0,0.7); }
+#main .main_news .main_wrap .news_wp .wp { margin: 0 10px 0 10px; }
+#main .main_news .main_wrap .news_wp .title { height:30px; line-height:30px; font-weight:bold; overflow:hidden; color:#ffffff; border:0; }
+#main .main_news .main_wrap .news_wp .created_date { height:20px; line-height:20px; font-size:12px; color:#AAAAAA; }
+#main .main_news .main_wrap .news_wp .desc { height:20px; line-height:20px; font-size:12px; color:#ffffff; }
+
+#main .main_news .main_wrap .main_wp.grid { margin: 30px auto 130px auto; }
+#main .main_news .main_wrap .grid-item {
+	position:relative;
+	float: left;
+	width: 330px;
+	height: 260px;
+	margin-bottom:20px;
+	border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
 
 #main .main_location { height:550px; }
 #main #map { height:100%; }

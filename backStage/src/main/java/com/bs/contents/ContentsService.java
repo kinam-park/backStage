@@ -22,9 +22,9 @@ public class ContentsService{
 		return contentsDao.getContents(contentsVO);
 	}
 	
-	public List<ContentsVO> getCategoryList(ContentsVO contentsVO){
-		return contentsDao.getCategoryList(contentsVO);
-	}
+//	public List<ContentsVO> getCategoryList(ContentsVO contentsVO){
+//		return contentsDao.getCategoryList(contentsVO);
+//	}
 	
 	public boolean insertContents(ContentsVO contentsVO){
 		int cnt = contentsDao.insertContents(contentsVO);

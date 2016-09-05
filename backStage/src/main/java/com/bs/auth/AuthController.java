@@ -21,7 +21,9 @@ public class AuthController {
 	private AuthService authService;
 
 	
-	
+	/***
+	 * 유저 리스트 가져옴.. 관리자 페이지에서 사용할듯 해서 그냥 만들어둠.
+	 ***/
 	@RequestMapping("/getUserInfo")
 	public ModelAndView getUserInfo(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -31,7 +33,11 @@ public class AuthController {
 	
 	}
 	
-	
+	/***
+	 * 로그인 체크
+	 * #{email} : 로그인 계정 주소
+	 * #{password} : 패스워드
+	 ***/
 	@RequestMapping("/checkLogin")
 	public ModelAndView checkLogin(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -41,6 +47,19 @@ public class AuthController {
 	
 	}
 	
+	
+	/***
+	 * 회원가입
+	 * #{email}   : 계정 메일주소     
+	 * #{password}   : 패스워드   
+	 * #{user_name}  : 사용자명
+	 * #{birthday}   : 생년월일
+	 * #{phone}        : 폰번호
+	 * #{level}        : 권한, 없으면 일반유저로 배정
+	 * #{addr1}        : 주소
+	 * #{addr2}        : 주소
+	 * #{zipcode}      : 우편번호
+	 ***/
 	@RequestMapping("/insertUser")
 	public ModelAndView insertUser(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -50,6 +69,19 @@ public class AuthController {
 	
 	}
 	
+	
+	/***
+	 * 회원 정보 수정
+	 * #{user_id}      : 수정할 회원 아이디      
+	 * #{password}   : 패스워드   
+	 * #{user_name}  : 사용자명
+	 * #{birthday}   : 생년월일
+	 * #{phone}        : 폰번호
+	 * #{level}        : 권한, 없으면 일반유저로 배정
+	 * #{addr1}        : 주소
+	 * #{addr2}        : 주소
+	 * #{zipcode}      : 우편번호
+	 ***/
 	@RequestMapping("/updateUser")
 	public ModelAndView updateUser(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -59,6 +91,11 @@ public class AuthController {
 	
 	}
 	
+	/***
+	 * 회원 정보 삭제
+	 * #{user_id}      : 삭제할 회원 아이디      
+	 * 
+	 ***/
 	@RequestMapping("/deleteUser")
 	public ModelAndView deleteUser(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();

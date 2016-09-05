@@ -46,5 +46,21 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/login");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("/join")
+	public ModelAndView join() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/join");
+		
+		return modelAndView;
+	}
+	
 	
 }

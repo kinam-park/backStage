@@ -4,9 +4,18 @@
     <!-- html -->
 	<div class="w1100">
 		<div style="height:40px;"></div>
-			<div id="write">
+			<div class="category_wrap">
+				<select>
+					<option/>NEWS
+					<option/>COLLECTION
+				</select>
+			</div>
 			
-				<textarea name="editor1" if="editor1" rows="10" cols="80"></textarea>
+			<div id="write">
+				<div class="title">
+					<input class="inputTitle" placeholder="input title"/>
+				</div>
+				<textarea class="inputContents" name="editor1" if="editor1" rows="10" cols="80"></textarea>
 				
 				<div class="btn_wrap">
 					<div class="btn_wp fl">
@@ -22,22 +31,17 @@
     <script>
     
     	$(function(){
-    		
+			//ckeditor    		
     		var editor_config = {
+    				width:'100%',
+    				height:'500px',
     				resize_enabled : false,
     				enterMode : CKEDITOR.ENTER_BR,
     				shiftEnterMode : CKEDITOR.ENTER_P,
     				removePlugins : "elementspath",
     				filebrowserUploadUrl : "${pageContext.request.contextPath}/admin/uploadImage"
     		};
-    		
     		var editor = CKEDITOR.replace('editor1',editor_config);
-//     		var editor = CKEDITOR.replace('editor1',{
-//     			width:'100%',
-//     			height:'400px',
-//     			filebrowserImageUploadUrl:'${pageContext.request.contextPath}/admin/uploadImage'
-//     		});
-    		
     		CKEDITOR.on('dialogDefinition',function(ev){
     			var dialogName = ev.data.name;
     			var dialogDefinition = ev.data.definition;
@@ -49,11 +53,38 @@
     			}
     		});	
     		
-    		$('#write .btn_wrap .btn_wp .submitBtn').off('click').on('click',function(){
-    			editor.getData();
-    		});
+    		
+    		listener();
+    		
     		
     	});
+    	
+    	function insertContents(title,contents){
+    		$.ajax({
+    			url : base_url + "contents/insertContents.json",
+    			type : "POST",
+    			data : {category_name:params.category,user_id:params.userId,title:params.title,contents:params.contents},
+    			success : function(data){
+
+    			},
+    			error : function(err){
+    				console.log("error");
+    				console.log(err);
+    			}
+    		});
+    	};
+    	
+    	
+    	function listener(){
+    		$('#write .btn_wrap .btn_wp .submitBtn').off('click').on('click',function(){
+    			var params = {};
+    			params.userId = 1;
+    			params.category = $('.category_wrap select').children(':selected').val();
+    			params.title = $('#write .inputTitle').val();
+    			params.contents = CKEDITOR.instances.editor1.getData();
+    			insertContents(params);
+    		});
+    	}
 		
 		 
     </script>

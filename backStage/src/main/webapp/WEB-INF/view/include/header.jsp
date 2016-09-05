@@ -20,6 +20,7 @@
 		<script src="${pageContext.request.contextPath}/resources/js/masonry.pkgd.min.js"></script>
 		
 		<script src="${pageContext.request.contextPath}/resources/lib/ckeditor/ckeditor.js"></script>
+<!-- 		<script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script> -->
 		<!-- <script  async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xsq7BHX_2BFmYvYcPMpABARBR0z1SkU&callback=initMap"></script> -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9xsq7BHX_2BFmYvYcPMpABARBR0z1SkU"></script>
         
@@ -71,13 +72,15 @@
 	
 	<script>
 	$(function(){
+		window.base_url = "${pageContext.request.contextPath}"+"/";
+		
 		var loc = location.href.split("page/")[1];
 		$('#header .main_menu_area .menu_wrap .menu[menu='+loc+']').addClass('active');
 		
-		listener();
+		headerListener();
 	});
 	
-	function listener(){
+	function headerListener(){
 		$('#header .main_menu_area .menu_wrap .menu').off('click').on('click',function(){
 			var menu = $(this).attr('menu');
 			location.href = menu;
