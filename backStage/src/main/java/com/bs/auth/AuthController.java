@@ -47,6 +47,21 @@ public class AuthController {
 	
 	}
 	
+
+	/***
+	 * 유효성 검사
+	 * #{email} : 로그인 계정 주소
+	 * 
+	 ***/
+	@RequestMapping("/checkValidate")
+	public ModelAndView checkValidate(UserVO userVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		Object result = authService.checkValidate(userVO);
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
 	
 	/***
 	 * 회원가입

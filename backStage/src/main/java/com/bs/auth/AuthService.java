@@ -23,6 +23,18 @@ public class AuthService{
 		return authDao.checkLogin(userVO);	
 	}
 	
+	public boolean checkValidate(UserVO userVO){
+		boolean is = false;
+		List<UserVO> list =  authDao.checkValidate(userVO);
+		if(list.size() == 0){
+			is = true;
+		}else{
+			is = false;
+		}
+		return is;
+	}
+	
+	
 	public boolean insertUser(UserVO userVO){
 		int cnt = authDao.insertUser(userVO);
 		boolean result = false;

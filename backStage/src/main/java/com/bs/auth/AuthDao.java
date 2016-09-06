@@ -26,6 +26,9 @@ public class AuthDao {
         return (UserVO)sqlSession.selectOne("com.bs.sql.auth.checkLogin",userVO);
     }
 	
+	public List<UserVO> checkValidate(UserVO userVO) {
+        return (List<UserVO>)sqlSession.selectList("com.bs.sql.auth.checkValidate",userVO);
+    }
 	
 	public int insertUser(UserVO userVO) {
         return sqlSession.insert("com.bs.sql.auth.insertUser",userVO);
