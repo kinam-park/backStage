@@ -42,6 +42,10 @@ public class ContentsService{
 	}
 	
 	public boolean updateContents(ContentsVO contentsVO){
+		String contents = contentsVO.getContents();
+		String mainImg = Utils.exportImgSrc(contents);
+		contentsVO.setMain_img(mainImg);
+		
 		int cnt = contentsDao.updateContents(contentsVO);
 		boolean result = false;
 		if(cnt == 1){
