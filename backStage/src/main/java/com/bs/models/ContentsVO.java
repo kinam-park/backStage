@@ -1,7 +1,7 @@
 package com.bs.models;
 
 public class ContentsVO{
-	private String contents_seq;
+	private String contents_id;
 	private String user_id;
 	private String user_name;
 	private String category_code;
@@ -10,15 +10,26 @@ public class ContentsVO{
 	private String contents;
 	private String is_enable;
 	private String created_date;
+	private String main_img;
 	
-	private String count;
-
-	public String getContents_seq() {
-		return contents_seq;
+	
+	public String getMain_img() {
+		return main_img;
 	}
 
-	public void setContents_seq(String contents_seq) {
-		this.contents_seq = contents_seq;
+	public void setMain_img(String main_img) {
+		this.main_img = main_img;
+	}
+
+	private String count;
+
+	
+	public String getContents_id() {
+		return contents_id;
+	}
+
+	public void setContents_id(String contents_id) {
+		this.contents_id = contents_id;
 	}
 
 	public String getUser_id() {

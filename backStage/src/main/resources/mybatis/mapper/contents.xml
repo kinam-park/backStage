@@ -12,6 +12,7 @@
 			,c.category_code
 			,c.title
 			,c.created_date
+			,c.main_img
 		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
@@ -28,6 +29,7 @@
 			,c.contents
 			,c.is_enable
 			,c.created_date
+			,c.main_img
 		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
@@ -53,13 +55,15 @@
 			,USER_ID
 			,CATEGORY_CODE
 			,IS_ENABLE
+			,MAIN_IMG
 	    ) VALUES(
 			#{title}
 			,#{contents}
 			,now()
 			,#{user_id}
 			,#{category_code}
-			,#{is_enable}        
+			,#{is_enable} 
+			,#{main_img}       
 	    )
 	</insert>
 	
@@ -68,7 +72,8 @@
 	    	CATEGORY_CODE = #{contents_code}
 			,TITLE = #{title}
 			,CONTENTS = #{contents}
-			,IS_ENABLE = #{is_enable}			
+			,IS_ENABLE = #{is_enable}
+			,MAIN_IMG = #{main_img}
 	    WHERE 1=1
 	    	AND CONTENTS_ID = #{contents_id}
 	</update>

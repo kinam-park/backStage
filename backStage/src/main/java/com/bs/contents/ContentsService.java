@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bs.common.module.Utils;
 import com.bs.models.ContentsVO;
  
 
@@ -27,6 +28,11 @@ public class ContentsService{
 //	}
 	
 	public boolean insertContents(ContentsVO contentsVO){
+		String contents = contentsVO.getContents();
+		String mainImg = Utils.exportImgSrc(contents);
+		contentsVO.setMain_img(mainImg);
+		
+		
 		int cnt = contentsDao.insertContents(contentsVO);
 		boolean result = false;
 		if(cnt == 1){
