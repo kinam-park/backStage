@@ -1,0 +1,14 @@
+#detailPage { width:100%; height:auto; }
+
+#detailPage .detailPage_area { width:100%; height:auto; }
+
+#detailPage .detailPage_area .detailPage_wrap { width:100%; height:auto; }
+#detailPage .detailPage_area .detailPage_wrap .category { width:100%; height:25px; line-height:25px; font-size:16px; border-bottom:1px solid lightgray; }
+#detailPage .detailPage_area .detailPage_wrap .head_wrap { margin-top:20px; }
+#detailPage .detailPage_area .detailPage_wrap .head_wrap .wp { height:20px; line-height:20px; }
+#detailPage .detailPage_area .detailPage_wrap .head_wrap .title { font-size:16px; }
+#detailPage .detailPage_area .detailPage_wrap .head_wrap .created_date { margin-top:7px; font-size:10px; }
+#detailPage .detailPage_area .detailPage_wrap .content_wrap { height:auto; margin-top:20px; }
+#detailPage .detailPage_area .btn_wrap { width:250px; height:30px; margin:40px auto 0px auto; }
+#detailPage .detailPage_area .btn_wrap .wp { width:100px; height:50px; text-align:center; line-height:50px; color:#ffffff; background-color:#000000; }
+#detailPage .detailPage_area .btn_wrap .wp.deleteBtn { margin-left: 50px; }

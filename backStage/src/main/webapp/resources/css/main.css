@@ -1,6 +1,6 @@
 #main { width:100%; height:auto; }
 
-#main .main_area { width:100%; border:1px solid blue; }
+#main .main_area { width:100%; /* border:1px solid blue; */ }
 #main .main_wrap { width:100%; height:100%; margin-top:70px; }
 #main .main_wrap .title_wp {
 	width:300px;
@@ -23,22 +23,22 @@
 #main .main_wrap .main_wp {
 	width:100%;
 	height:100%;
-	border:1px solid;
+/* 	border:1px solid; */
 }
 #main .main_wp .contents {
 	width:auto;
 	height:auto;
-	border:1px solid;
+/* 	border:1px solid; */
 	margin:45px 30px 130px 30px;
 }
 #main .main_wp .contents .content {
 	width:300px; 
-	border:1px solid;
+/* 	border:1px solid; */
 	margin-left:60px;
 }
 #main .main_wp .contents .content.no4, .no5, .no6{ margin-top:140px; }
 
-#main .main_brand { height:650px; border:1px solid blue; background-image:url("../images/dedachai.JPG"); background-repeat:no-repeat; background-size:100%; }
+#main .main_brand { height:650px; /* border:1px solid blue; */ background-image:url("../images/bg_carousel_dedachai.png"); background-repeat:no-repeat; background-size:100%; }
 
 #main .main_store { height:auto; }
 #main .main_store .main_wp .contents .content { height:auto; }
@@ -48,54 +48,30 @@
 #main .main_store .main_wp .contents .content .cont_wp .tag { padding-top:25px; padding-bottom:12px; }
 #main .main_store .main_wp .contents .content .cont_wp .bike_name { padding-bottom:12px; }
 
-#main .main_collection { height:auto; }
-#main .main_collection .main_wrap .contents { margin:45px 0 130px; }
-#main .main_collection .main_wp .contents .content {
-	width:274px;
-	height:auto;
-	margin:0;
-	margin-left:20px;
+#main .main_collection { height:auto; background-color:#F4F4F4; }
+#main .main_collection .main_wrap { margin:0; padding-top:70px; }
+#main .main_collection .main_wrap .img { width:100%; height:70%; background-size:100%; background-repeat:no-repeat; }
+#main .main_collection .main_wrap .collection_wp {  }
+#main .main_collection .main_wrap .collection_wp .wp { margin: 0 10px 0 10px; }
+#main .main_collection .main_wrap .collection_wp .title { height:30px; line-height:30px; font-weight:bold; overflow:hidden; border:0; }
+#main .main_collection .main_wrap .collection_wp .created_date { height:20px; line-height:20px; font-size:12px; color:#AAAAAA; }
+#main .main_collection .main_wrap .collection_wp .desc { height:20px; line-height:20px; font-size:12px;  }
+
+#main .main_collection .main_wrap .main_wp.grid { margin: 30px auto 130px auto; }
+#main .main_collection .main_wrap .grid-item {
+	position:relative;
+	float: left;
+	width: 270px;
+	height: 280px;
+	margin-bottom:20px;
+	border: 2px solid hsla(0, 0%, 0%, 0.5);
 }
-#main .main_collection .main_wp .contents .content .img {
-	width:100%;
-	height:100px;
-	background-color:lightgray;
-}
-#main .main_collection .main_wp .contents .content.no2 .img{ height:180px; }
-#main .main_collection .main_wp .contents .content.no3 .img{ height:200px; }
-#main .main_collection .main_wp .contents .content.no4 .img{ height:150px; }
-#main .main_collection .main_wp .contents .content.no5 .img{ height:150px; }
-#main .main_collection .main_wp .contents .content.no7 .img{ height:130px; }
-#main .main_collection .main_wp .contents .content.no8 .img{ height:180px; }
-#main .main_collection .main_wp .contents .content.no5 { margin-top:20px; }
-#main .main_collection .main_wp .contents .content.no6 { margin-top:20px; }
-#main .main_collection .main_wp .contents .content.no7 { margin-top:20px; }
-#main .main_collection .main_wp .contents .content.no8 { margin-top:20px; }
-#main .main_collection .main_wp .contents .content .content_wp { margin:28px 18px 18px 18px; height:130px; }
-#main .main_collection .main_wp .contents .content .title {
-	width:100px;
-	height:25px;
-	font-size:14px;	
-	text-align:left;
-	margin:0;
-	line-height:25px;
-	border:0;
-}
-#main .main_collection .main_wp .contents .content .created_date {
-	width:100px;
-	height:10px;
-	font-size:10px;
-	margin-top:8px;
-}	
-#main .main_collection .main_wp .contents .content .desc {
-	width:100px;
-	height:40px;
-	font-size:12px;
-	margin-top:20px;
-}	
+#main .main_collection .main_wrap .grid-item--height1 { height: 210px; }
+#main .main_collection .main_wrap .grid-item--height2 { height: 240px; }
+#main .main_collection .main_wrap .grid-item--height3 { height: 290px; }
 
 #main .main_news { height:auto; }
-#main .main_news .main_wrap .img { width:100%; height:100%; }
+#main .main_news .main_wrap .img { width:100%; height:100%; background-size:100%; background-repeat:no-repeat; }
 #main .main_news .main_wrap .news_wp { position:absolute; bottom:0; width:100%; height:90px; padding:10px 0 10px 0; background-color:rgba(0,0,0,0.7); }
 #main .main_news .main_wrap .news_wp .wp { margin: 0 10px 0 10px; }
 #main .main_news .main_wrap .news_wp .title { height:30px; line-height:30px; font-weight:bold; overflow:hidden; color:#ffffff; border:0; }
@@ -112,6 +88,6 @@
 	border: 2px solid hsla(0, 0%, 0%, 0.5);
 }
 
-
 #main .main_location { height:550px; }
 #main #map { height:100%; }
+#main #map .info_window { width: 500px; height:250px; background-image:url("../images/bg_pin_googlemap.png"); background-repeat:no-repeat; background-size:100%; }

@@ -38,6 +38,14 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/location")
+	public ModelAndView location() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/location");
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping("/write")
 	public ModelAndView write() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -58,6 +66,14 @@ public class MainController {
 	public ModelAndView join() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("page/join");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("/detailPage")
+	public ModelAndView detailPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/detailPage");
 		
 		return modelAndView;
 	}

@@ -19,20 +19,20 @@ table{
 } 
 
 table tbody{
-	border-top:2px solid lightgray;
-	border-bottom:2px solid lightgray;
+/* 	border-top:2px solid lightgray; */
+/* 	border-bottom:2px solid lightgray; */
 } 
 
 table tbody th,td{
 	text-align:center;
 	font-size:14px;
-	border:1px solid lightgray;
-	border-left:0;
+/* 	border:1px solid lightgray; */
+/* 	border-left:0; */
 }
 
 table tbody td{
 	border-right:0;
-	border-left:3px double lightgray;
+/* 	border-left:3px double lightgray; */
 }
 
 /*자주사용하는 공통*/

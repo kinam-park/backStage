@@ -69,7 +69,7 @@
 	
 	<update id="updateContents">
 	    UPDATE CONTENTS SET
-	    	CATEGORY_CODE = #{contents_code}
+	    	CATEGORY_CODE = #{category_code}
 			,TITLE = #{title}
 			,CONTENTS = #{contents}
 			,IS_ENABLE = #{is_enable}

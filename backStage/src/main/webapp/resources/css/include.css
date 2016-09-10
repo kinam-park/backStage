@@ -2,7 +2,7 @@
 #header {
 	width:100%;
 	height:auto;
-	border-bottom:1px solid;
+/* 	border-bottom:1px solid; */
 }
 
 #header .user_info_area {
@@ -12,7 +12,9 @@
 
 #header .user_info_area .sns_wrap { width: 200px; height:100%; }
 #header .user_info_area .sns_wrap .sns_wp { padding-top:20px; padding-left:20px; }
-#header .user_info_area .sns_wrap .instagram_logo { margin-left:10px; }
+#header .user_info_area .sns_wrap .sns_wp .logo { background-repeat:no-repeat; }
+#header .user_info_area .sns_wrap .facebook_logo { width:30px; height:30px; background-image:url("../images/icon_sns_facebook.png"); }
+#header .user_info_area .sns_wrap .instagram_logo { margin-left:10px; width:30px; height:30px; background-image:url("../images/icon_sns_Instagram.png"); }
 
 #header .user_info_area .user_info_wrap { width: 500px; height:100%; }
 #header .user_info_area .user_info_wrap .info_wp { padding-top:20px; padding-right:20px; }
@@ -22,13 +24,26 @@
 #header .main_logo_area {
 	width:100%;
 	height:100px;
-	border: 1px solid;
 }
 #header .main_logo_area .main_logo {
 	width:300px;
 	height:100%;
 	margin:0 auto;
-	border:1px solid red;
+	background-image:url("../images/icon_main_logo.png");
+	background-repeat:no-repeat;
+	background-size:90%;
+	background-position:15px;
+}
+
+#header .main_logo_wrap{ width: 250px; height:80px; }
+#header .main_logo_wrap .main_logo {
+	width:200px;
+	height:100%;
+	margin:0 auto;
+	background-image:url("../images/icon_main_logo.png");
+	background-repeat:no-repeat;
+	background-size:70%;
+	background-position:30px 0;
 }
 
 #header .main_menu_area {

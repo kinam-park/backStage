@@ -11,6 +11,7 @@
 						<div class="text fr">HOME > NEWS</div>
 					</div>
 					<div class="wp sort_wp">
+						<div class="write bold cp fl hide">WRITE</div>
 						<div class="text fr">최신순으로 정렬</div>
 					</div>
 				</div>
@@ -89,7 +90,7 @@
 			data : {category_code:"NEWS"},
 			success : function(data){
 				console.log(data);
-				drawContents(data.result[0]);
+				drawContents(data.result);
 			},
 			error : function(err){
 				console.log("error");
@@ -99,9 +100,9 @@
     }
 
     function drawContents(data){
-    	for(var i=0; i<1; i++){
-//     		var html = tempContents(data[i]);
-			var html = tempContents();
+    	console.log(':::drawContents:::',data);
+    	for(var i=0; i<data.length; i++){
+			var html = tempContents(data[i]);
     		$('#news .news_area .news_wrap.grid').append(html);
     	}
     	
@@ -109,12 +110,17 @@
     }
     
     function tempContents(data){
+    	var created_date = new Date(data.created_date).format("yyyy-MM-dd");
     	var html = '';
-    	html += '<div class="grid-item cp">';
-    	html += '	<div class="img "></div>';
+    	html += '<div class="grid-item cp" name="'+data.contents_id+'">';
+    	if(data.main_img != null){
+	    	html += '	<div class="img" style="background-image:url('+data.main_img+');"></div>';
+    	}else{
+    		html += '	<div class="img" style="background-image:url(/backStage/resources/images/bg_default.png);"></div>';
+    	}
     	html += '	<div class="news_wp ">';
-    	html += '		<div class="wp title ">title</div>';
-    	html += '		<div class="wp created_date ">2016.08.22</div>';
+    	html += '		<div class="wp title ">'+data.title+'</div>';
+    	html += '		<div class="wp created_date ">'+created_date+'</div>';
     	html += '	</div>';
     	html += '	<div class="clear"></div>';
     	html += '</div>';
@@ -131,7 +137,13 @@
 		});
 		
 		$('.grid .grid-item').off('click').on('click',function(){
-			console.log('test click event');
+			var name = $(this).attr('name');
+			location.href = 'detailPage#'+name;
+		});
+		
+		$('#news .write').off('click').on('click',function(){
+			sessionStorage.setItem('category','NEWS');
+			location.href = 'write';
 		});
 		
     }
