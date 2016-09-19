@@ -15,6 +15,7 @@
 #header .user_info_area .sns_wrap .sns_wp .logo { background-repeat:no-repeat; }
 #header .user_info_area .sns_wrap .facebook_logo { width:30px; height:30px; background-image:url("../images/icon_sns_facebook.png"); }
 #header .user_info_area .sns_wrap .instagram_logo { margin-left:10px; width:30px; height:30px; background-image:url("../images/icon_sns_Instagram.png"); }
+#header .user_info_area .sns_wrap .blog_logo { margin-left:10px; width:30px; height:30px; background-image:url("../images/icon_sns_blog.png"); }
 
 #header .user_info_area .user_info_wrap { width: 500px; height:100%; }
 #header .user_info_area .user_info_wrap .info_wp { padding-top:20px; padding-right:20px; }

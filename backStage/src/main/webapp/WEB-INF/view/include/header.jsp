@@ -40,8 +40,15 @@
 			<div class="user_info_area fl">
 				<div class="sns_wrap fl">
 					<div class="sns_wp">
-						<div class="facebook_logo logo cp fl"></div>
-						<div class="instagram_logo logo cp fl"></div>
+						<a href="https://www.facebook.com/Back-stage-332711123589633/?fref=ts">
+							<div class="facebook_logo logo cp fl"></div>
+						</a>
+						<a href="https://www.instagram.com/backstage_bike/">
+							<div class="instagram_logo logo cp fl"></div>
+						</a>
+						<a href="http://blog.naver.com/100_stage/">
+							<div class="blog_logo logo logo cp fl"></div>
+						</a>
 						<div class="clear"></div>
 					</div>
 				</div>

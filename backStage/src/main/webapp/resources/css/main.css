@@ -38,7 +38,25 @@
 }
 #main .main_wp .contents .content.no4, .no5, .no6{ margin-top:140px; }
 
-#main .main_brand { height:650px; /* border:1px solid blue; */ background-image:url("../images/bg_carousel_dedachai.png"); background-repeat:no-repeat; background-size:100%; }
+#main .main_brand { 
+	height:650px; 
+	 
+}
+#main .main_brand .img {
+	width:100%; height:100%;
+	background-image:url("../images/dedaciai.png"); 
+	background-repeat:no-repeat; 
+	background-size:100%;
+}
+#main .main_brand .desc {
+	position:absolute;
+	width:100%; height:650px;
+	background-color:rgba(0,0,0,0.3);
+	background-image:url("../images/dedaciai_logo.png");
+	background-position:0;
+	background-repeat:no-repeat; 
+	background-size:100%;
+}
 
 #main .main_store { height:auto; }
 #main .main_store .main_wp .contents .content { height:auto; }

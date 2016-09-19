@@ -17,10 +17,10 @@
 				<div id="map" class="map_wrap fl"></div>
 				<div class="info_wrap fl">
 					<div class="wp find">
-						<div class="text">찾아오시는 길</div>
+<!-- 						<div class="text">찾아오시는 길</div> -->
 						<ul>
-						  <li> SUBWAY : 지하철 1번 환승  </li>
-						  <li> BUS : </li>
+<!-- 						  <li> SUBWAY : 지하철 1번 환승  </li> -->
+<!-- 						  <li> BUS : </li> -->
 						</ul>
 					</div>
 				</div>

@@ -4,7 +4,11 @@
     <!-- html -->
 	<div style="height:40px;"></div>
 	<div id="main" class="main_component">
-		<div class="main_area main_brand"></div>
+		<div class="main_area main_brand">
+			<div class="img fl"></div>
+			<div class="desc fl"></div>
+			<div class="clear"></div>
+		</div>
 		<div class="main_area main_store">
 			<div class="w1200">
 				<div class="main_wrap hide">
