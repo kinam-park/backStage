@@ -200,7 +200,6 @@
 			getCollectionContents();
 			getNewsContents();
 // 			mainListener();
-			 
 			
 			
 			
@@ -245,7 +244,7 @@
 					var html = tempCollectionContents(data[i],i);
 		    		$('#main .main_collection .main_wrap .main_wp.grid').append(html);
 	    	}
-// 			mainListener();
+			mainListener();
 		 }
 		 
 		 function drawNewsContents(data){
