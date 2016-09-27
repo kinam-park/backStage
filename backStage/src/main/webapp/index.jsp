@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Welcome</title>
-	</head> 
-	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Click to enter</a>
-	</body>
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="1;url=http://www.100stage.com/page/main">
+        <script type="text/javascript">
+            window.location.href = "http://www.100stage.com/page/main"
+        </script>
+        <title>backStage</title>
+    </head>
+    <body>
+       
+    </body>
 </html>
