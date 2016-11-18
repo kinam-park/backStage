@@ -196,7 +196,7 @@
     <script>
 		 $(function(){
 			
-			 
+			
 			getCollectionContents();
 			getNewsContents();
 // 			mainListener();
@@ -211,7 +211,7 @@
 					type : "POST",
 					data : {category_code:"COLLECTION"},
 					success : function(data){
-						console.log(data);
+// 						console.log(data);
 						drawCollectionContents(data.result);
 					},
 					error : function(err){
@@ -227,7 +227,7 @@
 				type : "POST",
 				data : {category_code:"NEWS"},
 				success : function(data){
-					console.log(data);
+// 					console.log(data);
 					drawNewsContents(data.result);
 				},
 				error : function(err){
