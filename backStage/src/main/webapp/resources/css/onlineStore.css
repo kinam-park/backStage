@@ -19,6 +19,11 @@
 #online_store .online_store_area .store_wrap .store_wp { width:100%; height:auto; }
 #online_store .online_store_area .store_wrap .store_wp .wp { margin: 0 10px 0 10px; }
 #online_store .online_store_area .store_wrap .store_wp .tag { height:30px; line-height:30px; }
+#online_store .online_store_area .store_wrap .store_wp .wp_tag { width:25%; height:100%; background-repeat:no-repeat; background-position:50% 50%; }
+#online_store .online_store_area .store_wrap .store_wp .tag_new { background-image:url("../images/icon_tag_new.png"); }
+#online_store .online_store_area .store_wrap .store_wp .tag_hot { background-image:url("../images/icon_tag_hot.png"); }
+#online_store .online_store_area .store_wrap .store_wp .tag_nearlysoldout { width:50%; background-image:url("../images/icon_tag_nearlysoldout.png"); background-size:95%; }
+
 #online_store .online_store_area .store_wrap .store_wp .title { height:20px; line-height:20px; font-weight:bold; overflow:hidden; }
 #online_store .online_store_area .store_wrap .store_wp .price { height:20px; line-height:20px; color:#6E6E6E; }
 

@@ -78,45 +78,7 @@
 					<div class="title_wp">
 						<div class="title bold ">COLLECTION</div>
 					</div>
-					<div class="main_wp grid">
-<!-- 						<div class="grid-item"> -->
-<!-- 						  	<div class="img fl"></div> -->
-<!-- 						  	<div class="collection_wp fl"> -->
-<!-- 								<div class="wp title">title</div> -->
-<!-- 								<div class="wp created_date">2016.00.00</div>  -->
-<!-- 								<div class="wp desc">desc</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item grid-item--height1"> -->
-<!-- 						  	<div class="img fl"></div> -->
-<!-- 						  	<div class="collection_wp fl"> -->
-<!-- 								<div class="wp title">title</div> -->
-<!-- 								<div class="wp created_date">2016.00.00</div>  -->
-<!-- 								<div class="wp desc">desc</div>								 -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item grid-item--height2"> -->
-<!-- 						  	<div class="img fl"></div> -->
-<!-- 						  	<div class="collection_wp fl"> -->
-<!-- 								<div class="wp title">title</div> -->
-<!-- 								<div class="wp created_date">2016.00.00</div>									  -->
-<!-- 								<div class="wp desc">desc</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item grid-item--height3"> -->
-<!-- 						  	<div class="img fl"></div> -->
-<!-- 						  	<div class="collection_wp fl"> -->
-<!-- 								<div class="wp title">title</div> -->
-<!-- 								<div class="wp created_date">2016.00.00</div>									  -->
-<!-- 								<div class="wp desc">desc</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-					</div>
-
+					<div class="main_wp grid_collection"> </div>
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -127,62 +89,7 @@
 					<div class="title_wp">
 						<div class="title bold">NEWS</div>
 					</div>
-					<div class="main_wp grid">
-<!-- 						<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-<!-- 				  		<div class="grid-item"> -->
-<!-- 						  	<div class="img "></div> -->
-<!-- 						  	<div class="news_wp "> -->
-<!-- 							  	<div class="wp title ">title</div> -->
-<!-- 							  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 							  	<div class="wp desc ">desc....</div> -->
-<!-- 						  	</div> -->
-<!-- 						  	<div class="clear"></div> -->
-<!-- 				  		</div> -->
-					</div>
+					<div class="main_wp grid_news"></div>
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -199,7 +106,7 @@
 			
 			getCollectionContents();
 			getNewsContents();
-// 			mainListener();
+			mainListener();
 			
 			
 			
@@ -238,13 +145,18 @@
 		 }
 		 
 		 function drawCollectionContents(data){
+// 			 console.log("::drawCollectionContents::",data);
 			 var length;
 			 data.length < 8 ? length = data.length : length = 8;
 			 for(var i=0; i<length; i++){
 					var html = tempCollectionContents(data[i],i);
-		    		$('#main .main_collection .main_wrap .main_wp.grid').append(html);
+		    		$('#main .main_collection .main_wrap .main_wp.grid_collection').append(html);
 	    	}
-			mainListener();
+			 $('.grid_collection').masonry({
+				  itemSelector: '.grid-item',
+				  gutter:20,
+				  isFitWidth: true
+			}); 
 		 }
 		 
 		 function drawNewsContents(data){
@@ -252,9 +164,13 @@
 			 data.length < 8 ? length = data.length : length = 6;
 			 for(var i=0; i<length; i++){
 					var html = tempNewsContents(data[i]);
-		    		$('#main .main_news .main_wrap .main_wp.grid').append(html);
+		    		$('#main .main_news .main_wrap .main_wp.grid_news').append(html);
 	    	}
-			mainListener(); 
+			 $('.grid_news').masonry({
+				  itemSelector: '.grid-item',
+				  gutter:20,
+				  isFitWidth: true
+			}); 
 		 }
 		 
 		 function tempCollectionContents(data,i){
@@ -301,11 +217,11 @@
 		 }
 		 
 		 function mainListener(){
-			$('.grid').masonry({
-				  itemSelector: '.grid-item',
-				  gutter:20,
-				  isFitWidth: true
-			}); 
+// 			$('.grid').masonry({
+// 				  itemSelector: '.grid-item',
+// 				  gutter:20,
+// 				  isFitWidth: true
+// 			}); 
 			 
 			var myLocation = {lat:37.483324, lng:127.126040};
     		var mapOption = {
@@ -333,6 +249,8 @@
 				location.href = 'detailPage#'+name;
 			});
 		 }
+		 
+		 
     </script>
     
 <jsp:include page='/include/footer'  flush="false" />

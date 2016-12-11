@@ -40,15 +40,9 @@
 			<div class="user_info_area fl">
 				<div class="sns_wrap fl">
 					<div class="sns_wp">
-						<a href="https://www.facebook.com/Back-stage-332711123589633/?fref=ts">
-							<div class="facebook_logo logo cp fl"></div>
-						</a>
-						<a href="https://www.instagram.com/backstage_bike/">
-							<div class="instagram_logo logo cp fl"></div>
-						</a>
-						<a href="http://blog.naver.com/100_stage/">
-							<div class="blog_logo logo logo cp fl"></div>
-						</a>
+						<div class="facebook_logo logo cp fl" name="facebook"></div>
+						<div class="instagram_logo logo cp fl" name="instagram"></div>
+						<div class="blog_logo logo logo cp fl" name="blog"></div>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -56,8 +50,8 @@
 					<div class="info_wp">
 						<div class="log_in wp fr cp">LOG-IN</div>
 						<div class="log_out wp fr cp hide">LOG-OUT</div>
-<!-- 						<div class="shopping_cart wp fr">SHOPPING-CART</div> -->
-<!-- 						<div class="my_page wp fr">MYPAGE</div> -->
+						<div class="shopping_cart wp fr">SHOPPING-CART</div>
+						<div class="my_page wp fr">MYPAGE</div>
 						<div class="user_info wp fr">Login 해주세요.</div>
 						<div class="clear"></div>
 					</div>
@@ -65,11 +59,11 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_logo_area hide fl">
-				<div class="main_logo"></div>
+				<div class="main_logo cp"></div>
 			</div>
 			<div class="main_menu_area fl">
 				<div class="main_logo_wrap fl">
-					<div class="main_logo"></div>
+					<div class="main_logo cp"></div>
 				</div>
 				<div class="menu_wrap fl">
 					<span class="menu home cp" menu="main">HOME</span>
@@ -114,18 +108,42 @@
 	
 	function headerListener(){
 		
+		// click page
 		$('#header .main_menu_area .menu_wrap .menu').off('click').on('click',function(){
 			var menu = $(this).attr('menu');
-			if(menu == 'onlineStore' || menu == 'contact'){
-				alert('준비중입니다.');
-			}else{
-				location.href = menu;
+			location.href = menu;
+// 			if(menu == 'onlineStore' || menu == 'contact'){
+// 				alert('준비중입니다.');
+// 			}else{
+// 				location.href = menu;
+// 			}
+		});
+		
+		// click logo
+		$('#header .user_info_area .sns_wrap .sns_wp .logo').off('click').on('click',function(){
+			var logoName = $(this).attr('name');
+			switch(logoName){
+			case 'facebook':
+				window.open('https://www.facebook.com/Back-stage-332711123589633/?fref=ts');
+				break;
+			case 'instagram':
+				window.open('https://www.instagram.com/backstage_bike/');
+				break;
+			case 'blog':
+				window.open('http://blog.naver.com/100_stage/');
+				break;
 			}
 		});
 		
+		// main logo click => main page
+		$('.main_logo').off('click').on('click',function(){
+			location.href = 'main';
+		});
+		// login
 		$('#header .log_in').off('click').on('click',function(){
 			location.href = 'login';
 		});
+		//log-out
 		$('#header .log_out').off('click').on('click',function(){
 			sessionStorage.clear();
 			alert('로그아웃되었습니다.');
