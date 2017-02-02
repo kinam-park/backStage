@@ -15,8 +15,9 @@
 			,c.main_img
 		FROM CONTENTS c JOIN USER u ON c.USER_ID = u.USER_ID 
 	    WHERE 1=1  
-	    	AND IS_ENABLE = 'Y'
-	    	AND CATEGORY_CODE = #{category_code}
+	    	AND c.IS_ENABLE = 'Y'
+	    	AND c.CATEGORY_CODE = #{category_code}
+	    ORDER BY c.CREATED_DATE DESC
 	</select>
     
     <select id="getContents" resultType="ContentsVO">

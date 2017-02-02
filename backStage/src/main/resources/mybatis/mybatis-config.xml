@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias type="com.bs.models.UserVO" alias="UserVO"/>
 		<typeAlias type="com.bs.models.ContentsVO" alias="ContentsVO"/>
+		<typeAlias type="com.bs.models.ShopVO" alias="ShopVO"/>
 	</typeAliases>
 	
 <!-- 	<mappers> -->

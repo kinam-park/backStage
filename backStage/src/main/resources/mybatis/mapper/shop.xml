@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bs.sql.shop">
+
+    
+    
+    <select id="getShopList" resultType="ShopVO">
+	    SELECT 
+			s.shop_id
+			,s.title
+			,s.price
+			,s.created_date
+			,s.is_enable
+			,s.category_code
+			,s.category_etc_code
+			,s.point
+			,s.user_id
+			,s.size
+			,s.stock
+			,s.brand
+			,s.main_img
+			,u.user_name
+		FROM SHOP s JOIN USER u ON s.USER_ID = u.USER_ID 
+	    WHERE 1=1  
+	    	AND s.IS_ENABLE = 'Y'
+	    	AND s.CATEGORY_CODE = #{category_code}
+	    ORDER BY s.CREATED_DATE DESC
+	</select>
+    
+    <select id="getShop" resultType="ShopVO">
+	    SELECT 
+			s.shop_id
+			,s.title
+			,s.contents
+			,s.price
+			,s.created_date
+			,s.is_enable
+			,s.category_code
+			,s.category_etc_code
+			,s.point
+			,s.user_id
+			,s.size
+			,s.stock
+			,s.brand
+			,s.main_img
+			,u.user_name
+		FROM SHOP s JOIN USER u ON c.USER_ID = u.USER_ID 
+	    WHERE 1=1  
+	    	AND IS_ENABLE = 'Y'
+	    	AND SHOP_ID = #{shop_id}
+	    
+	</select>
+	
+	
+<!-- 	<select id="getCategoryList" resultType="ShopVO"> -->
+<!-- 	    SELECT  -->
+<!-- 			cg.category_code -->
+<!-- 			,cg.category_name -->
+<!-- 		FROM CATEGORY cg  -->
+<!-- 	    WHERE 1=1  -->
+	    	
+<!-- 	</select> -->
+	
+	<insert id="insertShop" >
+	    INSERT INTO SHOP(
+	    	TITLE
+			,CONTENTS
+			,PRICE
+			,CREATED_DATE
+			,IS_ENABLE
+			,CATEGORY_CODE			
+			,POINT
+			,USER_ID
+			,SIZE
+			,STOCK
+			,BRAND
+			,MAIN_IMG
+			
+	    
+	    ) VALUES(
+			#{title}
+			,#{contents}
+			,#{price}
+			,now()
+			,#{is_enable}
+			,#{category_code}			
+			,#{point}
+			,#{user_id}
+			,#{size}
+			,#{stock}
+			,#{brand}
+			,#{main_img}
+			 
+	    )
+	</insert>
+	
+	<update id="updateShop">
+	    UPDATE SHOP SET
+	    	TITLE             = #{title}
+			,CONTENTS          = #{contents}
+			,PRICE             = #{price}			
+			,IS_ENABLE         = #{is_enable}
+			,CATEGORY_CODE	=	 #{category_code}				
+			,POINT             = #{point}
+			,USER_ID           = #{user_id}
+			,SIZE              = #{size}
+			,STOCK             = #{stock}
+			,BRAND             = #{brand}
+			,MAIN_IMG		   = #{main_img}
+		WHERE 1=1
+	    	AND SHOP_ID = #{shop_id}
+	</update>
+	
+    <delete id="deleteShop">
+	    DELETE FROM SHOP 
+	    WHERE 1=1
+	    	AND SHOP_ID = #{shop_id}
+	</delete>
+	
+    
+</mapper>
