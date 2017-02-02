@@ -62,6 +62,7 @@
 						<div class="text fr">HOME > ONLINE-STORE</div>
 					</div>
 					<div class="wp sort_wp">
+						<div class="write bold cp fl hide">WRITE</div>
 						<div class="text fr">최신순으로 정렬</div>
 					</div>
 				</div>
@@ -84,7 +85,12 @@
 				  <div class="grid-item grid-item--height1">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -93,7 +99,12 @@
 				  <div class="grid-item grid-item--height2">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -102,7 +113,12 @@
 				  <div class="grid-item grid-item--height3">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -112,7 +128,12 @@
 				  <div class="grid-item">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -121,7 +142,12 @@
 				  <div class="grid-item grid-item--height1">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -130,7 +156,12 @@
 				  <div class="grid-item grid-item--height2">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -139,7 +170,12 @@
 				  <div class="grid-item grid-item--height3">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -149,7 +185,12 @@
 				  <div class="grid-item">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -158,7 +199,12 @@
 				  <div class="grid-item grid-item--height1">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -167,7 +213,12 @@
 				  <div class="grid-item grid-item--height2">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -176,7 +227,12 @@
 				  <div class="grid-item grid-item--height3">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
-					  	<div class="wp tag ">tag</div>
+					  	<div class="wp tag ">
+							<div class="wp_tag tag_new fl"></div>
+							<div class="wp_tag tag_hot fl"></div>
+							<div class="wp_tag tag_nearlysoldout fl"></div>
+							<div class="clear"></div>
+						</div>
 					  	<div class="wp title ">title</div>
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
@@ -199,6 +255,7 @@
 			  gutter:20,
 			  isFitWidth: true
 		});
+		
 		storeListener();
 	});
 	
@@ -251,6 +308,10 @@
 				currPage = location.href;
 			}
 			location.href = currPage+"#"+categoryTab;
+		});
+		
+		$('#online_store .write').off('click').on('click',function(){
+			
 		});
 		
 		

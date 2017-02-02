@@ -40,7 +40,6 @@
 
 #main .main_brand { 
 	height:650px; 
-	 
 }
 #main .main_brand .img {
 	width:100%; height:100%;
@@ -109,3 +108,4 @@
 #main .main_location { height:550px; }
 #main #map { height:100%; }
 #main #map .info_window { width: 500px; height:250px; background-image:url("../images/bg_pin_googlemap.png"); background-repeat:no-repeat; background-size:100%; }
+

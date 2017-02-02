@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/include.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/write.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/writeProduct.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/collection.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/news.css">
@@ -17,6 +18,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/join.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailPage.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/storeDetailPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/font-awesome-4.6.3/css/font-awesome.min.css"><!-- fontawesome -->
 		
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
@@ -99,7 +101,11 @@
 			$('#header .log_in ').addClass('hide');
 			$('#header .log_out ').removeClass('hide');
 		}
-		if(sessionStorage.getItem('auth') != null){
+		if(sessionStorage.getItem('auth') == 'admin'){
+			console.log(loc);
+			if(loc == "onlineStore"){
+				$('#online_store .write').removeClass('hide');	
+			}
 			$('#' + loc +' .write').removeClass('hide');
 		}
 		

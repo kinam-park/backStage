@@ -78,5 +78,21 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/storeDetailPage")
+	public ModelAndView storeDetailPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/storeDetailPage");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("/writeProduct")
+	public ModelAndView writeProduct() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/writeProduct");
+		
+		return modelAndView;
+	}
+	
 	
 }
