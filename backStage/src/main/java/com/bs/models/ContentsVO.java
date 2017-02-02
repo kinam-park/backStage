@@ -5,7 +5,7 @@ public class ContentsVO{
 	private String user_id;
 	private String user_name;
 	private String category_code;
-	private String category_name;
+//	private String category_name;
 	private String title;
 	private String contents;
 	private String is_enable;
@@ -56,13 +56,13 @@ public class ContentsVO{
 		this.category_code = category_code;
 	}
 
-	public String getCategory_name() {
-		return category_name;
-	}
-
-	public void setCategory_name(String category_name) {
-		this.category_name = category_name;
-	}
+//	public String getCategory_name() {
+//		return category_name;
+//	}
+//
+//	public void setCategory_name(String category_name) {
+//		this.category_name = category_name;
+//	}
 
 	public String getTitle() {
 		return title;

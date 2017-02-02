@@ -22,6 +22,20 @@ public class AuthController {
 
 	
 	/***
+	 * 로그인을 성공했다면, 그 이후 서버세션에 유저계정 정보가 들어가게됨. 그 정보를 가져오는 함수
+	 * NULL 값이 넘어간다면, 서버세션에 로그인정보가 없는것임.
+	 ***/
+	@RequestMapping("/getMyInfo")
+	public ModelAndView getMyInfo(HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		modelAndView.addObject("result",  userVO);
+		return modelAndView;
+	
+	}
+	
+	
+	/***
 	 * 유저 리스트 가져옴.. 관리자 페이지에서 사용할듯 해서 그냥 만들어둠.
 	 ***/
 	@RequestMapping("/getUserInfo")
@@ -42,6 +56,14 @@ public class AuthController {
 	public ModelAndView checkLogin(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
 		UserVO result = authService.checkLogin(userVO);
+		
+		if (result != null) {
+            session.setAttribute("userInfo", result);
+        }else {        	
+            session.setAttribute("userInfo", null);            
+        }
+		
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bs.sql.payment">
+
+    
+    
+    <select id="getCartList" resultType="PaymentVO">
+	    SELECT 
+			p.payment_id
+			,p.payment_type	
+			,p.created_date
+			,p.price
+			,p.user_id
+			,p.recv_addr1
+			,p.recv_addr2
+			,p.recv_zipcode
+			,p.recv_phone
+			,p.recv_name
+			,p.status
+			,p.stock
+			,s.shop_id
+			,s.title
+			,s.main_img
+		FROM PAYMENT p JOIN SHOP s ON p.SHOP_ID = s.SHOP_ID 
+	    WHERE 1=1
+	    	AND USER_ID = #{user_id}
+	    	AND STATUS = '카트'
+	    ORDER BY p.CREATED_DATE DESC
+	</select>
+	
+	<select id="getPaymentList" resultType="PaymentVO">
+	    SELECT 
+			p.payment_id
+			,p.payment_type	
+			,p.created_date
+			,p.price
+			,p.user_id
+			,p.recv_addr1
+			,p.recv_addr2
+			,p.recv_zipcode
+			,p.recv_phone
+			,p.recv_name
+			,p.status
+			,p.stock
+			,s.shop_id
+			,s.title
+			,s.main_img
+		FROM PAYMENT p JOIN SHOP s ON p.SHOP_ID = s.SHOP_ID 
+	    WHERE 1=1
+	    	AND USER_ID = #{user_id}
+	    	AND STATUS != '카트'
+	    ORDER BY p.CREATED_DATE DESC
+	</select>
+	
+	
+    
+	
+	<insert id="insertCart" >
+	    INSERT INTO PAYMENT(
+	    	CREATED_DATE
+			,PRICE
+			,USER_ID
+			,STATUS
+			,STOCK
+			,SHOP_ID
+	    ) VALUES(
+			now()
+			,#{PRICE}
+			,#{USER_ID}
+			,'카트'
+			,#{STOCK}
+			,#{SHOP_ID}
+	    )
+	</insert>
+	
+	<insert id="insertPayment" >
+	    INSERT INTO PAYMENT(
+	    	PAYMENT_TYPE	
+			,CREATED_DATE
+			,PRICE
+			,USER_ID
+			,RECV_ADDR1
+			,RECV_ADDR2
+			,RECV_ZIPCODE
+			,RECV_PHONE
+			,RECV_NAME
+			,STATUS
+			,STOCK
+			,SHOP_ID
+	    ) VALUES(
+			#{PAYMENT_TYPE}
+			,now()
+			,#{PRICE}
+			,#{USER_ID}
+			,#{RECV_ADDR1}
+			,#{RECV_ADDR2}
+			,#{RECV_ZIPCODE}
+			,#{RECV_PHONE}
+			,#{RECV_NAME}
+			,#{STATUS}
+			,#{STOCK}
+			,#{SHOP_ID}
+	    )
+	</insert>
+	
+	<update id="updatePaymentInfo">
+	    UPDATE PAYMENT SET
+	    	PAYMENT_TYPE
+	    	,RECV_ADDR1
+			,RECV_ADDR2
+			,RECV_ZIPCODE
+			,RECV_PHONE
+			,RECV_NAME
+		WHERE 1=1
+	    	AND PAYMENT_ID = #{payment_id}
+	    	AND USER_ID = #{user_id}
+	</update>
+	
+	<update id="updatePaymentStatus">
+	    UPDATE PAYMENT SET
+	    	STATUS = #{status}
+		WHERE 1=1
+	    	AND PAYMENT_ID = #{payment_id}
+	</update>
+	
+    <delete id="deleteCart">
+	    DELETE FROM PAYMENT 
+	    WHERE 1=1
+	    	AND PAYMENT_ID = #{payment_id}
+	    	AND USER_ID = #{user_id}
+	    	AND STATUS = '카트'
+	</delete>
+	
+    
+</mapper>

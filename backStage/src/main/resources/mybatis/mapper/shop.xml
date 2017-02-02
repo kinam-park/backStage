@@ -44,7 +44,7 @@
 			,s.brand
 			,s.main_img
 			,u.user_name
-		FROM SHOP s JOIN USER u ON c.USER_ID = u.USER_ID 
+		FROM SHOP s JOIN USER u ON s.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND IS_ENABLE = 'Y'
 	    	AND SHOP_ID = #{shop_id}
