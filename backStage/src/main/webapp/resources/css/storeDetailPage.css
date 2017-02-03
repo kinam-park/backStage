@@ -4,7 +4,7 @@
 
 #storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap { width:100%; height:auto;  }
 #storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap { width:845px; margin:0 auto; }
-#storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap .detailImgs_wp { width:350px; height:400px; border:1px solid lightgray; }
+#storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap .detailImgs_wp { width:350px; height:400px; /* border:1px solid lightgray; */ background-repeat:no-repeat; background-size:100%; }
 #storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap .detailInfo_wp { width:450px; height:400px; margin-left:40px; }
 #storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap .detailInfo_wp .wp { margin-top:20px; }
 #storeDetailPage .storeDetailPage_area .storeDetailInfo_wrap .detailInfo_wp .title_wp { height:120px; line-height:40px; display:table-caption; /* font:initial; */ font-size:18px; }

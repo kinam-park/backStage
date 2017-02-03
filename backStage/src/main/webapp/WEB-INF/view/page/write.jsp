@@ -35,6 +35,7 @@
     	$(function(){
     		var category = sessionStorage.getItem('category');
     		pageCode = location.href.split('#')[1];
+    		console.log("::pageCode::",pageCode);
     		if(pageCode != null){
     			getContents(pageCode);
     		}
@@ -131,7 +132,7 @@
     	
     	function writeListener(){
     		$('#write .btn_wrap .btn_wp .submitBtn').off('click').on('click',function(){
-   			if( pageCode != null ){
+   			if( pageCode != null ){ // write
     			var params = {
     					contents_id : pageCode,
     	    			title : $('#write .inputTitle').val(),
@@ -140,7 +141,7 @@
     	    			is_enable : 'Y'		
     			};
    				updateContents(params);
-   			}else{
+   			}else{ // update
    				var params = {
     					user_id : sessionStorage.getItem('user_id'),
     	    			category_code : sessionStorage.getItem('category'),

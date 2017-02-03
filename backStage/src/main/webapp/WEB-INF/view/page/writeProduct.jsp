@@ -19,13 +19,15 @@
 						<option name="seatpost">SEATPOST</option>
 						<option name="saddle">SADDLE</option>
 						<option name="crank">CRANK</option>
-						<option name="B">B.B</option>
+						<option name="B.B">B.B</option>
 						<option name="chain_cog">CHAIN_COG</option>
 						<option name="pedal">PEDAL</option>
 						<option name="strap_toeclip">STRAP_TOECLIP</option>
 						<option name="helmet">HELMET</option>
 						<option name="light">LIGHT</option>
 						<option name="tool">TOOL</option>
+						<option name="acc">ACC</option>
+						<option name="custom_order">CUSTOM_ORDER</option>
 					</select>
 					<div class="clear"></div>
 				</div>
@@ -44,11 +46,16 @@
 					<input name="price" class="wp input fl" placeholder="input PRICE"/>
 					<div class="clear"></div>
 				</div>
-				<div class="code_wrap info">
-					<div class="wp text bold fl">CODE</div>
-					<input name="code" class="wp input fl" placeholder="input CODE"/>
+				<div class="point_wrap info">
+					<div class="wp text bold fl">POINT</div>
+					<input name="point" class="wp input fl" placeholder="input POINT"/>
 					<div class="clear"></div>
 				</div>
+<!-- 				<div class="code_wrap info"> -->
+<!-- 					<div class="wp text bold fl">CODE</div> -->
+<!-- 					<input name="code" class="wp input fl" placeholder="input CODE"/> -->
+<!-- 					<div class="clear"></div> -->
+<!-- 				</div> -->
 				<div class="size_wrap info">
 					<div class="wp text bold fl">SIZE</div>
 					<input name="size" class="wp input fl" placeholder="input SIZE"/>
@@ -78,13 +85,10 @@
     <script>
     
     	$(function(){
-    		var category = sessionStorage.getItem('category');
-    		pageCode = location.href.split('#')[1];
-    		if(pageCode != null){
-    			getContents(pageCode);
-    		}
-    		if(category != null){
-    			$('#write_product .category_wrap .text').html( category );
+    		shopId = location.href.split('#')[1];
+    		
+    		if(shopId != null){
+    			getContents(shopId);
     		}
 			//ckeditor    		
     		var editor_config = {
@@ -115,10 +119,11 @@
     	
     	function getContents(code){
     		$.ajax({
-				url : base_url + "contents/getContents.json",
+				url : base_url + "shop/getShop.json",
 				type : "POST",
-				data : {contents_id:code},
+				data : {shop_id:code},
 				success : function(data){
+					console.log("::getContents::",data);
 					drawContents(data.result);
 				},
 				error : function(err){
@@ -129,8 +134,15 @@
     	}
     	
     	function drawContents(data){
-    		$('#write_product .category_wrap .text').html(data.category_code);
-    		$('#write_product .inputTitle').val(data.title);
+    		$('#write_product .category_wrap select').val(data.category_code.toUpperCase());
+    		$('#write_product .title_wrap input').val(data.title);
+    		$('#write_product .brand_wrap input').val(data.brand);
+    		$('#write_product .price_wrap input').val(data.price);
+    		$('#write_product .point_wrap input').val(data.point);
+    		$('#write_product .size_wrap input').val(data.size);
+    		$('#write_product .qty_wrap input').val(data.stock);
+//     		$('#write_product .category_wrap .text').html(data.category_code);
+//     		$('#write_product .inputTitle').val(data.title);
     		CKEDITOR.instances.editor1.setData(data.contents);
     		category = data.category_code;
     	}
@@ -138,14 +150,14 @@
     	function insertContents(params){
     		console.log(params);
     		$.ajax({
-//     			url : base_url + "contents/insertContents.json",
+    			url : base_url + "shop/insertShop.json",
     			type : "POST",
     			data : params,
     			success : function(data){
-// 					console.log(data);
+					console.log("::insertContents::",data);
 					if(data.result == true){
-						alert('게시물을 성공적으로 게시하였습니다.');
-						location.href = sessionStorage.getItem('category').toLowerCase();
+						alert('상품을 성공적으로 등록하였습니다.');
+						location.href = "onlineStore";
 					}
     			},
     			error : function(err){
@@ -156,14 +168,14 @@
     	};
     	function updateContents(params){
     		$.ajax({
-    			url : base_url + "contents/updateContents.json",
+    			url : base_url + "shop/updateShop.json",
     			type : "POST",
     			data : params,
     			success : function(data){
-// 					console.log(data);
+					console.log("::updateContents::",data);
 					if(data.result == true){
-						alert('게시물을 성공적으로 수정하였습니다.');
-						location.href = category.toLowerCase();
+						alert('상품정보를 성공적으로 수정하였습니다.');
+						location.href = "onlineStore";
 					}
     			},
     			error : function(err){
@@ -176,44 +188,45 @@
     	
     	function writeListener(){
     		$('#write_product .btn_wrap .btn_wp .submitBtn').off('click').on('click',function(){
-   			if( pageCode != null ){
-    			var params = {
-    					contents_id : pageCode,
-    					category : $('#write_product select').is(':selected',true).attr('name'),
+    		// update
+	   			if( shopId != null ){
+	    			var params = {
+    					shop_id : shopId,
     	    			title : $('#write_product [name="title"]').val(),
-    	    			brand : $('#write_product [name="brand"]').val(),
-    	    			price : $('#write_product [name="price"]').val(),
-    	    			code : $('#write_product [name="code"]').val(),
-    	    			size : $('#write_product [name="size"]').val(),
-    	    			qty : $('#write_product [name="qty"]').val(),
     	    			contents : CKEDITOR.instances.editor1.getData(),
-    	    			category_code : category,
-    	    			is_enable : 'Y'		
-    			};
-   				updateContents(params);
-   			}else{
-   				var params = {
-    					user_id : sessionStorage.getItem('user_id'),
-//     	    			category_code : sessionStorage.getItem('category'),
-    	    			category : $('#write_product select option:selected').attr('name'),
-    	    			title : $('#write_product [name="title"] ').val(),
-    	    			brand : $('#write_product [name="brand"]').val(),
     	    			price : $('#write_product [name="price"]').val(),
-    	    			code : $('#write_product [name="code"]').val(),
+    	    			is_enable : 'Y',		
+    					category_code : $('#write_product select option:selected').attr('name'),
+    					point : $('#write_product [name="point"]').val(),
+    					user_id : "4",
     	    			size : $('#write_product [name="size"]').val(),
-    	    			qty : $('#write_product [name="qty"]').val(),
+    	    			stock : $('#write_product [name="qty"]').val(),
+    	    			brand : $('#write_product [name="brand"]').val()
+	    			};
+	    			updateContents(params);
+	   			// write
+	   			}else{
+	   				var params = {
+   						title : $('#write_product [name="title"]').val(),
     	    			contents : CKEDITOR.instances.editor1.getData(),
-    	    			is_enable : 'Y'		
-    			};
-   				console.log(params)
-   				insertContents(params);
-   			}
+    	    			price : $('#write_product [name="price"]').val(),
+    	    			is_enable : 'Y',		
+    	    			category_code : $('#write_product select option:selected').attr('name'),
+    					point : $('#write_product [name="point"]').val(),
+    					user_id : "4",
+    	    			size : $('#write_product [name="size"]').val(),
+    	    			stock : $('#write_product [name="qty"]').val(),
+    	    			brand : $('#write_product [name="brand"]').val()	
+	    			};
+// 	   				console.log(params)
+	   				insertContents(params);
+	   			}
     			
     			
     		});
     		
     		$('#write_product .btn_wrap .btn_wp .cancelBtn').off('click').on('click',function(){
-    			location.href = category.toLowerCase();
+    			location.href = "onlineStore";
     		});
     	}
 		

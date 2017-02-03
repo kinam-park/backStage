@@ -54,17 +54,17 @@
     			$('#storeDetailPage .btn_wrap').removeClass('hide');
     		}
     		
-//     		name = location.href.split('#')[1];
-//     		getContents(name);
+    		shopId = location.href.split('#')[1];
+    		getContents(shopId);
     	});
     	
-    	function getContents(name){
+    	function getContents(code){
     		$.ajax({
-				url : base_url + "contents/getContents.json",
+				url : base_url + "shop/getShop.json",
 				type : "POST",
-				data : {contents_id:name},
+				data : {shop_id:code},
 				success : function(data){
-					console.log(data);
+					console.log("::getContents::",data);
 					drawContents(data.result);
 				},
 				error : function(err){
@@ -76,12 +76,16 @@
     	
     	function deleteContents(code){
     		$.ajax({
-				url : base_url + "contents/deleteContents.json",
+				url : base_url + "shop/deleteShop.json",
 				type : "POST",
-				data : {contents_id:name},
+				data : {shop_id:code},
 				success : function(data){
 					console.log(data);
-					history.back();
+					if(data.result == true){
+						history.back();
+					}else{
+						alert("다시 시도하여주십시오.");
+					}
 				},
 				error : function(err){
 					console.log("error");
@@ -91,9 +95,12 @@
     	}
     	
     	function drawContents(data){
-    		$('#storeDetailPage .category').html(data.category_code);
-//     		$('#storeDetailPage .title').html(data.title);
-//     		$('#storeDetailPage .created_date').html(data.created_date);
+    		$('#storeDetailPage .detailImgs_wp').css('background-image','url('+data.main_img+')');
+    		$('#storeDetailPage .title_wp').html(data.title);
+    		$('#storeDetailPage .brand_wp').html("BRAND : "+data.brand);
+    		$('#storeDetailPage .price_wp').html("PRICE : "+splitNum(data.price) + "원");
+    		$('#storeDetailPage .code_wp').html("CODE : "+data.shop_id);
+    		$('#storeDetailPage .size_wp').html("SIZE : "+data.size);
     		$('#storeDetailPage .content_wrap').append(data.contents);
     		storeDetailPageListener();
     	}
@@ -102,14 +109,14 @@
     		$('#storeDetailPage .deleteBtn').off('click').on('click',function(){
     			var checkDelete = confirm('해당 컨텐츠를 삭제하시겠습니까?');
     			if(checkDelete == true){
-    				deleteContents(name);
+    				deleteContents(shopId);
     			}
     		});
     		
     		$('#storeDetailPage .updateBtn').off('click').on('click',function(){
     			var checkDelete = confirm('해당 컨텐츠를 수정하시겠습니까?');
     			if(checkDelete == true){
-    				location.href = 'write#'+name;
+    				location.href = 'writeProduct#'+shopId;
     			}
     		});
     	}

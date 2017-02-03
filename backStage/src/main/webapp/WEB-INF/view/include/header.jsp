@@ -159,5 +159,13 @@
 		
 	};
 	
+	function splitNum(data){
+		if(data != null){
+			return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		}else{
+			return 0
+		}
+	}
+	
 	
 	</script>

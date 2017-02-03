@@ -42,7 +42,7 @@
 						<div class="wp helmet cp" name="helmet">HELMET</div>
 						<div class="wp light cp" name="light">LIGHT</div>
 						<div class="wp tool cp" name="tool">TOOL</div>
-						<div class="wp headset cp" name="headset">ACC</div>
+						<div class="wp acc cp" name="acc">ACC</div>
 						
 						<div class="wp customorder cp" name="customorder">CUSTOM ORDER</div>
 					</div>
@@ -250,36 +250,65 @@
 	
     <script>
 	$(function(){
+// 		$('.grid').masonry({
+// 			  itemSelector: '.grid-item',
+// 			  gutter:20,
+// 			  isFitWidth: true
+// 		});
+		
+		storeListener();
+	});
+	
+	function getStoreData(code){
+		console.log("::getStoreData::",code);
+		$.ajax({
+			url : base_url + "shop/getShopList.json",
+			type : "POST",
+			data : {category_code:code},
+			success : function(data){
+				console.log("::getStoreData::",data);
+				drawContent(data.result);
+			},
+			error : function(err){
+				console.log("error");
+				console.log(err);
+			}
+		});
+		
+	}
+	
+	function drawContent(data){
+		$('#online_store .online_store_area .store_wrap').empty();
+		for(var i=0; i<data.length; i++){
+			var html = tempContent(data[i],i);
+			$('#online_store .online_store_area .store_wrap').append(html);
+		}
+		
 		$('.grid').masonry({
 			  itemSelector: '.grid-item',
 			  gutter:20,
 			  isFitWidth: true
 		});
-		
 		storeListener();
-	});
-	
-	function getStoreData(parts){
-		switch(parts){
-			case "test":
-					
-			break;
-			default:
-			break;
-		}
 	}
 	
-	function drawContent(data){
-		for(var i=0; i<data.length; i++){
-			tempContent(data[i]);
-		}
-	}
-	
-	function tempContent(data){
+	function tempContent(data,i){
+		var no = i%4;
+		
     	var html = '';
-
-		html += '<div class="grid-item grid-item--height1">';
-		html += '	<div class="img fl"></div>';
+    	if(no == 0){
+    		html += '<div class="grid-item grid-item--height cp" name="'+data.shop_id+'">';
+    	}else{
+			html += '<div class="grid-item grid-item--height cp'+(no+1)+'" name="'+data.shop_id+'"">';
+    	}
+		if(data.main_img != null){
+// 			html += '	<div class="img fl" style="background-image:url('+data.main_img+');"></div>';
+			html += '	<div class="img fl">';
+			html += '		<img src='+data.main_img+'>';
+			html += '	</div>';
+		}else{
+			html += '	<div class="img fl" style="background-image:url(/backStage/resources/images/bg_default.png);"></div>';
+		}
 		html += '	<div class="store_wp fl">';
 		html += '  		<div class="wp tag ">';
 		html += '			<div class="wp_tag tag_new fl"></div>';
@@ -288,13 +317,12 @@
 		html += '			<div class="clear"></div>';
 		html += '  		</div>';
 		html += '		<div class="wp title ">'+data.title+'</div>';
-		html += '		<div class="wp price ">'+data.price+'</div>';
+		html += '		<div class="wp price ">₩ '+splitNum(data.price)+'</div>';
 		html += '	</div>';
 		html += '	<div class="clear"></div>';
 		html += '</div>';
-		
     	return html;
- }
+ 	}
 	
 	function storeListener(){
 		
@@ -308,10 +336,17 @@
 				currPage = location.href;
 			}
 			location.href = currPage+"#"+categoryTab;
+			getStoreData(categoryTab);
+		});
+		
+		$('#online_store .online_store_area .store_wrap .grid-item').off('click').on('click',function(){
+			var shopId = $(this).attr('name');
+			console.log("::shopId::",shopId);
+			location.href = 'storeDetailPage#'+shopId;
 		});
 		
 		$('#online_store .write').off('click').on('click',function(){
-			
+			location.href = 'writeProduct';
 		});
 		
 		
