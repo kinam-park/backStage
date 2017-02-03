@@ -89,6 +89,7 @@ public class ShopController {
 	
 	/***
 	 * 컨텐츠 수정
+	 * #{shop_id} : 물품 아이디
 	 * #{title} : 제목
 	 * #{contents} : 컨텐츠
 	 * #{price} : 가격
