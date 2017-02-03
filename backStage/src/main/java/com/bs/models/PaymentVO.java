@@ -13,13 +13,37 @@ public class PaymentVO{
 	private String recv_name;
 	private String status;
 	private String stock;
+	private String group_id;
 	
 	private String shop_id;
 	private String title;
 	private String main_img;
 	
+	private String cart_id;
+	private String total_price;
 	
 	
+	
+	
+	
+	public String getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(String cart_id) {
+		this.cart_id = cart_id;
+	}
+	public String getTotal_price() {
+		return total_price;
+	}
+	public void setTotal_price(String total_price) {
+		this.total_price = total_price;
+	}
+	public String getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
+	}
 	public String getStock() {
 		return stock;
 	}

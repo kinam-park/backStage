@@ -19,6 +19,12 @@ public class CartDao {
         return (List<CartVO>)sqlSession.selectList("com.bs.sql.cart.getCartList",cartVO);
     }	
 	
+	
+	public List<CartVO> getSelectedCartList(CartVO cartVO) {
+        return (List<CartVO>)sqlSession.selectList("com.bs.sql.cart.getSelectedCartList",cartVO);
+    }
+	
+	
 	public int insertCart(CartVO cartVO) {
         return sqlSession.insert("com.bs.sql.cart.insertCart",cartVO);
     }

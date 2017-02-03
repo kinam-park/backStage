@@ -7,6 +7,28 @@ public class CartVO{
 	private String stock;
 	private String price;
 	private String created_date;
+	
+	
+	
+	private String title;
+	private String main_img;
+	
+	
+	
+	
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getMain_img() {
+		return main_img;
+	}
+	public void setMain_img(String main_img) {
+		this.main_img = main_img;
+	}
 	public String getCart_id() {
 		return cart_id;
 	}
