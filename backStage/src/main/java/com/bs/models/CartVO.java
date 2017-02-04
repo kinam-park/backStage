@@ -12,11 +12,19 @@ public class CartVO{
 	
 	private String title;
 	private String main_img;
+	private String point;
 	
 	
 	
 	
 	
+	
+	public String getPoint() {
+		return point;
+	}
+	public void setPoint(String point) {
+		this.point = point;
+	}
 	public String getTitle() {
 		return title;
 	}

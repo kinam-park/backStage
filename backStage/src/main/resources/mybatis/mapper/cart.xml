@@ -14,6 +14,7 @@
 			,s.shop_id
 			,s.title
 			,s.main_img
+			,s.point
 		FROM CART c JOIN SHOP s ON c.SHOP_ID = s.SHOP_ID 
 	    WHERE 1=1
 	    	AND c.USER_ID = #{user_id}
