@@ -47,10 +47,10 @@
 			,SHOP_ID
 	    ) VALUES(
 			now()
-			,#{PRICE}
-			,#{USER_ID}
-			,#{STOCK}
-			,#{SHOP_ID}
+			,#{price}
+			,#{user_id}
+			,#{stock}
+			,#{shop_id}
 	    )
 	</insert>
 	
