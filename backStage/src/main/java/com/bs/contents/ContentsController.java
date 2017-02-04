@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bs.models.ContentsVO;
+import com.bs.models.PaymentVO;
+import com.bs.models.UserVO;
 
 
 
@@ -75,7 +77,14 @@ public class ContentsController {
 	@RequestMapping("/insertContents")
 	public ModelAndView insertContents(ContentsVO contentsVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = contentsService.insertContents(contentsVO);
+		
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = contentsService.insertContents(contentsVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
@@ -93,7 +102,13 @@ public class ContentsController {
 	@RequestMapping("/updateContents")
 	public ModelAndView updateContents(ContentsVO contentsVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = contentsService.updateContents(contentsVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = contentsService.updateContents(contentsVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
@@ -106,7 +121,13 @@ public class ContentsController {
 	@RequestMapping("/deleteContents")
 	public ModelAndView deleteContents(ContentsVO contentsVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = contentsService.deleteContents(contentsVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = contentsService.deleteContents(contentsVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	

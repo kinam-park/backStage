@@ -93,6 +93,15 @@ public class PaymentService{
 		return result;
 	}
 	
+	
+	
+	public List<PaymentVO> getPaymentListByStatus(PaymentVO paymentVO){
+		return paymentDao.getPaymentListByStatus(paymentVO);
+	}
+	
+	
+	
+	
 //	public boolean deletePayment(PaymentVO paymentVO){
 //		int cnt = paymentDao.deletePayment(paymentVO);
 //		boolean result = false;

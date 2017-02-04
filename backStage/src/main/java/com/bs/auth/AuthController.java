@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bs.models.PaymentVO;
 import com.bs.models.UserVO;
 
 
@@ -36,12 +37,18 @@ public class AuthController {
 	
 	
 	/***
-	 * 유저 리스트 가져옴.. 관리자 페이지에서 사용할듯 해서 그냥 만들어둠.
+	 * 유저 리스트(관리자용) 가져옴.. 관리자 페이지에서 사용할듯 해서 그냥 만들어둠.
 	 ***/
 	@RequestMapping("/getUserInfo")
 	public ModelAndView getUserInfo(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		List<UserVO> result = authService.getUserInfo(userVO);
+		
+		UserVO user1VO = (UserVO)session.getAttribute("userInfo");
+		List<UserVO> result = null;		
+		if(user1VO != null && user1VO.getLevel().equals("admin")){
+			result = authService.getUserInfo(user1VO);
+		}		
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
@@ -122,21 +129,33 @@ public class AuthController {
 	@RequestMapping("/updateUser")
 	public ModelAndView updateUser(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = authService.updateUser(userVO);
+		
+		UserVO user1VO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(user1VO != null && user1VO.getUser_id().equals(userVO.getUser_id())){
+			result = authService.updateUser(userVO);
+		}		
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
 	}
 	
 	/***
-	 * 회원 정보 삭제
+	 * 회원 정보 삭제(어드민만)
 	 * #{user_id}      : 삭제할 회원 아이디      
 	 * 
 	 ***/
 	@RequestMapping("/deleteUser")
 	public ModelAndView deleteUser(UserVO userVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = authService.deleteUser(userVO);
+		
+		UserVO user1VO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(user1VO != null && user1VO.getLevel().equals("admin")){
+			result = authService.deleteUser(userVO);
+		}	
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bs.models.ShopVO;
+import com.bs.models.UserVO;
 
 
 
@@ -80,7 +81,13 @@ public class ShopController {
 	@RequestMapping("/insertShop")
 	public ModelAndView insertShop(ShopVO shopVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = shopService.insertShop(shopVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = shopService.insertShop(shopVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
@@ -104,7 +111,13 @@ public class ShopController {
 	@RequestMapping("/updateShop")
 	public ModelAndView updateShop(ShopVO shopVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = shopService.updateShop(shopVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = shopService.updateShop(shopVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
@@ -117,7 +130,13 @@ public class ShopController {
 	@RequestMapping("/deleteShop")
 	public ModelAndView deleteShop(ShopVO shopVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = shopService.deleteShop(shopVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			result = shopService.deleteShop(shopVO);
+		}
+		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	

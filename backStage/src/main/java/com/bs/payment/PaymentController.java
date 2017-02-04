@@ -88,11 +88,41 @@ public class PaymentController {
 	@RequestMapping("/updatePaymentStatus")
 	public ModelAndView updatePaymentStatus(PaymentVO paymentVO,HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		boolean result = paymentService.updatePaymentStatus(paymentVO);
+		
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		boolean result = false;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			paymentVO.setUser_id(userVO.getUser_id());
+			result = paymentService.updatePaymentStatus(paymentVO);
+		}		
 		modelAndView.addObject("result",  result);
 		return modelAndView;
 	
 	}	
+	
+
+	/***
+	 * 관리자용 상태별 결제 리스트 보기
+	 * #{status} : 상태('입금대기','입금완료','배송준비중','배송중','배송완료')
+	 * 
+	 ***/
+	@RequestMapping("/getPaymentListByStatus")
+	public ModelAndView getPaymentListByStatus(PaymentVO paymentVO,HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView();
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		List<PaymentVO> result = null;		
+		if(userVO != null && userVO.getLevel().equals("admin")){
+			paymentVO.setUser_id(userVO.getUser_id());
+			result = paymentService.getPaymentListByStatus(paymentVO);
+		}		
+		modelAndView.addObject("result",  result);
+		return modelAndView;
+	
+	}
+	
+	
+	
+	
 	
 //	/***
 //	 * 컨텐츠 삭제
@@ -106,6 +136,11 @@ public class PaymentController {
 //		return modelAndView;
 //	
 //	}	
+	
+	
+	
+	
+	
 }
 
 

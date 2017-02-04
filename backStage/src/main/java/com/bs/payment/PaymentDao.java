@@ -29,6 +29,12 @@ public class PaymentDao {
         return sqlSession.update("com.bs.sql.payment.updatePaymentStatus",paymentVO);
     }
 	
+	public List<PaymentVO> getPaymentListByStatus(PaymentVO paymentVO) {
+        return (List<PaymentVO>)sqlSession.selectList("com.bs.sql.payment.getPaymentListByStatus",paymentVO);
+    }
+	
+	
+	
 //	public int deletePayment(PaymentVO paymentVO) {
 //        return sqlSession.delete("com.bs.sql.payment.deletePayment",paymentVO);
 //    }
