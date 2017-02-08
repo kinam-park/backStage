@@ -266,7 +266,7 @@
 			type : "POST",
 			data : {category_code:code},
 			success : function(data){
-				console.log("::getStoreData::",data);
+// 				console.log("::getStoreData::",data);
 				drawContent(data.result);
 			},
 			error : function(err){
@@ -341,7 +341,6 @@
 		
 		$('#online_store .online_store_area .store_wrap .grid-item').off('click').on('click',function(){
 			var shopId = $(this).attr('name');
-			console.log("::shopId::",shopId);
 			location.href = 'storeDetailPage#'+shopId;
 		});
 		

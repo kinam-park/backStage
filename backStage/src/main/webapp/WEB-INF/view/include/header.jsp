@@ -19,6 +19,8 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/join.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/storeDetailPage.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cartList.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/orderPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/font-awesome-4.6.3/css/font-awesome.min.css"><!-- fontawesome -->
 		
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
@@ -52,7 +54,7 @@
 					<div class="info_wp">
 						<div class="log_in wp fr cp">LOG-IN</div>
 						<div class="log_out wp fr cp hide">LOG-OUT</div>
-						<div class="shopping_cart wp fr">SHOPPING-CART</div>
+						<div class="shopping_cart wp fr cp">SHOPPING-CART</div>
 						<div class="my_page wp fr">MYPAGE</div>
 						<div class="user_info wp fr">Login 해주세요.</div>
 						<div class="clear"></div>
@@ -154,6 +156,10 @@
 			sessionStorage.clear();
 			alert('로그아웃되었습니다.');
 			location.href = 'main';
+		});
+		// go-cart
+		$('#header .shopping_cart').off('click').on('click',function(){
+			location.href = "cartList";
 		});
 		
 		

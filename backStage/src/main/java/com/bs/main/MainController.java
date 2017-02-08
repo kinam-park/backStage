@@ -94,5 +94,20 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/cartList")
+	public ModelAndView cartList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/cartList");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("/orderPage")
+	public ModelAndView orderPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/orderPage");
+		return modelAndView;
+	}
+	
 	
 }
