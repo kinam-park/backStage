@@ -168,7 +168,7 @@
 			$('#cart .buy_btn').off('click').on('click',function(){
     			var cartId = '';
     			var cartList = $('#cart table tbody').find('tr');
-    			console.log(cartList[0].attributes[0].nodeValue);
+//     			console.log(cartList[0].attributes[0].nodeValue);
     			for(var i=0; i<cartList.length; i++){
     				if(i == 0){
 	    				cartId += cartList[i].attributes[0].nodeValue;

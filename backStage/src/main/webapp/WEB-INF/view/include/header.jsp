@@ -17,11 +17,15 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/location.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/join.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myInfo.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/storeDetailPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cartList.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/orderPage.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/font-awesome-4.6.3/css/font-awesome.min.css"><!-- fontawesome -->
+<%-- 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/payment/common.css"> --%>
+<%-- 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/payment/import.css"> --%>
+<%-- 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/payment/layout.css"> --%>
 		
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
@@ -55,7 +59,7 @@
 						<div class="log_in wp fr cp">LOG-IN</div>
 						<div class="log_out wp fr cp hide">LOG-OUT</div>
 						<div class="shopping_cart wp fr cp">SHOPPING-CART</div>
-						<div class="my_page wp fr">MYPAGE</div>
+						<div class="my_page wp cp fr">MYPAGE</div>
 						<div class="user_info wp fr">Login 해주세요.</div>
 						<div class="clear"></div>
 					</div>
@@ -87,6 +91,13 @@
 	<script>
 	$(function(){
 		window.base_url = "${pageContext.request.contextPath}"+"/";
+		
+		var userId = "<%= (String)session.getAttribute("userId") %>";
+		if(!userId && location.href.split("page/")[1] != "login"){
+			sessionStorage.clear();
+			$('#header .user_info').html('Login 해주세요.');
+			alert("LogOut 되었습니다.");
+		}
 		
 		var loc = location.href.split("page/")[1];
 		$('#header .main_menu_area .menu_wrap .menu[menu='+loc+']').addClass('active');
@@ -147,6 +158,10 @@
 		$('.main_logo').off('click').on('click',function(){
 			location.href = 'main';
 		});
+		// mypage
+		$('#header .my_page').off('click').on('click',function(){
+			location.href = 'myPage';
+		});
 		// login
 		$('#header .log_in').off('click').on('click',function(){
 			location.href = 'login';
@@ -165,6 +180,14 @@
 		
 	};
 	
+	function initMasonry(name){
+		$(name).masonry({
+			  itemSelector: '.grid-item',
+			  gutter:20,
+			  isFitWidth: true
+		});
+	}
+	
 	function splitNum(data){
 		if(data != null){
 			return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -172,6 +195,9 @@
 			return 0
 		}
 	}
-	
+	function nowDate(){
+		var date = new Date();
+		return date.getFullYear() + (date.getMonth()+1) + date.getDate() + date.getHours() + date.getMinutes() + date.getSeconds();
+	}	
 	
 	</script>

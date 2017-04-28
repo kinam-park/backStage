@@ -1,0 +1,348 @@
+[09:27:16] INFO <0001> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:27:16] INFO actionType : PY0
+[09:27:16] INFO GENERATE TID : nictest00m03011607180927167524
+[09:27:16] INFO <0001> 전문 type :: 승인 요청
+[09:27:16] INFO <0001> 파라메터 체크 :: 정상
+[09:27:16] INFO <0001> 전문 생성 :: 정상
+[09:27:17] INFO <0001> PGWEB 통신 :: 정상
+[09:27:17] INFO <0001> 수신 전문 처리 :: 정상
+[09:27:17] INFO <0001> TID : nictest00m03011607180927167524
+[09:27:17] INFO <0001> RESULT : [4100] 가상계좌 발급 성공
+[09:27:17] INFO <0001> End NicePay
+[09:42:47] INFO <0002> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:42:47] INFO actionType : PY0
+[09:42:47] INFO GENERATE TID : null00011607180942476314
+[09:42:47] INFO <0002> 전문 type :: 승인 요청
+[09:42:47] INFO <0002> 파라메터 체크 :: 정상
+[09:42:47]ERROR <0002> RESULT :: [JL20] 전문생성중 오류가 발생하였습니다.
+[09:43:57] INFO <0003> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:43:57] INFO actionType : CL0
+[09:43:57] INFO <0003> 전문 type :: 취소 요청
+[09:43:57] INFO <0003> 파라메터 체크 :: 정상
+[09:43:57] INFO <0003> 전문 생성 :: 정상
+[09:43:57] INFO <0003> PGWEB 통신 :: 정상
+[09:43:57] INFO <0003> 수신 전문 처리 :: 정상
+[09:43:57] INFO <0003> TID : nictest00m03011607180927167524
+[09:43:57] INFO <0003> RESULT : [2001] 취소 성공
+[09:43:57] INFO <0003> End NicePay
+[09:44:33] INFO <0004> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:44:33] INFO actionType : PY0
+[09:44:33] INFO GENERATE TID : nictest00m03011607180944332698
+[09:44:33] INFO <0004> 전문 type :: 승인 요청
+[09:44:33] INFO <0004> 파라메터 체크 :: 정상
+[09:44:33] INFO <0004> 전문 생성 :: 정상
+[09:44:34] INFO <0004> PGWEB 통신 :: 정상
+[09:44:34] INFO <0004> 수신 전문 처리 :: 정상
+[09:44:34] INFO <0004> TID : nictest00m03011607180944332698
+[09:44:34] INFO <0004> RESULT : [4100] 가상계좌 발급 성공
+[09:44:34] INFO <0004> End NicePay
+[09:45:32] INFO <0005> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:45:32] INFO actionType : CL0
+[09:45:32] INFO <0005> 전문 type :: 취소 요청
+[09:45:32] INFO <0005> 파라메터 체크 :: 정상
+[09:45:32] INFO <0005> 전문 생성 :: 정상
+[09:45:33] INFO <0005> PGWEB 통신 :: 정상
+[09:45:33] INFO <0005> 수신 전문 처리 :: 정상
+[09:45:33] INFO <0005> TID : null
+[09:45:33] INFO <0005> RESULT : [V201] 상점ID 미설정 오류입니다.
+[09:45:33] INFO <0005> End NicePay
+[09:48:13] INFO <0006> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:48:13] INFO actionType : CL0
+[09:48:13] INFO <0006> 전문 type :: 취소 요청
+[09:48:13] INFO <0006> 파라메터 체크 :: 정상
+[09:48:13] INFO <0006> 전문 생성 :: 정상
+[09:48:14] INFO <0006> PGWEB 통신 :: 정상
+[09:48:14] INFO <0006> 수신 전문 처리 :: 정상
+[09:48:14] INFO <0006> TID : nictest00m03011607180944332698
+[09:48:14] INFO <0006> RESULT : [2001] 취소 성공
+[09:48:14] INFO <0006> End NicePay
+[09:50:01] INFO <0007> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:50:01] INFO actionType : PY0
+[09:50:01] INFO GENERATE TID : nictest00m03011607180950016090
+[09:50:01] INFO <0007> 전문 type :: 승인 요청
+[09:50:01] INFO <0007> 파라메터 체크 :: 정상
+[09:50:01] INFO <0007> 전문 생성 :: 정상
+[09:50:01] INFO <0007> PGWEB 통신 :: 정상
+[09:50:01] INFO <0007> 수신 전문 처리 :: 정상
+[09:50:01] INFO <0007> TID : nictest00m03011607180950016090
+[09:50:01] INFO <0007> RESULT : [4100] 가상계좌 발급 성공
+[09:50:01] INFO <0007> End NicePay
+[09:50:10] INFO <0008> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:50:10] INFO actionType : CL0
+[09:50:10] INFO <0008> 전문 type :: 취소 요청
+[09:50:10] INFO <0008> 파라메터 체크 :: 정상
+[09:50:10] INFO <0008> 전문 생성 :: 정상
+[09:50:10] INFO <0008> PGWEB 통신 :: 정상
+[09:50:10] INFO <0008> 수신 전문 처리 :: 정상
+[09:50:10] INFO <0008> TID : nictest00m03011607180950016090
+[09:50:10] INFO <0008> RESULT : [2001] 취소 성공
+[09:50:10] INFO <0008> End NicePay
+[09:52:13] INFO <0009> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:52:13] INFO actionType : PY0
+[09:52:13] INFO GENERATE TID : nictest00m03011607180952138669
+[09:52:13] INFO <0009> 전문 type :: 승인 요청
+[09:52:13] INFO <0009> 파라메터 체크 :: 정상
+[09:52:13] INFO <0009> 전문 생성 :: 정상
+[09:52:14] INFO <0009> PGWEB 통신 :: 정상
+[09:52:14] INFO <0009> 수신 전문 처리 :: 정상
+[09:52:14] INFO <0009> TID : nictest00m03011607180952138669
+[09:52:14] INFO <0009> RESULT : [4100] 가상계좌 발급 성공
+[09:52:14] INFO <0009> End NicePay
+[09:52:25] INFO <0010> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:52:25] INFO actionType : CL0
+[09:52:25] INFO <0010> 전문 type :: 취소 요청
+[09:52:25] INFO <0010> 파라메터 체크 :: 정상
+[09:52:25] INFO <0010> 전문 생성 :: 정상
+[09:52:25] INFO <0010> PGWEB 통신 :: 정상
+[09:52:25] INFO <0010> 수신 전문 처리 :: 정상
+[09:52:25] INFO <0010> TID : nictest00m03011607180952138669
+[09:52:25] INFO <0010> RESULT : [2001] 취소 성공
+[09:52:25] INFO <0010> End NicePay
+[09:53:50] INFO <0011> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:53:50] INFO actionType : PY0
+[09:53:50] INFO GENERATE TID : nictest00m03011607180953503799
+[09:53:50] INFO <0011> 전문 type :: 승인 요청
+[09:53:50] INFO <0011> 파라메터 체크 :: 정상
+[09:53:50] INFO <0011> 전문 생성 :: 정상
+[09:53:51] INFO <0011> PGWEB 통신 :: 정상
+[09:53:51] INFO <0011> 수신 전문 처리 :: 정상
+[09:53:51] INFO <0011> TID : nictest00m03011607180953503799
+[09:53:51] INFO <0011> RESULT : [4100] 가상계좌 발급 성공
+[09:53:51] INFO <0011> End NicePay
+[09:53:59] INFO <0012> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:53:59] INFO actionType : CL0
+[09:53:59] INFO <0012> 전문 type :: 취소 요청
+[09:53:59] INFO <0012> 파라메터 체크 :: 정상
+[09:53:59] INFO <0012> 전문 생성 :: 정상
+[09:53:59] INFO <0012> PGWEB 통신 :: 정상
+[09:53:59] INFO <0012> 수신 전문 처리 :: 정상
+[09:53:59] INFO <0012> TID : nictest00m03011607180953503799
+[09:53:59] INFO <0012> RESULT : [2001] 취소 성공
+[09:53:59] INFO <0012> End NicePay
+[09:57:15] INFO <0013> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:57:15] INFO actionType : PY0
+[09:57:15] INFO GENERATE TID : nictest00m03011607180957156786
+[09:57:15] INFO <0013> 전문 type :: 승인 요청
+[09:57:15] INFO <0013> 파라메터 체크 :: 정상
+[09:57:15] INFO <0013> 전문 생성 :: 정상
+[09:57:16] INFO <0013> PGWEB 통신 :: 정상
+[09:57:16] INFO <0013> 수신 전문 처리 :: 정상
+[09:57:16] INFO <0013> TID : nictest00m03011607180957156786
+[09:57:16] INFO <0013> RESULT : [4100] 가상계좌 발급 성공
+[09:57:16] INFO <0013> End NicePay
+[09:57:30] INFO <0014> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:57:30] INFO actionType : CL0
+[09:57:30] INFO <0014> 전문 type :: 취소 요청
+[09:57:30] INFO <0014> 파라메터 체크 :: 정상
+[09:57:30] INFO <0014> 전문 생성 :: 정상
+[09:57:31] INFO <0014> PGWEB 통신 :: 정상
+[09:57:31] INFO <0014> 수신 전문 처리 :: 정상
+[09:57:31] INFO <0014> TID : nictest00m03011607180957156786
+[09:57:31] INFO <0014> RESULT : [2001] 취소 성공
+[09:57:31] INFO <0014> End NicePay
+[09:57:42] INFO <0015> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:57:42] INFO actionType : CL0
+[09:57:42] INFO <0015> 전문 type :: 취소 요청
+[09:57:42] INFO <0015> 파라메터 체크 :: 정상
+[09:57:42] INFO <0015> 전문 생성 :: 정상
+[09:57:43] INFO <0015> PGWEB 통신 :: 정상
+[09:57:43] INFO <0015> 수신 전문 처리 :: 정상
+[09:57:43] INFO <0015> TID : nictest00m03011607180957156786
+[09:57:43] INFO <0015> RESULT : [2015] 해당거래 취소실패(기취소성공) : 전화 문의(1661-0808)
+[09:57:43] INFO <0015> End NicePay
+[09:57:51] INFO <0016> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:57:51] INFO actionType : CL0
+[09:57:51] INFO <0016> 전문 type :: 취소 요청
+[09:57:51] INFO <0016> 파라메터 체크 :: 정상
+[09:57:51] INFO <0016> 전문 생성 :: 정상
+[09:57:51] INFO <0016> PGWEB 통신 :: 정상
+[09:57:51] INFO <0016> 수신 전문 처리 :: 정상
+[09:57:51] INFO <0016> TID : nictest00m03011607180957156786
+[09:57:51] INFO <0016> RESULT : [2015] 해당거래 취소실패(기취소성공) : 전화 문의(1661-0808)
+[09:57:51] INFO <0016> End NicePay
+[09:58:01] INFO <0017> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[09:58:01] INFO actionType : CL0
+[09:58:01] INFO <0017> 전문 type :: 취소 요청
+[09:58:01] INFO <0017> 파라메터 체크 :: 정상
+[09:58:01] INFO <0017> 전문 생성 :: 정상
+[09:58:01] INFO <0017> PGWEB 통신 :: 정상
+[09:58:01] INFO <0017> 수신 전문 처리 :: 정상
+[09:58:01] INFO <0017> TID : nictest00m03011607180957156786
+[09:58:01] INFO <0017> RESULT : [2015] 해당거래 취소실패(기취소성공) : 전화 문의(1661-0808)
+[09:58:01] INFO <0017> End NicePay
+[10:05:38] INFO <0018> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[10:05:38] INFO actionType : PY0
+[10:05:38] INFO GENERATE TID : nictest00m03011607181005388876
+[10:05:38] INFO <0018> 전문 type :: 승인 요청
+[10:05:38] INFO <0018> 파라메터 체크 :: 정상
+[10:05:38] INFO <0018> 전문 생성 :: 정상
+[10:05:38] INFO <0018> PGWEB 통신 :: 정상
+[10:05:38] INFO <0018> 수신 전문 처리 :: 정상
+[10:05:38] INFO <0018> TID : nictest00m03011607181005388876
+[10:05:38] INFO <0018> RESULT : [4100] 가상계좌 발급 성공
+[10:05:38] INFO <0018> End NicePay
+[10:05:46] INFO <0019> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[10:05:46] INFO actionType : CL0
+[10:05:46] INFO <0019> 전문 type :: 취소 요청
+[10:05:46] INFO <0019> 파라메터 체크 :: 정상
+[10:05:46] INFO <0019> 전문 생성 :: 정상
+[10:05:46] INFO <0019> PGWEB 통신 :: 정상
+[10:05:46] INFO <0019> 수신 전문 처리 :: 정상
+[10:05:46] INFO <0019> TID : nictest00m03011607181005388876
+[10:05:46] INFO <0019> RESULT : [2001] 취소 성공
+[10:05:46] INFO <0019> End NicePay
+[10:06:50] INFO <0020> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[10:06:50] INFO actionType : PY0
+[10:06:50] INFO GENERATE TID : nictest00m03011607181006508284
+[10:06:50] INFO <0020> 전문 type :: 승인 요청
+[10:06:50] INFO <0020> 파라메터 체크 :: 정상
+[10:06:50] INFO <0020> 전문 생성 :: 정상
+[10:06:51] INFO <0020> PGWEB 통신 :: 정상
+[10:06:51] INFO <0020> 수신 전문 처리 :: 정상
+[10:06:51] INFO <0020> TID : nictest00m03011607181006508284
+[10:06:51] INFO <0020> RESULT : [4100] 가상계좌 발급 성공
+[10:06:51] INFO <0020> End NicePay
+[10:08:17] INFO <0021> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[10:08:17] INFO actionType : PY0
+[10:08:17] INFO GENERATE TID : nictest00m03011607181008178972
+[10:08:17] INFO <0021> 전문 type :: 승인 요청
+[10:08:17] INFO <0021> 파라메터 체크 :: 정상
+[10:08:17] INFO <0021> 전문 생성 :: 정상
+[10:08:18] INFO <0021> PGWEB 통신 :: 정상
+[10:08:18] INFO <0021> 수신 전문 처리 :: 정상
+[10:08:18] INFO <0021> TID : nictest00m03011607181008178972
+[10:08:18] INFO <0021> RESULT : [4100] 가상계좌 발급 성공
+[10:08:18] INFO <0021> End NicePay
+[14:07:12] INFO <0001> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:07:12] INFO actionType : PY0
+[14:07:12] INFO GENERATE TID : nictest00m03011607181407120699
+[14:07:12] INFO <0001> 전문 type :: 승인 요청
+[14:07:12] INFO <0001> 파라메터 체크 :: 정상
+[14:07:12] INFO <0001> 전문 생성 :: 정상
+[14:07:13] INFO <0001> PGWEB 통신 :: 정상
+[14:07:13] INFO <0001> 수신 전문 처리 :: 정상
+[14:07:13] INFO <0001> TID : nictest00m03011607181407120699
+[14:07:13] INFO <0001> RESULT : [4100] 가상계좌 발급 성공
+[14:07:13] INFO <0001> End NicePay
+[14:07:58] INFO <0002> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:07:58] INFO actionType : PY0
+[14:07:58] INFO GENERATE TID : nictest00m03011607181407585984
+[14:07:58] INFO <0002> 전문 type :: 승인 요청
+[14:07:58] INFO <0002> 파라메터 체크 :: 정상
+[14:07:59] INFO <0002> 전문 생성 :: 정상
+[14:07:59] INFO <0002> PGWEB 통신 :: 정상
+[14:07:59] INFO <0002> 수신 전문 처리 :: 정상
+[14:07:59] INFO <0002> TID : nictest00m03011607181407585984
+[14:07:59] INFO <0002> RESULT : [4100] 가상계좌 발급 성공
+[14:07:59] INFO <0002> End NicePay
+[14:10:57] INFO <0003> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:10:57] INFO actionType : PY0
+[14:10:57] INFO GENERATE TID : nictest00m01011607181410574014
+[14:10:57] INFO <0003> 전문 type :: 승인 요청
+[14:10:57] INFO <0003> 파라메터 체크 :: 정상
+[14:10:57] INFO <0003> 전문 생성 :: 정상
+[14:10:58] INFO <0003> PGWEB 통신 :: 정상
+[14:10:58] INFO <0003> 수신 전문 처리 :: 정상
+[14:10:58] INFO <0003> TID : nictest00m01011607181410574014
+[14:10:58] INFO <0003> RESULT : [3001] 카드 결제 성공
+[14:10:58] INFO <0003> End NicePay
+[14:11:09] INFO <0004> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:11:09] INFO actionType : CL0
+[14:11:09] INFO <0004> 전문 type :: 취소 요청
+[14:11:09] INFO <0004> 파라메터 체크 :: 정상
+[14:11:09] INFO <0004> 전문 생성 :: 정상
+[14:11:10] INFO <0004> PGWEB 통신 :: 정상
+[14:11:10] INFO <0004> 수신 전문 처리 :: 정상
+[14:11:10] INFO <0004> TID : nictest00m01011607181410574014
+[14:11:10] INFO <0004> RESULT : [2001] 취소 성공
+[14:11:10] INFO <0004> End NicePay
+[14:12:35] INFO <0005> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:12:35] INFO actionType : PY0
+[14:12:35] INFO GENERATE TID : nictest00m01011607181412357378
+[14:12:35] INFO <0005> 전문 type :: 승인 요청
+[14:12:35] INFO <0005> 파라메터 체크 :: 정상
+[14:12:35] INFO <0005> 전문 생성 :: 정상
+[14:12:36] INFO <0005> PGWEB 통신 :: 정상
+[14:12:36] INFO <0005> 수신 전문 처리 :: 정상
+[14:12:36] INFO <0005> TID : nictest00m01011607181412357378
+[14:12:36] INFO <0005> RESULT : [3001] 카드 결제 성공
+[14:12:36] INFO <0005> End NicePay
+[14:12:44] INFO <0006> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:12:44] INFO actionType : CL0
+[14:12:44] INFO <0006> 전문 type :: 취소 요청
+[14:12:44] INFO <0006> 파라메터 체크 :: 정상
+[14:12:44]ERROR <0006> RESULT :: [JL20] 전문생성중 오류가 발생하였습니다.
+[14:12:50] INFO <0007> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:12:50] INFO actionType : CL0
+[14:12:50] INFO <0007> 전문 type :: 취소 요청
+[14:12:50] INFO <0007> 파라메터 체크 :: 정상
+[14:12:50] INFO <0007> 전문 생성 :: 정상
+[14:12:51] INFO <0007> PGWEB 통신 :: 정상
+[14:12:51] INFO <0007> 수신 전문 처리 :: 정상
+[14:12:51] INFO <0007> TID : nictest00m01011607181412357378
+[14:12:51] INFO <0007> RESULT : [2001] 취소 성공
+[14:12:51] INFO <0007> End NicePay
+[14:13:25] INFO <0008> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:13:25] INFO actionType : PY0
+[14:13:25] INFO GENERATE TID : nictest00m01011607181413259814
+[14:13:25] INFO <0008> 전문 type :: 승인 요청
+[14:13:25] INFO <0008> 파라메터 체크 :: 정상
+[14:13:25] INFO <0008> 전문 생성 :: 정상
+[14:13:26] INFO <0008> PGWEB 통신 :: 정상
+[14:13:26] INFO <0008> 수신 전문 처리 :: 정상
+[14:13:26] INFO <0008> TID : nictest00m01011607181413259814
+[14:13:26] INFO <0008> RESULT : [3001] 카드 결제 성공
+[14:13:26] INFO <0008> End NicePay
+[14:13:29] INFO <0009> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:13:29] INFO actionType : PY0
+[14:13:29] INFO GENERATE TID : nictest00m01011607181413290200
+[14:13:29] INFO <0009> 전문 type :: 승인 요청
+[14:13:29] INFO <0009> 파라메터 체크 :: 정상
+[14:13:29] INFO <0009> 전문 생성 :: 정상
+[14:13:29] INFO <0009> PGWEB 통신 :: 정상
+[14:13:29] INFO <0009> 수신 전문 처리 :: 정상
+[14:13:29] INFO <0009> TID : nictest00m01011607181413290200
+[14:13:29] INFO <0009> RESULT : [3001] 카드 결제 성공
+[14:13:29] INFO <0009> End NicePay
+[14:13:36] INFO <0010> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:13:36] INFO actionType : CL0
+[14:13:36] INFO <0010> 전문 type :: 취소 요청
+[14:13:36] INFO <0010> 파라메터 체크 :: 정상
+[14:13:36] INFO <0010> 전문 생성 :: 정상
+[14:13:37] INFO <0010> PGWEB 통신 :: 정상
+[14:13:37] INFO <0010> 수신 전문 처리 :: 정상
+[14:13:37] INFO <0010> TID : nictest00m01011607181413259814
+[14:13:37] INFO <0010> RESULT : [2001] 취소 성공
+[14:13:37] INFO <0010> End NicePay
+[14:14:21] INFO <0011> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:14:21] INFO actionType : PY0
+[14:14:21] INFO GENERATE TID : nictest00m01011607181414210394
+[14:14:21] INFO <0011> 전문 type :: 승인 요청
+[14:14:21] INFO <0011> 파라메터 체크 :: 정상
+[14:14:21] INFO <0011> 전문 생성 :: 정상
+[14:14:22] INFO <0011> PGWEB 통신 :: 정상
+[14:14:22] INFO <0011> 수신 전문 처리 :: 정상
+[14:14:22] INFO <0011> TID : nictest00m01011607181414210394
+[14:14:22] INFO <0011> RESULT : [3001] 카드 결제 성공
+[14:14:22] INFO <0011> End NicePay
+[14:14:28] INFO <0012> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:14:28] INFO actionType : PY0
+[14:14:28] INFO GENERATE TID : nictest00m01011607181414285781
+[14:14:28] INFO <0012> 전문 type :: 승인 요청
+[14:14:28] INFO <0012> 파라메터 체크 :: 정상
+[14:14:28] INFO <0012> 전문 생성 :: 정상
+[14:14:29] INFO <0012> PGWEB 통신 :: 정상
+[14:14:29] INFO <0012> 수신 전문 처리 :: 정상
+[14:14:29] INFO <0012> TID : nictest00m01011607181414285781
+[14:14:29] INFO <0012> RESULT : [3001] 카드 결제 성공
+[14:14:29] INFO <0012> End NicePay
+[14:14:32] INFO <0013> Start NicePay ( VERSION : ver_nicepayJL_20130910_01 ) 
+[14:14:32] INFO actionType : CL0
+[14:14:32] INFO <0013> 전문 type :: 취소 요청
+[14:14:32] INFO <0013> 파라메터 체크 :: 정상
+[14:14:32] INFO <0013> 전문 생성 :: 정상
+[14:14:33] INFO <0013> PGWEB 통신 :: 정상
+[14:14:33] INFO <0013> 수신 전문 처리 :: 정상
+[14:14:33] INFO <0013> TID : nictest00m01011607181414210394
+[14:14:33] INFO <0013> RESULT : [2001] 취소 성공
+[14:14:33] INFO <0013> End NicePay

@@ -55,7 +55,7 @@
 <!-- 				</div> -->
 			</div><!-- side menu end -->
 			
-			<!-- side menu start -->
+			<!-- store start -->
 			<div class="online_store_area fl">
 				<div class="navi_wrap">
 					<div class="wp navi_wp">
@@ -240,7 +240,7 @@
 				  </div>
 				</div>
 				
-			</div><!-- side menu end -->
+			</div><!-- store end -->
 			
 			<div class="clear"></div>
 		</div>

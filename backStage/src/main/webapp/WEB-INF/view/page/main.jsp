@@ -103,12 +103,9 @@
     <script>
 		 $(function(){
 			
-			
 			getCollectionContents();
 			getNewsContents();
 			mainListener();
-			
-			
 			
 		 });
 		 
@@ -118,8 +115,8 @@
 					type : "POST",
 					data : {category_code:"COLLECTION"},
 					success : function(data){
-// 						console.log(data);
-						drawCollectionContents(data.result);
+// 						console.log("::getCollectionContents::",data);
+						$.when(drawCollectionContents(data.result)).then(initMasonry(".grid_collection"));
 					},
 					error : function(err){
 						console.log("error");
@@ -134,8 +131,8 @@
 				type : "POST",
 				data : {category_code:"NEWS"},
 				success : function(data){
-// 					console.log(data);
-					drawNewsContents(data.result);
+// 					console.log("::getNewsContents::",data);
+					$.when(drawNewsContents(data.result)).then(initMasonry(".grid_news"));
 				},
 				error : function(err){
 					console.log("error");
@@ -152,11 +149,6 @@
 					var html = tempCollectionContents(data[i],i);
 		    		$('#main .main_collection .main_wrap .main_wp.grid_collection').append(html);
 	    	}
-			 $('.grid_collection').masonry({
-				  itemSelector: '.grid-item',
-				  gutter:20,
-				  isFitWidth: true
-			}); 
 		 }
 		 
 		 function drawNewsContents(data){
@@ -166,11 +158,6 @@
 					var html = tempNewsContents(data[i]);
 		    		$('#main .main_news .main_wrap .main_wp.grid_news').append(html);
 	    	}
-			 $('.grid_news').masonry({
-				  itemSelector: '.grid-item',
-				  gutter:20,
-				  isFitWidth: true
-			}); 
 		 }
 		 
 		 function tempCollectionContents(data,i){

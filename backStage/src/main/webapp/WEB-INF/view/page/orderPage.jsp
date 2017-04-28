@@ -44,6 +44,8 @@
 									<div class="fr">&nbsp+&nbsp</div>
 									<div class="order_price fr"></div>
 									<div class="fr">[상품구매금액]&nbsp</div>
+									<div class="order_cnt fr"></div>
+									<div class="fr">[총 개수]&nbsp</div>
 									<div class="clear"></div>
 								</td>
 							</tr>						
@@ -53,10 +55,111 @@
 				<div style="height:20px;"></div>
 				<div class="info_wrap user_info_wrap">
 					<div class="title bold">주문자 정보</div>
+					<div class="info_wp user_info_wp">
+						<table>
+							<thead>
+								<colgroup>
+									<col width="150">
+									<col width="150">
+									<col width="150">
+									<col width="150">
+								</colgroup>
+							</thead>
+							<tbody>
+								<tr>
+									<th>주문하시는 분</th>
+									<td><input class="order_name"/></td>
+								</tr>
+								<tr>
+									<th rowspan="3">주소</th>
+									<td>
+										<input class="order_zip" placeholder="우편번호" />
+									</td>
+									<td>
+										<input type="text" class="search_zip cp bold" readonly value="우편번호" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input class="order_addr1" placeholder="기본주소" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input class="order_addr2" placeholder="나머지 주소" />
+									</td>
+								</tr>
+								<tr>
+									<th>휴대전화</th>
+									<td><input class="order_phone" placeholder="휴대전화" /></td>
+								</tr>
+								<tr>
+									<th>E-MAIL</th>
+									<td><input class="order_email" placeholder="E-MAIL" /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 				<div style="height:20px;"></div>
 				<div class="info_wrap delivery_info_wrap">
 					<div class="title bold">배송지 정보</div>
+					<div class="info_wp delivery_info_wp">
+						<table>
+							<thead>
+								<colgroup>
+									<col width="150">
+									<col width="150">
+									<col width="150">
+									<col width="150">
+								</colgroup>
+							</thead>
+							<tbody>
+								<tr>
+									<th>배송지 선택</th>
+									<td class="delivery_wp">
+										<input class="delivery_btn user" type="radio"/>
+										<label class="delivery_btn2 user" >주문자와 동일</label>
+									</td>
+									<td class="delivery_wp new">
+										<input class="delivery_btn new" type="radio"/>
+										<label class="delivery_btn2 new" >새로운 배송지</label>
+									</td>
+								</tr>
+								<tr class="new">
+									<th>받으시는 분</th>
+									<td><input class="order_name"/></td>
+								</tr>
+								<tr class="new">
+									<th rowspan="3">주소</th>
+									<td>
+										<input class="order_zip" placeholder="우편번호" />
+									</td>
+									<td>
+										<input type="text" class="search_zip cp bold" readonly value="우편번호" />
+									</td>
+								</tr>
+								<tr class="new">
+									<td colspan="2">
+										<input class="order_addr1" placeholder="기본주소" />
+									</td>
+								</tr>
+								<tr class="new">
+									<td colspan="2">
+										<input class="order_addr2" placeholder="나머지 주소" />
+									</td>
+								</tr>
+								<tr class="new">
+									<th>휴대전화</th>
+									<td><input class="order_phone" placeholder="휴대전화" /></td>
+								</tr>
+								<tr class="new">
+									<th>E-MAIL</th>
+									<td><input class="order_email" placeholder="E-MAIL" /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 				<div class="btn_wrap">
 					<div class="btn_style buy_btn cp">BUY NOW</div>
@@ -71,9 +174,10 @@
     	$(function(){
     		getCartList();
     		getUserInfo();
-//     		orderListener();
+    		orderListener();
     	});
     	
+    	// cart List
     	function getCartList(){
     		$.ajax({
 				url : base_url + "cart/getCartList.json",
@@ -81,21 +185,7 @@
 				success : function(data){
 					console.log("::getCartList::",data);
 					drawCartList(data.result);
-				},
-				error : function(err){
-					console.log("error");
-					console.log(err);
-				}
-			});
-    	}
-    	
-    	function getUserInfo(){
-    		$.ajax({
-				url : base_url + "auth/getMyInfo.json",
-				type : "POST",
-				success : function(data){
-					console.log("::getUserInfo::",data);
-// 					drawCartList(data.result);
+// 					orderListener();
 				},
 				error : function(err){
 					console.log("error");
@@ -106,16 +196,32 @@
     	
     	function drawCartList(data){
     		$('#order .order_area .order_wrap table tbody').empty();
-    		var totalPrice=0; 
+    		orderPrice=0; 
+    		totalPrice=0;
+    		totalCnt=0;
+    		goodsName="";
+    		moid = "";
     		for(var i=0; i<data.length; i++){
     			var html = tempCartList(data[i]);
     			$('#order .order_area .order_wrap table tbody').append(html);
-    			totalPrice += data[i].price*1*data[i].stock*1;
+    			orderPrice += data[i].price*1*data[i].stock*1;
+    			totalCnt += data[i].stock*1;
+    			
+    			if(i==0){
+	    			goodsName += data[i].title+"("+data[i].stock+")";
+	    			moid += data[i].user_id+data[i].cart_id;
+    			}else{
+    				goodsName += ","+data[i].title+"("+data[i].stock+")";
+    				moid += "-"+data[i].cart_id;
+    			}
     		}
-    		$('#order .order_price').html(splitNum(totalPrice)+"원");
-    		console.log($('#order .delivery_price').html().split("원"));
-    		$('#order .total_price').html( splitNum(totalPrice+$('#order .delivery_price').attr('price')*1) +"원");
-    		orderListener();
+    		
+    		totalPrice = orderPrice+$('#order .delivery_price').attr('price')*1;
+    		//order_cnt
+    		$('#order .order_cnt').html(splitNum(totalCnt)+"원");
+    		$('#order .order_price').html(splitNum(orderPrice)+"원");
+    		$('#order .total_price').html( splitNum(totalPrice) +"원");
+    		
     	}
     	
     	function tempCartList(data){
@@ -175,6 +281,31 @@
 			});
     	}
     	
+    	// user Info
+    	function getUserInfo(){
+    		$.ajax({
+				url : base_url + "auth/getMyInfo.json",
+				type : "POST",
+				success : function(data){
+					console.log("::getUserInfo::",data);
+					drawUserInfo(data.result);
+				},
+				error : function(err){
+					console.log("error");
+					console.log(err);
+				}
+			});
+    	}
+    	
+    	function drawUserInfo(data){
+    		$('#order .user_info_wrap .order_name').val(data.user_name);
+    		$('#order .user_info_wrap .order_zip').val(data.zipcode);
+    		$('#order .user_info_wrap .order_addr1').val(data.addr1);
+    		$('#order .user_info_wrap .order_addr2').val(data.addr2);
+    		$('#order .user_info_wrap .order_phone').val(data.phone);
+    		$('#order .user_info_wrap .order_email').val(data.email);
+    	}
+    	
     	function orderListener(){
     		$('#order .delete_btn').off('click').on('click',function(){
     			var code = $(this).parent().parent().attr("order_id");
@@ -189,8 +320,83 @@
     			updateCartItem(params);
     		});
     		
+    		$('#order .delivery_btn.user').off('click').on('click',function(){
+    			$('#order .delivery_btn.new').prop('checked',false);
+    			if($('#order .user_info_wrap .order_name').val() == ''){
+    				alert('신규 배송지로 입력해 주십시오.');
+    			}else{
+    				$('#order .delivery_info_wrap .order_name').val($('#order .user_info_wrap .order_name').val());
+    				$('#order .delivery_info_wrap .order_zip').val($('#order .user_info_wrap .order_zip').val());
+    				$('#order .delivery_info_wrap .order_addr1').val($('#order .user_info_wrap .order_addr1').val());
+    				$('#order .delivery_info_wrap .order_addr2').val($('#order .user_info_wrap .order_addr2').val());
+    				$('#order .delivery_info_wrap .order_phone').val($('#order .user_info_wrap .order_phone').val());
+    				$('#order .delivery_info_wrap .order_email').val($('#order .user_info_wrap .order_email').val());
+    			}
+    		});
+    		
+    		
+    		$('#order .delivery_btn.new').off('click').on('click',function(){
+    			$('#order .delivery_btn.user').prop('checked',false);
+    			$('#order .delivery_info_wrap .order_name').val('');
+    			$('#order .delivery_info_wrap .order_zip').val('');
+    			$('#order .delivery_info_wrap .order_addr1').val('');
+    			$('#order .delivery_info_wrap .order_addr2').val('');
+    			$('#order .delivery_info_wrap .order_phone').val('');
+    			$('#order .delivery_info_wrap .order_email').val('');
+    		});
+    		
+    		$('#order .delivery_info_wrap .delivery_info_wp table .new input').off('click').on('click',function(){
+    			$('#order .delivery_btn.user').prop('checked',false);
+    			$('#order .delivery_btn.new').prop('checked',true);
+    		});
+    		
+    		$('#order .user_info_wrap .search_zip').off('click').on('click',function(){
+    			$("#order .user_info_wrap .order_zip").val('');
+				$("#order .user_info_wrap .order_addr1").val('');
+				$("#order .user_info_wrap .order_addr2").val('');
+    			new daum.Postcode({
+    				oncomplete : function(data){
+						console.log("test::",data);
+    					$("#order .user_info_wrap .order_zip").val(data.zonecode);
+    					$("#order .user_info_wrap .order_addr1").val(data.roadAddress);
+    				}
+    			}).open();
+    		});
+    		
+    		$('#order .delivery_info_wrap .search_zip').off('click').on('click',function(){
+    			$("#order .delivery_info_wrap .order_zip").val('');
+				$("#order .delivery_info_wrap .order_addr1").val('');
+				$("#order .delivery_info_wrap .order_addr2").val('');
+    			new daum.Postcode({
+    				oncomplete : function(data){
+    					$("#order .delivery_info_wrap .order_zip").val(data.zonecode);
+    					$("#order .delivery_info_wrap .order_addr1").val(data.roadAddress);
+    				}
+    			}).open();
+    		});
+    		
 			$('#order .buy_btn').off('click').on('click',function(){
+    			var orderData = {};
+    			orderData['goodsCnt'] = totalCnt;
+    			orderData['goodsName'] = goodsName;
+    			orderData['price'] = totalPrice;
+    			orderData['buyerName'] = $('#order .delivery_info_wrap .delivery_info_wp .order_name').val();
+    			orderData['buyerTel'] = $('#order .delivery_info_wrap .delivery_info_wp .order_phone').val();
+    			orderData['buyerEmail'] = $('#order .delivery_info_wrap .delivery_info_wp .order_email').val();
+    			orderData['moid'] = moid+nowDate();
     			
+    			$.ajax({
+    				url : base_url + "nicepay/payRequest.json",
+    				data : orderData,
+    				type : "POST",
+    				success : function(data){
+    					console.log("::buy success::",data);
+    				},
+    				error : function(err){
+    					console.log("error");
+    					console.log(err);
+    				}
+    			});
     		});
     	}
     </script>
