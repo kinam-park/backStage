@@ -22,7 +22,7 @@
 			,s.main_img
 		FROM PAYMENT p JOIN SHOP s ON p.SHOP_ID = s.SHOP_ID 
 	    WHERE 1=1
-	    	AND USER_ID = #{user_id}	    	
+	    	AND p.USER_ID = #{user_id}	    	
 	    ORDER BY p.CREATED_DATE DESC
 	</select>
 	

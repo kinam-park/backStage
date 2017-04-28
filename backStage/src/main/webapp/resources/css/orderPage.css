@@ -1,7 +1,7 @@
 #order { width:100%; height:auto; /* background-color:#F4F4F4; */ }
 
 #order .order_area { width:100%; height:auto; }
-#order .title { font-size:18px; }
+#order .title { font-size:16px; }
 
 #order .order_area .info_wrap { width:760px; height:auto; margin:0 auto; border:1px solid lightgray; }
 #order .order_area .order_wrap { width:760px; height:auto; margin:0 auto; border:1px solid lightgray; }
@@ -16,3 +16,13 @@
 #order .order_area .order_wrap table .btn_style:last-child { margin-top:10px; }
 
 #order .btn_wrap { margin-top:20px; width:150px; margin: 20px auto 0 auto; }
+
+#order .order_area .user_info_wrap,#order .order_area .delivery_info_wrap { border:0; }
+#order .order_area .info_wrap .info_wp { padding:10px; border:1px solid lightgray; }
+#order .order_area .info_wrap .info_wp table tbody tr { height:50px; }
+#order .order_area .info_wrap .info_wp table tbody tr th { text-align:left; padding-left:20px; }
+#order .order_area .info_wrap .info_wp table tbody tr input { height:20px; width:100%; }
+#order .order_area .info_wrap .info_wp table tbody tr .search_zip { width:70px; text-align:center; }
+#order .order_area .info_wrap .info_wp table tbody tr .delivery_wp { text-align:left; }
+#order .order_area .info_wrap .info_wp table tbody tr .delivery_btn { width:14px;height:14px; }
+#order .order_area .info_wrap .info_wp table tbody tr .delivery_btn2 { width:auto; height:14px; font-size:12px; color:#747474; }

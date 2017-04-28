@@ -22,10 +22,49 @@ public class PaymentVO{
 	private String cart_id;
 	private String total_price;
 	
+	private String goodsCnt;
+	private String goodsName;
+	private String buyerName;
+	private String buyerTel;
+	private String buyerEmail;
+	private String moid;
 	
-	
-	
-	
+	public String getGoodsCnt() {
+		return goodsCnt;
+	}
+	public void setGoodsCnt(String goodsCnt) {
+		this.goodsCnt = goodsCnt;
+	}
+	public String getGoodsName() {
+		return goodsName;
+	}
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+	public String getBuyerName() {
+		return buyerName;
+	}
+	public void setBuyerName(String buyerName) {
+		this.buyerName = buyerName;
+	}
+	public String getBuyerTel() {
+		return buyerTel;
+	}
+	public void setBuyerTel(String buyerTel) {
+		this.buyerTel = buyerTel;
+	}
+	public String getBuyerEmail() {
+		return buyerEmail;
+	}
+	public void setBuyerEmail(String buyerEmail) {
+		this.buyerEmail = buyerEmail;
+	}
+	public String getMoid() {
+		return moid;
+	}
+	public void setMoid(String moid) {
+		this.moid = moid;
+	}
 	public String getCart_id() {
 		return cart_id;
 	}

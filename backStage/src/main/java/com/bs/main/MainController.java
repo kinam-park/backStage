@@ -70,6 +70,14 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/myPage")
+	public ModelAndView myPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("page/myPage");
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping("/detailPage")
 	public ModelAndView detailPage() {
 		ModelAndView modelAndView = new ModelAndView();
