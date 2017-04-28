@@ -68,7 +68,7 @@
 				</div>
 				<div style="height:20px;"></div>
 				<div class="store_wrap grid">
-				  <div class="grid-item">
+				  <!-- <div class="grid-item">
 				  	<div class="img fl"></div>
 				  	<div class="store_wp fl">
 						<div class="wp tag ">
@@ -237,7 +237,7 @@
 					  	<div class="wp price ">200,000원</div>
 				  	</div>
 				  	<div class="clear"></div>
-				  </div>
+				  </div> -->
 				</div>
 				
 			</div><!-- store end -->
@@ -255,19 +255,20 @@
 // 			  gutter:20,
 // 			  isFitWidth: true
 // 		});
-		
+		getStoreData();
 		storeListener();
 	});
 	
 	function getStoreData(code){
-		console.log("::getStoreData::",code);
+// 		console.log("::getStoreData::",code);
 		$.ajax({
 			url : base_url + "shop/getShopList.json",
 			type : "POST",
 			data : {category_code:code},
 			success : function(data){
 // 				console.log("::getStoreData::",data);
-				drawContent(data.result);
+				$.when(drawContent(data.result)).then(initMasonry('.grid'));
+// 				$.when(drawContent(data.result)).then();
 			},
 			error : function(err){
 				console.log("error");
@@ -284,11 +285,11 @@
 			$('#online_store .online_store_area .store_wrap').append(html);
 		}
 		
-		$('.grid').masonry({
-			  itemSelector: '.grid-item',
-			  gutter:20,
-			  isFitWidth: true
-		});
+// 		$('.grid').masonry({
+// 			  itemSelector: '.grid-item',
+// 			  gutter:20,
+// 			  isFitWidth: true
+// 		});
 		storeListener();
 	}
 	
@@ -299,7 +300,7 @@
     	if(no == 0){
     		html += '<div class="grid-item grid-item--height cp" name="'+data.shop_id+'">';
     	}else{
-			html += '<div class="grid-item grid-item--height cp'+(no+1)+'" name="'+data.shop_id+'"">';
+			html += '<div class="grid-item grid-item--height'+(no+1)+' cp" name="'+data.shop_id+'"">';
     	}
 		if(data.main_img != null){
 // 			html += '	<div class="img fl" style="background-image:url('+data.main_img+');"></div>';

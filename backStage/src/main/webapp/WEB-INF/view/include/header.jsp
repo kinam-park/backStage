@@ -93,10 +93,23 @@
 		window.base_url = "${pageContext.request.contextPath}"+"/";
 		
 		var userId = "<%= (String)session.getAttribute("userId") %>";
-		if(!userId && location.href.split("page/")[1] != "login"){
+		console.log("::userId::",userId);
+		if(userId == "null" && location.href.split("page/")[1].indexOf("myPage") > -1){
+			console.log("test");
+			alert("Login 후 이용해 주세요.");
+			location.href = "login";
+		}else if(userId == "null" && location.href.split("page/")[1] != "login"){
+			console.log("test11")
 			sessionStorage.clear();
 			$('#header .user_info').html('Login 해주세요.');
-			alert("LogOut 되었습니다.");
+		} else if(userId == "null"){ 
+			$('#header .user_info').html('Login 해주세요.');
+			$('#header .log_in ').removeClass('hide');
+			$('#header .log_out ').addClass('hide');
+		}else{
+			$('#header .user_info').html('안녕하세요   '+sessionStorage.getItem('user_name')+' 님');
+			$('#header .log_in ').addClass('hide');
+			$('#header .log_out ').removeClass('hide');
 		}
 		
 		var loc = location.href.split("page/")[1];
@@ -109,11 +122,11 @@
 			$('#header .main_logo_area').addClass('hide');
 		}
 		
-		if(sessionStorage.getItem('user_name') != null){
-			$('#header .user_info').html('안녕하세요   '+sessionStorage.getItem('user_name')+' 님');
-			$('#header .log_in ').addClass('hide');
-			$('#header .log_out ').removeClass('hide');
-		}
+// 		if(sessionStorage.getItem('user_name') != null){
+// 			$('#header .user_info').html('안녕하세요   '+sessionStorage.getItem('user_name')+' 님');
+// 			$('#header .log_in ').addClass('hide');
+// 			$('#header .log_out ').removeClass('hide');
+// 		}
 		if(sessionStorage.getItem('auth') == 'admin'){
 			console.log(loc);
 			if(loc == "onlineStore"){

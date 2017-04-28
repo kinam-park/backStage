@@ -67,6 +67,7 @@ public class AuthController {
 		if (result != null) {
             session.setAttribute("userInfo", result);
             session.setAttribute("userId", result.getUser_id());
+            
         }else {        	
             session.setAttribute("userInfo", null);            
         }

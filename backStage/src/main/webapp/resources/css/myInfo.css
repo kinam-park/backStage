@@ -41,3 +41,7 @@
 #my_info .user_info_wrap .btn_wrap .wp.cancel { margin-left: 50px; }
 
 #my_info .user_deliver_area {  }
+
+#my_info .user_list_area table tr { height:80px; }
+#my_info .user_list_area table tr td input { width:80%; }
+/* #my_info .user_list_area table .btn_style:last-child { margin-top:10px; } */

@@ -94,13 +94,13 @@
 			,addr2        = #{addr2}            
 			,zipcode      = #{zipcode}
 		WHERE 1=1
-			USER_ID = #{user_id}          
+			AND USER_ID = #{user_id}          
 	</update>
 	
 	<delete id="deleteUser" >
 	    DELETE FROM USER	    	
 		WHERE 1=1
-			USER_ID = #{user_id}          
+			AND USER_ID = #{user_id}          
 	</delete>
     
 </mapper>

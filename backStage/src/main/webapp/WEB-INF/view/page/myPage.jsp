@@ -7,13 +7,13 @@
 		<div class="w1200">
 			<div class="side_menu_area fl">
 				<div class="side_menu_wrap">
-					<div class="wp user_info cp bold">회원정보수정</div>
-					<div class="wp delivery_info cp ">주문정보확인</div>
-					<div class="wp user_list cp ">사용자 리스트</div>
-					<div class="wp delivery_list cp ">주문 리스트</div>
+					<div class="wp side_menu_wp user_info cp bold">회원정보수정</div>
+					<div class="wp side_menu_wp delivery_info cp ">주문정보확인</div>
+					<div class="wp side_menu_wp user_list cp hide">사용자 리스트</div>
+					<div class="wp side_menu_wp delivery_list cp hide">주문 리스트</div>
 				</div>
 			</div>
-			<div class="user_info_area fl">
+			<div class="page_info user_info_area fl">
 				<div class="user_info_wrap">
 					<table>
 						<colgroup>
@@ -85,8 +85,42 @@
 					</div>
 				</div>
 			</div>
-			<div class="user_delivery_area fl hide">
+			<div class="page_info user_delivery_area fl hide">
 				<div class="user_delivery_wrap">
+					
+				</div>
+			</div>
+			<div class="page_info user_list_area fl hide">
+				<div class="user_list_wrap">
+					<table>
+						<colgroup>
+							<col width="20">
+							<col width="100">
+							<col width="160">
+							<col width="160">
+							<col width="220">
+							<col width="200">
+							<col width="120">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Phone</th>
+								<th>E-Mail</th>
+								<th>Address-1</th>
+								<th>Address-2</th>
+								<th>SELECT</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="page_info delivery_list_area fl hide">
+				<div class="delivery_list_wrap">
 					
 				</div>
 			</div>
@@ -100,6 +134,10 @@
     	$(function(){
     		getMyInfo();
     		myInfoListener();
+    		if(sessionStorage.getItem('auth')=='admin'){
+    			$('#my_info .user_list').removeClass('hide');
+    			$('#my_info .delivery_list').removeClass('hide');
+    		}
     	});
     	
     	function getMyInfo(){
@@ -166,6 +204,86 @@
 			});
     	}
     	
+    	// UserList
+    	function getUserList(){
+    		$.ajax({
+    			url : base_url + "auth/getUserInfo.json",
+    			type : "POST",
+    			success : function(data){
+//     				console.log("::getUserList::",data);
+    				drawUserList(data.result);
+    			},
+    			error : function(err){
+    				console.log("error");
+					console.log(err);
+    			}
+    		});
+    	}
+    	
+    	function drawUserList(data){
+    		$('#my_info .user_list_wrap table tbody').empty();
+    		var html = '';
+    		for(var i=0; i<data.length; i++){
+    			html += tempUserList(data[i]);
+    		}
+    		$('#my_info .user_list_wrap table tbody').append(html);
+    		myInfoListener();
+    	}
+    	
+    	function tempUserList(data){
+    		var html = '';
+    		html += '<tr id="'+data.user_id+'">';
+    		html += '	<td>'+ data.user_id +'</td>';
+    		html += '	<td><input class="input_name" value="'+ data.user_name +'"/></td>';
+    		html += '	<td><input class="input_phone" value="'+ data.phone +'"/></td>';
+    		html += '	<td><input class="input_email" value="'+ data.email +'"/></td>';
+    		html += '	<td><input class="input_addr1" value="'+ data.addr1 +'"/></td>';
+    		html += '	<td><input class="input_addr2" value="'+ data.addr2 +'"/></td>';
+    		html += '	<td>';
+//     		html += '		<div class="btn_style update_btn cp">UPDATE</div>';
+    		html += '		<div class="btn_style delete_btn cp">DELETE</div>';
+    		html += '	</td>';
+    		html += '</tr>';
+    		return html;
+    	}
+    	
+    	function deleteUserInfo(id){
+    		$.ajax({
+    			url : base_url + "auth/deleteUser.json",
+    			data : {user_id:id},
+    			type :"POST",
+    			success : function(data){
+    				console.log("::delete Status",data);
+    				if(data.result == true){
+    					alert(id+"의 회원을 삭제하였습니다.");
+    				}else{
+    					alert("다시 시도해 주십시오.");
+    				}
+    			},
+    			error : function(err){
+    				console.log("error");
+    				console.log(err);
+    			}
+    		});
+    	}
+    	
+    	//delivery List
+    	function getDeliveryList(){
+    		$.ajax({
+    			url : base_url + "payment/getPaymentListByStatus.json",
+    			data : {status:'입금대기'},
+    			type : "POST",
+    			success : function(data){
+    				console.log("::getDeliveryList::",data);
+    			},
+    			error : function(err){
+    				console.log("error");
+					console.log(err);
+    			}
+    		});
+    	}
+    	
+    	
     	function myInfoListener(){
     		var email, phone;
     		
@@ -220,9 +338,11 @@
     		});
     		
     		$('#my_info .delivery_info').off('click').on('click',function(){
+    			$('#my_info .side_menu_wp').removeClass('bold');
     			$('#my_info .delivery_info').addClass('bold');
-    			$('#my_info .user_info').removeClass('bold');
-    			$('#my_info .user_info_area').addClass('hide');
+    			
+//     			$('#my_info .user_info_area').addClass('hide');
+    			$('#my_info .page_info').addClass('hide');
     			$('#my_info .user_delivery_area').removeClass('hide');
     			if(location.href.indexOf("#") > -1){
     				location.href = location.href.split("#")[0] + '#delivery';
@@ -233,9 +353,11 @@
     		});
     		
     		$('#my_info .user_info').off('click').on('click',function(){
+    			$('#my_info .side_menu_wp').removeClass('bold');
     			$('#my_info .user_info').addClass('bold');
-    			$('#my_info .delivery_info').removeClass('bold');
-    			$('#my_info .user_delivery_area').addClass('hide');
+    			
+//     			$('#my_info .user_delivery_area').addClass('hide');
+				$('#my_info .page_info').addClass('hide');
     			$('#my_info .user_info_area').removeClass('hide');
     			if(location.href.indexOf("#") > -1){
     				location.href = location.href.split("#")[0] + '#user';
@@ -243,6 +365,44 @@
 	    			location.href = location.href + '#user';
     			}
     		});
+    		
+    		// User List Event
+    		$('#my_info .user_list').off('click').on('click',function(){
+    			$('#my_info .side_menu_wp').removeClass('bold');
+    			$('#my_info .user_list').addClass('bold');
+    			
+//     			$('#my_info .user_delivery_area').addClass('hide');
+				$('#my_info .page_info').addClass('hide');
+    			$('#my_info .user_list_area').removeClass('hide');
+    			if(location.href.indexOf("#") > -1){
+    				location.href = location.href.split("#")[0] + '#userList';
+    			}else{
+	    			location.href = location.href + '#userList';
+    			}
+    			getUserList();
+    		});
+    		
+    		$('#my_info .user_list_area table .delete_btn').off('click').on('click',function(){
+    			console.log("delete User Info");
+    			var id = $(this).parent().parent().attr("id");
+    			deleteUserInfo(id);
+    		});
+    		
+    		$('#my_info .delivery_list').off('click').on('click',function(){
+    			$('#my_info .side_menu_wp').removeClass('bold');
+    			$('#my_info .delivery_list').addClass('bold');
+    			
+//     			$('#my_info .user_delivery_area').addClass('hide');
+				$('#my_info .page_info').addClass('hide');
+    			$('#my_info .delivery_list_area').removeClass('hide');
+    			if(location.href.indexOf("#") > -1){
+    				location.href = location.href.split("#")[0] + '#deliveryList';
+    			}else{
+	    			location.href = location.href + '#deliveryList';
+    			}
+    			getDeliveryList();
+    		});
+    		
     		
     	}
     
