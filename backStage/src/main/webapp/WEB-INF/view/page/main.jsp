@@ -204,11 +204,6 @@
 		 }
 		 
 		 function mainListener(){
-// 			$('.grid').masonry({
-// 				  itemSelector: '.grid-item',
-// 				  gutter:20,
-// 				  isFitWidth: true
-// 			}); 
 			 
 			var myLocation = {lat:37.483324, lng:127.126040};
     		var mapOption = {
