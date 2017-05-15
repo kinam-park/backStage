@@ -250,13 +250,18 @@
 	
     <script>
 	$(function(){
-// 		$('.grid').masonry({
-// 			  itemSelector: '.grid-item',
-// 			  gutter:20,
-// 			  isFitWidth: true
-// 		});
-		getStoreData();
-		storeListener();
+		if(sessionStorage.getItem('auth') == 'admin'){
+			$('#online_store .write').removeClass('hide');	
+		}
+		
+		var currUrl = location.href;
+		var code = null;
+		if(currUrl.indexOf("#")>-1){
+			code = currUrl.split("#")[1];
+		}
+		
+		getStoreData(code);
+// 		storeListener();
 	});
 	
 	function getStoreData(code){
@@ -266,9 +271,15 @@
 			type : "POST",
 			data : {category_code:code},
 			success : function(data){
-// 				console.log("::getStoreData::",data);
-				$.when(drawContent(data.result)).then(initMasonry('.grid'));
-// 				$.when(drawContent(data.result)).then();
+				console.log("::getStoreData::",data);
+				$.when(drawContent(data.result)).then(function(){
+					if(code){
+						reloadMasonry('.grid');
+					}else{
+						initMasonry('.grid');	
+					}
+					
+				});
 			},
 			error : function(err){
 				console.log("error");
@@ -284,16 +295,14 @@
 			var html = tempContent(data[i],i);
 			$('#online_store .online_store_area .store_wrap').append(html);
 		}
-		
-// 		$('.grid').masonry({
-// 			  itemSelector: '.grid-item',
-// 			  gutter:20,
-// 			  isFitWidth: true
-// 		});
 		storeListener();
 	}
 	
 	function tempContent(data,i){
+		
+		console.log("::tempContent DATA::",data);
+		
+		
 		var no = i%4;
 		
     	var html = '';
@@ -308,13 +317,19 @@
 			html += '		<img src='+data.main_img+'>';
 			html += '	</div>';
 		}else{
-			html += '	<div class="img fl" style="background-image:url(/backStage/resources/images/bg_default.png);"></div>';
+			html += '	<div class="img fl" style="background-image:url(/backStage/resources/images/bg_default.png);background-size:100%;"></div>';
 		}
 		html += '	<div class="store_wp fl">';
 		html += '  		<div class="wp tag ">';
-		html += '			<div class="wp_tag tag_new fl"></div>';
-		html += '			<div class="wp_tag tag_hot fl"></div>';
-		html += '			<div class="wp_tag tag_nearlysoldout fl"></div>';
+		if(countDate(data.created_date)<30){
+			html += '			<div class="wp_tag tag_new fl"></div>';
+		}
+		if(data.stock < 10){
+			html += '			<div class="wp_tag tag_hot fl"></div>';
+		}
+		if(data.stock == 0){
+			html += '			<div class="wp_tag tag_soldout fl"></div>';
+		}
 		html += '			<div class="clear"></div>';
 		html += '  		</div>';
 		html += '		<div class="wp title ">'+data.title+'</div>';
@@ -326,21 +341,16 @@
  	}
 	
 	function storeListener(){
-		
+		console.log("storeListener");
 		$('#online_store .side_menu_area .side_menu_wrap .side_menu_wp .wp').off('click').on('click',function(){
 			var categoryTab = $(this).attr('name');
 			var currPage = null;
-			
-			if(location.href.indexOf("#") > -1){
-				currPage = location.href.split("#")[0]
-			}else{
-				currPage = location.href;
-			}
-			location.href = currPage+"#"+categoryTab;
+			location.href = "#"+categoryTab;
 			getStoreData(categoryTab);
 		});
 		
-		$('#online_store .online_store_area .store_wrap .grid-item').off('click').on('click',function(){
+		$('#online_store .grid-item').off('click').on('click',function(){
+			console.log("grid-item click::");
 			var shopId = $(this).attr('name');
 			location.href = 'storeDetailPage#'+shopId;
 		});
@@ -351,7 +361,6 @@
 		
 		
 	}
-	
 	
     </script>
     

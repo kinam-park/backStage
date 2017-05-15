@@ -33,6 +33,7 @@
 #online_store .online_store_area .store_wrap .store_wp .tag_new { background-image:url("../images/icon_tag_new.png"); }
 #online_store .online_store_area .store_wrap .store_wp .tag_hot { background-image:url("../images/icon_tag_hot.png"); }
 #online_store .online_store_area .store_wrap .store_wp .tag_nearlysoldout { width:50%; background-image:url("../images/icon_tag_nearlysoldout.png"); background-size:95%; }
+#online_store .online_store_area .store_wrap .store_wp .tag_soldout { width:40%; background-image:url("../images/icon_tag_soldout.jpeg"); }
 
 #online_store .online_store_area .store_wrap .store_wp .title { height:20px; line-height:20px; font-weight:bold; overflow:hidden; }
 #online_store .online_store_area .store_wrap .store_wp .price { height:20px; line-height:20px; color:#6E6E6E; margin-top:5px; }

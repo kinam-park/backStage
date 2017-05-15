@@ -99,7 +99,6 @@
 			alert("Login 후 이용해 주세요.");
 			location.href = "login";
 		}else if(userId == "null" && location.href.split("page/")[1] != "login"){
-			console.log("test11")
 			sessionStorage.clear();
 			$('#header .user_info').html('Login 해주세요.');
 		} else if(userId == "null"){ 
@@ -201,6 +200,14 @@
 		});
 	}
 	
+	function reloadMasonry(name){
+		$(name).masonry('reloadItems').masonry({
+			  itemSelector: '.grid-item',
+			  gutter:20,
+			  isFitWidth: true
+		});
+	}
+	
 	function splitNum(data){
 		if(data != null){
 			return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -210,7 +217,15 @@
 	}
 	function nowDate(){
 		var date = new Date();
-		return date.getFullYear() + (date.getMonth()+1) + date.getDate() + date.getHours() + date.getMinutes() + date.getSeconds();
+		return date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 	}	
+	function countDate(createdDate){
+		var date1 = nowDate().split(" ")[0].split("-");
+		var date2 = createdDate.split(" ")[0].split("-");
+		var diff1 = new Date(date1[0],date1[1],date1[2]);
+		var diff2 = new Date(date2[0],date2[1],date2[2]);
+		
+		return parseInt((diff1-diff2)/(24 * 60 * 60 * 1000));
+	}
 	
 	</script>

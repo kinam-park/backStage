@@ -376,6 +376,10 @@
     		});
     		
 			$('#order .buy_btn').off('click').on('click',function(){
+				if(!$('#order .delivery_info_wrap .delivery_info_wp .order_name').val()){
+					alert("배송지 정보를 입력해주세요.");
+					return;
+				}
     			var orderData = {};
     			orderData['goodsCnt'] = totalCnt;
     			orderData['goodsName'] = goodsName;
@@ -383,14 +387,20 @@
     			orderData['buyerName'] = $('#order .delivery_info_wrap .delivery_info_wp .order_name').val();
     			orderData['buyerTel'] = $('#order .delivery_info_wrap .delivery_info_wp .order_phone').val();
     			orderData['buyerEmail'] = $('#order .delivery_info_wrap .delivery_info_wp .order_email').val();
+    			orderData['recv_addr1'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr1').val();
+    			orderData['recv_addr2'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr2').val();
+    			orderData['recv_zipcode'] = $('#order .delivery_info_wrap .delivery_info_wp .order_zip').val();
     			orderData['moid'] = moid+nowDate();
     			
     			$.ajax({
-    				url : base_url + "nicepay/payRequest.json",
+    				url : base_url + "nicepay/setPayRequest.json",
     				data : orderData,
     				type : "POST",
     				success : function(data){
-    					console.log("::buy success::",data);
+//     					console.log("::buy success::",data);
+    					if(data.result == true){
+    						window.open("${pageContext.request.contextPath}/nicepay/payRequest","width=500,height=700");
+    					}
     				},
     				error : function(err){
     					console.log("error");

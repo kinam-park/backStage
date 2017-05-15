@@ -13,7 +13,6 @@ request.setCharacterEncoding("euc-kr");
 NicePayWebConnector connector = new NicePayWebConnector();
 // String nicePayHome = "C:/workspace/server/tomcat_8.0/webapps/ROOT/NICEPAY_Lite_JSP/WEB-INF/";   // 모듈 WEB-INF Path 설정
 String nicePayHome = request.getSession().getServletContext().getRealPath("/WEB-INF/");
-System.out.println("::nicePayHome::"+nicePayHome);
 String requestMid = request.getParameter("MID");
 
 connector.setNicePayHome(nicePayHome);                              // 로그 디렉토리 생성
@@ -72,6 +71,15 @@ if(payMethod.equals("CARD")){
 	if(resultCode.equals("A000")) paySuccess = true;	            // 휴대폰(정상 결과코드:A000)
 }else if(payMethod.equals("VBANK")){	
 	if(resultCode.equals("4100")) paySuccess = true;	            // 가상계좌(정상 결과코드:4100)
+}
+
+/*
+*******************************************************
+* k.park <결제 성공 후 데이터 플로우>
+*******************************************************
+*/
+if(paySuccess == true){
+	
 }
 %>
 <!DOCTYPE html>

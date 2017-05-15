@@ -12,9 +12,21 @@ import com.bs.models.PaymentVO;
 @RequestMapping("/nicepay")
 public class NicepayController {
 	
+	@RequestMapping("/setPayRequest")
+	public ModelAndView setPayRequest(PaymentVO paymentVO,HttpSession session) {
+		session.setAttribute("paymentInfo", paymentVO);
+		ModelAndView modelAndView = new ModelAndView();
+		Boolean isChecked = false;
+		if(paymentVO != null){
+			isChecked = true;
+		}
+		modelAndView.addObject("result",isChecked);
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping("/payRequest")
 	public ModelAndView nicePayRequest(PaymentVO paymentVO,HttpSession session) {
-		session.setAttribute("paymentInfo", paymentVO);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("nicepay/payRequest");
 		return modelAndView;

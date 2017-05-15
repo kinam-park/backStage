@@ -3,6 +3,7 @@
 <%@ page import="java.net.InetAddress"%>
 <%@ page import="java.sql.Timestamp"%>
 <%@ page import="java.util.Date"%>
+<%@ page import="com.bs.models.PaymentVO" %>
 <%
 /*
 *******************************************************
@@ -14,6 +15,17 @@
 */
 String merchantKey      = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==";   // 상점키
 String merchantID       = "nictest00m";                      // 상점아이디
+
+PaymentVO paymentVO = (PaymentVO)session.getAttribute("paymentInfo");
+String goodsCnt = paymentVO.getGoodsCnt();
+String goodsName = paymentVO.getGoodsName();
+String price = paymentVO.getPrice();
+String buyerName = paymentVO.getBuyerName();
+String buyerTel = paymentVO.getBuyerTel();
+String buyerEmail = paymentVO.getBuyerEmail();
+String moid = paymentVO.getMoid();
+String encodeParameters = "CardNo,CardExpire,CardPwd";
+
 // String goodsCnt         = "1";                               // 결제상품개수
 // String goodsName        = "나이스페이";                      // 결제상품명
 // String price            = "1004";                            // 결제상품금액	
