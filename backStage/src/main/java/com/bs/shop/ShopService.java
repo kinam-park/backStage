@@ -16,6 +16,13 @@ public class ShopService{
 	private ShopDao shopDao;
 	
 	public List<ShopVO> getShopList(ShopVO shopVO){
+		
+		int size = 30;
+		int pageStart = Integer.valueOf(shopVO.getPage_num()).intValue();
+		shopVO.setPage_num(String.valueOf(pageStart*size));
+		shopVO.setPage_size(String.valueOf(size));
+		
+		
 		return shopDao.getShopList(shopVO);
 	}
 	

@@ -23,10 +23,16 @@
 		FROM SHOP s JOIN USER u ON s.USER_ID = u.USER_ID 
 	    WHERE 1=1  
 	    	AND s.IS_ENABLE = 'Y'
-	    <if test='category_code != "null"'>
-	    	AND s.CATEGORY_CODE = #{category_code}
-	    </if>
+	    <choose>
+		    <when test='category_code != null and category_code.equal("")'>
+		    	AND s.CATEGORY_CODE = #{category_code}
+		    </when>
+		    <otherwise>
+		    </otherwise>
+	    </choose>
 	    ORDER BY s.CREATED_DATE DESC
+	    LIMIT ${page_num},${page_size}
+	    
 	</select>
     
     <select id="getShop" resultType="ShopVO">

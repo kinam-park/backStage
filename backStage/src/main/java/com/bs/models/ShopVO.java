@@ -19,8 +19,27 @@ public class ShopVO{
 	
 	private String user_name;
 	
+	private String page_num;  // 0 ,1,2,3
+	private String page_size;   // 30
 	
 	
+	
+	
+	
+	
+	
+	public String getPage_num() {
+		return page_num;
+	}
+	public void setPage_num(String page_num) {
+		this.page_num = page_num;
+	}
+	public String getPage_size() {
+		return page_size;
+	}
+	public void setPage_size(String page_size) {
+		this.page_size = page_size;
+	}
 	public String getUser_name() {
 		return user_name;
 	}
