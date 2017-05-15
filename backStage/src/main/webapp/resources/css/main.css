@@ -39,6 +39,7 @@
 #main .main_wp .contents .content.no4, .no5, .no6{ margin-top:140px; }
 
 #main .main_brand { 
+	position:relative;
 	height:650px; 
 }
 #main .main_brand .img {

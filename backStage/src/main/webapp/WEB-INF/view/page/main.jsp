@@ -3,7 +3,7 @@
 
     <!-- html -->
 	<div style="height:40px;"></div>
-	<div id="main" class="main_component">
+	<div id="main" class="container main_component">
 		<div class="main_area main_brand">
 			<div class="img fl"></div>
 			<div class="desc fl"></div>

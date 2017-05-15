@@ -36,9 +36,10 @@
 	background-position:15px;
 }
 
-#header .main_logo_wrap{ width: 250px; height:80px; }
+#header .main_logo_wrap{ /* width: 250px; */width:20%; height:80px; }
 #header .main_logo_wrap .main_logo {
-	width:200px;
+/* 	width:200px; */
+	width:80%;
 	height:100%;
 	margin:0 auto;
 	background-image:url("../images/icon_main_logo.png");

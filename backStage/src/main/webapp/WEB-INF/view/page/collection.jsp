@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="collection" class="collection_component">
+	<div id="collection" class="container collection_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<div class="collection_area">

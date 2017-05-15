@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="location" class="location_component">
+	<div id="location" class="container location_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<div class="location_area">

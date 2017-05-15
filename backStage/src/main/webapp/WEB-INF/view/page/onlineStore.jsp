@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="online_store" class="store_component">
+	<div id="online_store" class="container store_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<!-- side menu start -->

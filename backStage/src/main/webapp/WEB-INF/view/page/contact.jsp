@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="contact" class="contact_component">
+	<div id="contact" class="container contact_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<div class="contact_area">

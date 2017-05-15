@@ -43,7 +43,7 @@
 	</head>
 <body>
 	<!-- html -->	
-	<div id="header" class="header_component">
+	<div id="header" class="container header_component">
 		<div class="w1200">
 			<div class="user_info_area fl">
 				<div class="sns_wrap fl">
