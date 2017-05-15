@@ -17,109 +17,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="clearfix"></div>
 			<div style="height:20px;"></div>
 			<div class="collection_area">
 				<div class="collection_wrap grid">
-<!-- 					<div class="grid-item"> -->
-<!-- 					  	<div class="img fl"></div> -->
-<!-- 					  	<div class="collection_wp fl"> -->
-<!-- 						  	<div class="wp title ">title</div> -->
-<!-- 						  	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 					  	</div> -->
-<!-- 					  	<div class="clear"></div> -->
-<!-- 			  		</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item"> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item"> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 					 	<div class="wp title ">title</div> -->
-<!-- 					 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
-<!-- 					<div class="grid-item "> -->
-<!-- 						<div class="img fl"></div> -->
-<!-- 						<div class="collection_wp fl"> -->
-<!-- 						 	<div class="wp title ">title</div> -->
-<!-- 						 	<div class="wp created_date ">2016.08.22</div> -->
-<!-- 						</div> -->
-<!-- 						<div class="clear"></div> -->
-<!-- 					</div> -->
 					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
+		<div class="clearfix"></div>
 		<div style="height:40px;"></div>
 	</div>
 	
@@ -127,8 +33,6 @@
     <script>
     $(function(){
 		getContents();
-// 		collectionListener();
-		
 	 });
     
     function getContents(){
