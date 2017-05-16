@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bs.models.PayHistVO;
 import com.bs.models.PaymentVO;
 
 
@@ -31,6 +32,11 @@ public class PaymentDao {
 	
 	public List<PaymentVO> getPaymentListByStatus(PaymentVO paymentVO) {
         return (List<PaymentVO>)sqlSession.selectList("com.bs.sql.payment.getPaymentListByStatus",paymentVO);
+    }
+	
+	
+	public int insertPayHist(PayHistVO payHistVO) {
+        return sqlSession.insert("com.bs.sql.payment.insertPayHist",payHistVO);
     }
 	
 	

@@ -14,6 +14,8 @@
 		<typeAlias type="com.bs.models.ShopVO" alias="ShopVO"/>
 		<typeAlias type="com.bs.models.PaymentVO" alias="PaymentVO"/>
 		<typeAlias type="com.bs.models.CartVO" alias="CartVO"/>
+		<typeAlias type="com.bs.models.PayHistVO" alias="PayHistVO"/>
+		
 	</typeAliases>
 	
 <!-- 	<mappers> -->

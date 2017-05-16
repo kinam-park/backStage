@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bs.cart.CartDao;
 import com.bs.models.CartVO;
+import com.bs.models.PayHistVO;
 import com.bs.models.PaymentVO;
 import com.bs.shop.ShopDao;
  
@@ -99,6 +100,17 @@ public class PaymentService{
 		return paymentDao.getPaymentListByStatus(paymentVO);
 	}
 	
+	
+	
+	//나이스페이 결제 내역 저장
+	public boolean insertPayHist(PayHistVO payHistVO){
+		int cnt = paymentDao.insertPayHist(payHistVO);
+		if(cnt == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 	
 	

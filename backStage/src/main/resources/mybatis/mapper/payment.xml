@@ -79,5 +79,65 @@
 	    	
 <!-- 	</delete> -->
 	
+	
+	
+	<insert id="insertPayHist" >
+	    INSERT INTO PAY_HIST(
+			RESULT_CODE
+			,RESULT_MSG
+			,AUTH_DATE
+			,AUTH_CODE
+			,BUYER_NAME
+			,MALL_USER_ID
+			,PAY_METHOD
+			,MID
+			,TID
+			,MOID
+			,AMT
+			,GOODS_NAME
+			,CARD_CODE
+			,CARD_NAME
+			,CARD_QUOTA
+			,BANK_CODE
+			,BANK_NAME
+			,RCPT_TYPE
+			,RCPT_AUTH_CODE
+			,RCPT_TID
+			,CARRIER
+			,DST_ADDR
+			,VBANK_BANK_CODE
+			,VBANK_BANK_NAME
+			,VBANK_NUM
+			,VBANK_EXP_DATE
+	    ) VALUES(
+			#{result_code}
+			,#{result_msg}
+			,#{auth_date}
+			,#{auth_code}
+			,#{buyer_name}
+			,#{mall_user_id}
+			,#{pay_method}
+			,#{mid}
+			,#{tid}
+			,#{moid}
+			,#{amt}
+			,#{goods_name}
+			,#{card_code}
+			,#{card_name}
+			,#{card_quota}
+			,#{bank_code}
+			,#{bank_name}
+			,#{rcpt_type}
+			,#{rcpt_auth_code}
+			,#{rcpt_tid}
+			,#{carrier}
+			,#{dst_addr}
+			,#{vbank_bank_code}
+			,#{vbank_bank_name}
+			,#{vbank_num}
+			,#{vbank_exp_date}
+	    )
+	</insert>
+	
     
 </mapper>
