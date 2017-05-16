@@ -93,7 +93,7 @@
 		window.base_url = "${pageContext.request.contextPath}"+"/";
 		
 		var userId = "<%= (String)session.getAttribute("userId") %>";
-// 		console.log("::userId::",userId);
+		console.log("::userId::",userId);
 		if(userId == "null" && location.href.split("page/")[1].indexOf("myPage") > -1){
 			console.log("test");
 			alert("Login 후 이용해 주세요.");
