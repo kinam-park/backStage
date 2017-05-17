@@ -255,21 +255,21 @@
 		}
 		
 		var currUrl = location.href;
-		var code = null;
+		var code = "null";
+		
 		if(currUrl.indexOf("#")>-1){
 			code = currUrl.split("#")[1];
 		}
-		
-		getStoreData(code);
+		getStoreData(code,0);
 // 		storeListener();
 	});
 	
-	function getStoreData(code){
-// 		console.log("::getStoreData::",code);
+	function getStoreData(code,pageNum){
+		console.log("::getStoreDataCode::",code,pageNum);
 		$.ajax({
 			url : base_url + "shop/getShopList.json",
 			type : "POST",
-			data : {category_code:code},
+			data : {category_code:code,page_num:pageNum},
 			success : function(data){
 				console.log("::getStoreData::",data);
 				$.when(drawContent(data.result)).then(function(){
@@ -346,7 +346,7 @@
 			var categoryTab = $(this).attr('name');
 			var currPage = null;
 			location.href = "#"+categoryTab;
-			getStoreData(categoryTab);
+			getStoreData(categoryTab,0);
 		});
 		
 		$('#online_store .grid-item').off('click').on('click',function(){

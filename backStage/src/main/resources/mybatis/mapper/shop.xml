@@ -24,7 +24,7 @@
 	    WHERE 1=1  
 	    	AND s.IS_ENABLE = 'Y'
 	    <choose>
-		    <when test='category_code != null and category_code.equal("")'>
+		    <when test='category_code != null and category_code.equals("")'>
 		    	AND s.CATEGORY_CODE = #{category_code}
 		    </when>
 		    <otherwise>
