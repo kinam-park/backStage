@@ -215,9 +215,13 @@
 			return 0
 		}
 	}
+	function createMoidDate(){
+		var date = new Date();
+		return date.getFullYear() +""+ (date.getMonth()+1) +""+ date.getDate() +""+ date.getHours() + date.getMinutes() + date.getSeconds(); 
+	}
 	function nowDate(){
 		var date = new Date();
-		return date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+		return date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + "" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 	}	
 	function countDate(createdDate){
 		var date1 = nowDate().split(" ")[0].split("-");

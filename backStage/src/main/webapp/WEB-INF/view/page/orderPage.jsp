@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="order" class="order_component">
+	<div id="order" class="container order_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<div class="title bold">ORDER</div>
@@ -200,19 +200,22 @@
     		totalPrice=0;
     		totalCnt=0;
     		goodsName="";
-    		moid = "";
+    		shopIdList = "";
+    		moid = data[0].user_id;
+    		
     		for(var i=0; i<data.length; i++){
     			var html = tempCartList(data[i]);
     			$('#order .order_area .order_wrap table tbody').append(html);
     			orderPrice += data[i].price*1*data[i].stock*1;
     			totalCnt += data[i].stock*1;
-    			
     			if(i==0){
 	    			goodsName += data[i].title+"("+data[i].stock+")";
-	    			moid += data[i].user_id+data[i].cart_id;
+	    			shopIdList += data[i].shop_id
+// 	    			moid += data[i].user_id+"_"+data[i].shop_id;
     			}else{
     				goodsName += ","+data[i].title+"("+data[i].stock+")";
-    				moid += "-"+data[i].cart_id;
+    				shopIdList += ","+data[i].shop_id
+//     				moid += "_"+data[i].shop_id;
     			}
     		}
     		
@@ -381,16 +384,17 @@
 					return;
 				}
     			var orderData = {};
-    			orderData['goodsCnt'] = totalCnt;
-    			orderData['goodsName'] = goodsName;
-    			orderData['price'] = totalPrice;
-    			orderData['buyerName'] = $('#order .delivery_info_wrap .delivery_info_wp .order_name').val();
-    			orderData['buyerTel'] = $('#order .delivery_info_wrap .delivery_info_wp .order_phone').val();
-    			orderData['buyerEmail'] = $('#order .delivery_info_wrap .delivery_info_wp .order_email').val();
-    			orderData['recv_addr1'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr1').val();
-    			orderData['recv_addr2'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr2').val();
-    			orderData['recv_zipcode'] = $('#order .delivery_info_wrap .delivery_info_wp .order_zip').val();
-    			orderData['moid'] = moid+nowDate();
+    			orderData['goodsCnt'] = totalCnt;	// 총 상품개수
+    			orderData['goodsName'] = goodsName; // 상품이름
+    			orderData['orderId'] = shopIdList;	// 상품 번호
+    			orderData['price'] = totalPrice;	// 총 상품가격
+    			orderData['buyerName'] = $('#order .delivery_info_wrap .delivery_info_wp .order_name').val();	// 주문자 이름
+    			orderData['buyerTel'] = $('#order .delivery_info_wrap .delivery_info_wp .order_phone').val();	// 주문자 연락처
+    			orderData['buyerEmail'] = $('#order .delivery_info_wrap .delivery_info_wp .order_email').val();	// 주문자 이메일
+    			orderData['recv_addr1'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr1').val(); // 주문자 주소1
+    			orderData['recv_addr2'] = $('#order .delivery_info_wrap .delivery_info_wp .order_addr2').val();	// 주문자 주소2
+    			orderData['recv_zipcode'] = $('#order .delivery_info_wrap .delivery_info_wp .order_zip').val();	// 주문자 우편번호
+    			orderData['moid'] = moid+createMoidDate();	// 주문번호
     			
     			$.ajax({
     				url : base_url + "nicepay/setPayRequest.json",

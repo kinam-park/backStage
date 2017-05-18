@@ -2,7 +2,7 @@
 <jsp:include page='/include/header'  flush="false" />
 
     <!-- html -->
-	<div id="cart" class="cart_component">
+	<div id="cart" class="container cart_component">
 		<div style="height:40px;"></div>
 		<div class="w1200">
 			<div class="title bold">ORDER</div>
