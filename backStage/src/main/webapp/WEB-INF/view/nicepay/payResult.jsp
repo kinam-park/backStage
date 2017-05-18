@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=euc-kr"%>
 <%@ page import="kr.co.nicepay.module.lite.NicePayWebConnector"%>
+<%@ page import="com.bs.models.PayHistVO" %>
+<%@ page import="com.bs.payment.PaymentService" %>
 <%
 request.setCharacterEncoding("euc-kr"); 
 
@@ -29,33 +31,63 @@ connector.requestAction();
 * 아래 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능
 *******************************************************
 */
+PayHistVO payHistVO = new PayHistVO();
+payHistVO.setResult_code(connector.getResultData("ResultCode"));
+payHistVO.setResult_msg(connector.getResultData("ResultMsg"));
+payHistVO.setAuth_date(connector.getResultData("AuthDate"));
+payHistVO.setAuth_code(connector.getResultData("AuthCode"));
+payHistVO.setBuyer_name(connector.getResultData("BuyerName"));
+payHistVO.setMall_user_id(connector.getResultData("MallUserID"));
+payHistVO.setPay_method(connector.getResultData("PayMethod"));
+payHistVO.setMid(connector.getResultData("MID"));
+payHistVO.setTid(connector.getResultData("TID"));
+payHistVO.setMoid(connector.getResultData("Moid"));
+payHistVO.setAmt(connector.getResultData("Amt"));
+payHistVO.setGoods_name(connector.getResultData("GoodsName"));
+payHistVO.setCard_code(connector.getResultData("CardCode"));
+payHistVO.setCard_name(connector.getResultData("CardName"));
+payHistVO.setCard_quota(connector.getResultData("CardQuota"));
+payHistVO.setBank_code(connector.getResultData("BankCode"));
+payHistVO.setBank_name(connector.getResultData("BankName"));
+payHistVO.setRcpt_type(connector.getResultData("RcptType"));
+payHistVO.setRcpt_auth_code(connector.getResultData("RcptAuthCode"));
+payHistVO.setRcpt_tid(connector.getResultData("RcptTID"));
+payHistVO.setCarrier(connector.getResultData("Carrier"));
+payHistVO.setDst_addr(connector.getResultData("DstAddr"));
+payHistVO.setVbank_bank_code(connector.getResultData("VbankBankCode"));
+payHistVO.setVbank_bank_name(connector.getResultData("VbankBankName"));
+payHistVO.setVbank_num(connector.getResultData("VbankNum"));
+payHistVO.setVbank_exp_date(connector.getResultData("VbankExpDate"));
+
 
 String resultCode    = connector.getResultData("ResultCode");       // 결과코드 (정상 결과코드:3001)
-String resultMsg     = connector.getResultData("ResultMsg");        // 결과메시지
-String authDate      = connector.getResultData("AuthDate");         // 승인일시 (YYMMDDHH24mmss)
-String authCode      = connector.getResultData("AuthCode");         // 승인번호
-String buyerName     = connector.getResultData("BuyerName");        // 구매자명
-String mallUserID    = connector.getResultData("MallUserID");       // 회원사고객ID
+// String resultMsg     = connector.getResultData("ResultMsg");        // 결과메시지
+// String authDate      = connector.getResultData("AuthDate");         // 승인일시 (YYMMDDHH24mmss)
+// String authCode      = connector.getResultData("AuthCode");         // 승인번호
+// String buyerName     = connector.getResultData("BuyerName");        // 구매자명
+// String mallUserID    = connector.getResultData("MallUserID");       // 회원사고객ID
 String payMethod     = connector.getResultData("PayMethod");        // 결제수단
-String mid           = connector.getResultData("MID");              // 상점ID
-String tid           = connector.getResultData("TID");              // 거래ID
-String moid          = connector.getResultData("Moid");             // 주문번호
-String amt           = connector.getResultData("Amt");              // 금액
-String goodsName     = connector.getResultData("GoodsName");        // 금액
-String cardCode      = connector.getResultData("CardCode");         // 카드사 코드
-String cardName      = connector.getResultData("CardName");         // 결제카드사명
-String cardQuota     = connector.getResultData("CardQuota");        // 카드 할부개월 (00:일시불,02:2개월)
-String bankCode      = connector.getResultData("BankCode");         // 은행 코드
-String bankName      = connector.getResultData("BankName");         // 은행명
-String rcptType      = connector.getResultData("RcptType");         // 현금 영수증 타입 (0:발행되지않음,1:소득공제,2:지출증빙)
-String rcptAuthCode  = connector.getResultData("RcptAuthCode");     // 현금영수증 승인 번호
-String rcptTID       = connector.getResultData("RcptTID");          // 현금 영수증 TID   
-String carrier       = connector.getResultData("Carrier");          // 이통사구분
-String dstAddr       = connector.getResultData("DstAddr");          // 휴대폰번호
-String vbankBankCode = connector.getResultData("VbankBankCode");    // 가상계좌은행코드
-String vbankBankName = connector.getResultData("VbankBankName");    // 가상계좌은행명
-String vbankNum      = connector.getResultData("VbankNum");         // 가상계좌번호
-String vbankExpDate  = connector.getResultData("VbankExpDate");     // 가상계좌입금예정일
+// String mid           = connector.getResultData("MID");              // 상점ID
+// String tid           = connector.getResultData("TID");              // 거래ID
+// String moid          = connector.getResultData("Moid");             // 주문번호
+// String amt           = connector.getResultData("Amt");              // 금액
+// String goodsName     = connector.getResultData("GoodsName");        // 금액
+// String cardCode      = connector.getResultData("CardCode");         // 카드사 코드
+// String cardName      = connector.getResultData("CardName");         // 결제카드사명
+// String cardQuota     = connector.getResultData("CardQuota");        // 카드 할부개월 (00:일시불,02:2개월)
+// String bankCode      = connector.getResultData("BankCode");         // 은행 코드
+// String bankName      = connector.getResultData("BankName");         // 은행명
+// String rcptType      = connector.getResultData("RcptType");         // 현금 영수증 타입 (0:발행되지않음,1:소득공제,2:지출증빙)
+// String rcptAuthCode  = connector.getResultData("RcptAuthCode");     // 현금영수증 승인 번호
+// String rcptTID       = connector.getResultData("RcptTID");          // 현금 영수증 TID   
+// String carrier       = connector.getResultData("Carrier");          // 이통사구분
+// String dstAddr       = connector.getResultData("DstAddr");          // 휴대폰번호
+// String vbankBankCode = connector.getResultData("VbankBankCode");    // 가상계좌은행코드
+// String vbankBankName = connector.getResultData("VbankBankName");    // 가상계좌은행명
+// String vbankNum      = connector.getResultData("VbankNum");         // 가상계좌번호
+// String vbankExpDate  = connector.getResultData("VbankExpDate");     // 가상계좌입금예정일
+
+
 
 /*
 *******************************************************
@@ -64,7 +96,9 @@ String vbankExpDate  = connector.getResultData("VbankExpDate");     // 가상계좌�
 */
 boolean paySuccess = false;
 if(payMethod.equals("CARD")){
-	if(resultCode.equals("3001")) paySuccess = true;	            // 신용카드(정상 결과코드:3001)
+	if(resultCode.equals("3001")) {
+		paySuccess = true;	            // 신용카드(정상 결과코드:3001)
+	}
 }else if(payMethod.equals("BANK")){
 	if(resultCode.equals("4000")) paySuccess = true;	            // 계좌이체(정상 결과코드:4000)	
 }else if(payMethod.equals("CELLPHONE")){
@@ -79,7 +113,8 @@ if(payMethod.equals("CARD")){
 *******************************************************
 */
 if(paySuccess == true){
-	
+	PaymentService paymentService = new PaymentService();
+	paymentService.insertPayHist(payHistVO);	
 }
 %>
 <!DOCTYPE html>
